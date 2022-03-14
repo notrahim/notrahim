@@ -5,7 +5,9 @@ const HomeNavigation = (props) => {
     const urlValue = props.urlValue;
 
     function changeBtn(btn){
-        if(urlValue.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e") === btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e")){
+        console.log(urlValue);
+        if(urlValue === undefined) return "btnNav ";
+        else if(urlValue.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e") === btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e")){
             return "btnNav " + btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e") + " clicked"
         }
         return "btnNav " + btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e")  
