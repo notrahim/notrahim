@@ -1,4 +1,5 @@
 @import "./pages/about";
+@import "../style/component/footer";
 @import "./pages/homePage";
 @import "./pages/notFound";
 
@@ -12,6 +13,10 @@
 body{
     #root{
         .App{
+            position: relative;
+            min-height: 100vh;
+
+            @include footer;
         }
     }
 }
