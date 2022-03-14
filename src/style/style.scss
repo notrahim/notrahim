@@ -8,14 +8,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    color: #405A5C
 }
 
 body{
     #root{
         .App{
             position: relative;
-            min-height: 100vh;
 
+            main{
+                min-height: calc(100vh + 155px);
+            }
+            
             @include footer;
         }
     }
