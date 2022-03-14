@@ -1,0 +1,7 @@
+@import "../component/homeNavigation";
+
+.header{
+    -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.45); 
+    box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.45);
+    @include homeNavigation;
+}

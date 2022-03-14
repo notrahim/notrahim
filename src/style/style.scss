@@ -1,5 +1,17 @@
+@import "./pages/about";
+@import "./pages/homePage";
+@import "./pages/notFound";
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    #root{
+        .App{
+        }
+    }
 }
