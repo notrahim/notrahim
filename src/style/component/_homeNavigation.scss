@@ -48,14 +48,7 @@
                 padding: 0.9rem;
 
                 @media screen and (max-width: 700px) {
-                    width: 70px;
-                    
-                }
-
-
-                
-                @media screen and (max-width: 425px) {
-                    width: 95px;
+                    width: 120px;
                 }
             }
         }
@@ -68,23 +61,35 @@
                 display: none;
             }
 
-            button{
-                cursor: pointer;
-                width: 120px;
-                height: 45px;
-                border: 0;
-                color: white;
-                background: linear-gradient(0.25turn, #0396A6, #04BFAD);
-                font-weight: bold;
-                font-size: 15px;
-                border-radius: 10px;
+            .btnContainer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
                 margin-right: 2rem;
+                border-radius: 10px;
 
-                @media screen and (max-width: 700px) {
-                    width: 96px;
-                    height: 36px;
-                    font-size: 12px;
-                    margin-right: 1rem;
+                button{
+                    cursor: pointer;
+                    width: 120px;
+                    height: 45px;
+                    border: 0;
+                    color: white;
+                    background: linear-gradient(0.25turn, #0396A6, #04BFAD);
+                    font-weight: bold;
+                    font-size: 15px;
+                    border-radius: 10px;
+    
+                    @media screen and (max-width: 700px) {
+                        width: 96px;
+                        height: 36px;
+                        font-size: 12px;
+                        margin-right: 1rem;
+                    }
+                }
+
+                button:hover{
+                    box-shadow: 0px 1px 15px -1px rgb(0 0 0 / 12%);
                 }
             }
 
@@ -121,8 +126,32 @@
                 }
 
                 p{
+                    display: flex;
+                    flex-direction: column;
                     @media screen and (max-width: 700px) {
                         display: none;
+                    }
+                }
+            }
+
+            .signIn:hover{
+                p::after{
+                    margin-top: 1px;
+                    content: "";
+                    height: 3px;
+                    background-color: #F28963;
+                    background-color: #F28963;
+                    animation-duration: 0.5s;
+                    animation-name: glissement;
+    
+                    @keyframes glissement {
+                        from {
+                            width: 0;
+                        }
+                        
+                        to {
+                            width: 100%;
+                        }
                     }
                 }
             }

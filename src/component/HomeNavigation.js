@@ -5,7 +5,6 @@ const HomeNavigation = (props) => {
     const urlValue = props.urlValue;
 
     function changeBtn(btn){
-        console.log(urlValue);
         if(urlValue === undefined) return "btnNav ";
         else if(urlValue.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e") === btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e")){
             return "btnNav " + btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e") + " clicked"
@@ -23,7 +22,9 @@ const HomeNavigation = (props) => {
                 </nav>
             </div>
             <div className="navRight">
-                <button>Isoler mon <br/>logement</button>
+                <div className="btnContainer">
+                    <button>Isoler mon <br/>logement</button>
+                </div>
                 <NavLink to="/" className="signIn">
                     <div className="imgContainer">
                         <img src="./img/SVG/login.svg" alt="connection" />   

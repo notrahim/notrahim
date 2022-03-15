@@ -2,8 +2,8 @@
 @import "../Mixins/btn.scss";
 
 .header{
-    -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.45); 
-    box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.35); 
+    box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.35);
     @include homeNavigation;
 }
 
@@ -12,138 +12,209 @@
     flex-direction: column;
     align-items: center;
 
-    .littleConnect{
-        margin-left: 1rem;
-        width: 95%;
-        margin-top: 1rem;
-        font-size: 12px;
-        color: #405A5C;
-        font-weight: 300;
-
-        a{
-            text-decoration: none;
-            color: #0396A6;
-            font-weight: bold;
-        }
-        @media screen and (min-width: 426px) {
-            display: none;
-        }
-
-        @media screen and (max-width: 420px) {
-            width: 95%;
-        }
-    }
-
-    h1{
-        margin-top: 2rem;
-        font-weight:400;
-        font-size: 60px;
-        color: #405A5C;
-
-        @media screen and (max-width: 475px) {
-            font-size: 40px;
-        }
-    }
-
-    .description{
-        margin-top: 1rem;
-        font-weight: lighter;
-        max-width: 814px;
-        text-align: center;
-        font-size: 18px;
+    .containerTop{
+        width: 100%;
+        background-color: rgba(196, 196, 196, 0.22);
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-    }
 
-    .description::after{
-        content: "";
-        width: 90%;
-        border-bottom: 1px solid #405A5C;
-        margin-top: 2rem;
-    }
-
-    .specialiste{
-        margin-top: 2rem;
-        display: flex;
-        justify-content: space-around;
-        width: 60em;
-
-        @media screen and (max-width: 1024px) {
-            flex-direction: column;
-            align-items: center;
-            width: 30em;
+        @media screen and (min-width: 426px) {
+            background-color: rgba(196, 196, 196, 0);
         }
-
-        @media screen and (max-width: 500px) {
-            flex-direction: column;
-            align-items: center;
-            width: 25em;
+        
+        .littleConnect{
+            margin-left: 1rem;
+            width: 95%;
+            margin-top: 1rem;
+            font-size: 12px;
+            color: #405A5C;
+            font-weight: 300;
+    
+            a{
+                text-decoration: none;
+                color: #0396A6;
+                font-weight: bold;
+            }
+            @media screen and (min-width: 426px) {
+                display: none;
+            }
+    
+            @media screen and (max-width: 420px) {
+                width: 95%;
+            }
         }
-
+    
+        h1{
+            margin-top: 1rem;
+            font-weight:400;
+            font-size: 60px;
+            color: #405A5C;
+    
+            @media screen and (max-width: 475px) {
+                font-size: 40px;
+            }
+        }
+    
+        .description{
+            margin-top: 1rem;
+            font-weight: lighter;
+            max-width: 814px;
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    
+        .description::after{
+            content: "";
+            width: 90%;
+            border-bottom: 1px solid #405A5C;
+            margin-top: 2rem;
+        }
+    
+        .specialiste{
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-around;
+            width: 60em;
+    
+            @media screen and (max-width: 1024px) {
+                flex-direction: column;
+                align-items: center;
+                width: 30em;
+            }
+    
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                align-items: center;
+                width: 25em;
+            }
+    
+            @media screen and (max-width: 425px) {
+                width: 20em;
+            }
+    
+            img{
+                max-width: 400px;
+                border-radius: 10px;
+    
+                @media screen and (max-width: 425px){
+                    width: 300px;
+                }
+            }
+    
+            .specialisteRightContainer{
+                max-width: 400px;
+    
+                h3{
+                    font-size: 35px;
+                    font-weight: 300;
+                    text-align: center;
+                }
+    
+                p{
+                    margin-top: 1rem;
+                    font-weight: lighter;
+                    max-width: 814px;
+                    text-align: center;
+                    font-size: 18px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+    
+                @media screen and (max-width: 1024px) {
+                    width: 600px;
+                    margin-top: 2rem;
+                }
+    
+                @media screen and (max-width: 425px) {
+                    width: 300px;
+                }
+            }
+        }
+    
+        @include btn;
+    
+        @media screen and (min-width: 426px) {
+            .btnUn{
+                display: none;
+            }
+        }
+    
         @media screen and (max-width: 425px) {
-            width: 20em;
-        }
-
-        img{
-            max-width: 400px;
-            border-radius: 10px;
-
-            @media screen and (max-width: 425px){
-                width: 300px;
+            .btnUn{
+                margin-top: 1rem;
             }
         }
+    }
 
-        .specialisteRightContainer{
-            max-width: 400px;
 
-            h3{
-                font-size: 35px;
-                font-weight: 300;
-                text-align: center;
+    .smallBottomContainer{
+        display: none;
+        margin-bottom: 170px;
+        width: 90%;
+
+        .dropDownContainer{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .dropDown{
+                width: 90%;
+                cursor: pointer;
+                font-size: 18px;
+                color:#0396A6;
+                margin-bottom: 0.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                @media screen and (max-width: 400px) {
+                    font-size: 12px;
+                }
+                img{
+                    width: 12px;
+                    height: 12px;
+                    margin-left: 1rem;
+                }
             }
-
+            .lign{
+                width: 90%;
+                border: 1px solid #0396A6;
+            }
             p{
                 margin-top: 1rem;
-                font-weight: lighter;
-                max-width: 814px;
                 text-align: center;
-                font-size: 18px;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-            }
-
-            @media screen and (max-width: 1024px) {
-                width: 600px;
-                margin-top: 2rem;
-            }
-
-            @media screen and (max-width: 425px) {
-                width: 300px;
+                font-weight: 100;
+                width: 88%;
+                font-size: 12px;
             }
         }
-    }
 
-    @include btn;
-
-    @media screen and (min-width: 426px) {
-        .btnUn{
-            display: none;
+        .btnContainer{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            @include btn;
+            .btnUn{
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
-    }
 
-    @media screen and (max-width: 425px) {
-        .btnUn{
-            margin-top: 1rem;
+
+        @media screen and (max-width: 430px) {
+            display: block;
         }
     }
 
     .bottomContainer{
         display: none;
-        margin-top: 2rem;
         width: 100vw;
         height: 100%;
         padding-top: 2rem;
@@ -154,9 +225,14 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        
+
+        @media screen and (max-width: 1150px) {
+            border-radius: 0 0 0 0;
+        }
 
         @media screen and (max-width: 430px) {
-            border-radius: 0 50px 0 0;
+            display: none;
         }
 
         h2{
@@ -167,7 +243,6 @@
             margin-top: 1rem;
 
             @media screen and(max-width: 860px) {
-                font-size: 25px;
                 max-width: 25rem;
             }
         }
@@ -203,6 +278,7 @@
                 span{
                     margin-left: 2rem;
                     font-size: 25px;
+                    font-weight: 400;
 
                     @media screen and (max-width: 425px) {
                         font-size: 18px;
@@ -247,7 +323,8 @@
 
                 p{
                     color: white;
-                    font-weight: 600;
+                    font-weight: 400;
+                    font-size: 18px;
                     margin-top: 1rem;
                     text-align: center;
                 }

@@ -10,20 +10,22 @@ const DropDown = (props) => {
     if(!openBtn) {
         return (
             <div className="dropDownContainer">
-                <button onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
+                <div onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
                     {question}
-                    <img src="../img/SVG/1x/chevronbottom.png" alt="chevron bottom" />
-                </button>
+                    <img src="../img/SVG/1x/chevronBottom.png" alt="chevron bottom" />
+                </div>
+                <div className="lign"></div>
             </div>
         )
     } 
 
     return (
         <div className="dropDownContainer">
-            <button onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
+            <div onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
                 {question}
-                <img src="../img/SVG/1x/chevrontop.png" alt="chevron rop" />
-            </button>
+                <img src="../img/SVG/1x/chevron.png" alt="chevron rop" />
+            </div>
+            <div className="lign"></div>
             <p>{text}</p>
         </div>
 
