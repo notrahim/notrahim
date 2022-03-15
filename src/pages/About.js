@@ -22,13 +22,13 @@ const About = () => {
                 <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation Exterieur" title="Isolation exterieur" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
                 Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi."  sens="left"/>
 
-                <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation Interieur" title="Isolation exterieur" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
+                <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation Interieur" title="Isolation Interieur" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
                 Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi."  sens="right"/>
 
-                <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation Des Combles" title="Isolation exterieur" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
+                <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation Des Combles" title="Isolation Des Combles" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
                 Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi."  sens="left"/>
 
-                <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation De la toiture" title="Isolation exterieur" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
+                <ImageAndText img="./img/photo-iti.jpeg" alt="Isolation De la toiture" title="Isolation De la toiture" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
                 Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi."  sens="right"/>
                 
                 <Button link="/nous-contacter" addClass="new" value="Isoler mon logement"/>

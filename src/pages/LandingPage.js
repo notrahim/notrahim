@@ -1,9 +1,12 @@
 import React from 'react';
+import LandingPageNavigation from '../component/LandingPageNavigation';
 
 const LandingPage = () => {
     return (
         <>
-            <header></header>
+            <header>
+                <LandingPageNavigation />
+            </header>
             <main className="landingPage"></main>
         </>
     );
