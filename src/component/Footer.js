@@ -15,7 +15,7 @@ const Footer = () => {
                         <p>espace client</p>
                     </NavLink>
                 </div>
-                <img src="./img/logo.png" alt="logo" />
+                <NavLink to="/"><img src="./img/logo.png" alt="logo" /></NavLink>
             </div>
         </footer>
     );

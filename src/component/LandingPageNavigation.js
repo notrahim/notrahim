@@ -5,7 +5,7 @@ const LandingPageNavigation = () => {
     return (
         <div className="landingPageNavContainer">
             <div className="landingPageNav">
-                <img src="./img/logo.png" alt="logo" />
+                <NavLink to="/"><img src="./img/logo.png" alt="logo" /></NavLink>
                 <p className="littleConnect">Déjà un projet avec nous ? <NavLink to='/nous-contacter'>Connectez-vous</NavLink></p>
             </div>
         </div>

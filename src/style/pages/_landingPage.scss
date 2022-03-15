@@ -1,2 +1,49 @@
 @import "../component/landingPageNavigation";
 
+header{
+    -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0); 
+    box-shadow: 0px 1px 15px -1px rgba(0,0,0,0);
+}
+.landingPage{
+    width: 100%;
+    min-height: calc(100vh - 4.5rem);
+    display: flex;
+    animation-name: opacity;
+    animation-duration: 2s;
+
+    .leftContainer{
+        width: 35%;
+        height: 100vh;
+        background-image: url("../../../public/img/photo-iti.jpeg");
+        background-size:cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .container{
+            height: 95%;
+            width: 90%;
+            background-color:rgba(255, 255, 255, 0.92);
+
+        }
+    }
+    .rightContainer{
+        width: 65%;
+        height: 100vh;
+        background-color: rgba(3, 150, 166, 1);
+        border-radius: 0 100px 0 0;
+    }
+}
+
+
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}        
+    

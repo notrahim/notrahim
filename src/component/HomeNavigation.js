@@ -16,7 +16,7 @@ const HomeNavigation = (props) => {
     return (
         <div className="nav">
             <div className="navLeft">
-                <img src="./img/logo.png" alt="logo" />
+                <NavLink to="/"><img src="./img/logo.png" alt="logo" /></NavLink>
                 <nav>
                     <NavLink to="/" className={changeBtn("accueil")}>Accueil</NavLink>
                     <NavLink to="/about" className={changeBtn("Nos préstations")}>Nos préstations</NavLink>
