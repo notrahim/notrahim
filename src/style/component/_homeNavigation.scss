@@ -61,36 +61,31 @@
                 display: none;
             }
 
-            .btnContainer{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 50px;
-                margin-right: 2rem;
+            .node{
+                padding: 4px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                width: 120px;
+                height: 45px;
+                border: 0;
+                color: white;
+                background: linear-gradient(0.25turn, #0396A6, #04BFAD);
+                font-weight: bold;
+                font-size: 15px;
                 border-radius: 10px;
+                margin-right: 1rem;
 
-                button{
-                    cursor: pointer;
-                    width: 120px;
-                    height: 45px;
-                    border: 0;
-                    color: white;
-                    background: linear-gradient(0.25turn, #0396A6, #04BFAD);
-                    font-weight: bold;
-                    font-size: 15px;
-                    border-radius: 10px;
-    
-                    @media screen and (max-width: 700px) {
-                        width: 96px;
-                        height: 36px;
-                        font-size: 12px;
-                        margin-right: 1rem;
-                    }
+                @media screen and (max-width: 700px) {
+                    width: 80px;
+                    height: 36px;
+                    font-size: 12px;
+                    margin-right: 0.5rem;
                 }
+            }
 
-                button:hover{
-                    box-shadow: 0px 1px 15px -1px rgb(0 0 0 / 12%);
-                }
+            .node:hover{
+                box-shadow: 0px 1px 15px -1px rgb(0 0 0 / 12%);
             }
 
             .signIn{
@@ -139,7 +134,6 @@
                     margin-top: 1px;
                     content: "";
                     height: 3px;
-                    background-color: #F28963;
                     background-color: #F28963;
                     animation-duration: 0.5s;
                     animation-name: glissement;

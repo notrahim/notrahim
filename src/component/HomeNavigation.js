@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from './Button';
 
 const HomeNavigation = (props) => {
     const urlValue = props.urlValue;
@@ -22,9 +23,8 @@ const HomeNavigation = (props) => {
                 </nav>
             </div>
             <div className="navRight">
-                <div className="btnContainer">
-                    <button>Isoler mon <br/>logement</button>
-                </div>
+                {/* <button>Isoler mon <br/>logement</button> */}
+                <Button link="/nous-contacter" value="Isoler mon logement" addClass="node"/>
                 <NavLink to="/" className="signIn">
                     <div className="imgContainer">
                         <img src="./img/SVG/login.svg" alt="connection" />   

@@ -1,0 +1,168 @@
+@mixin imageAndTextLeft {
+    .specialisteLeft{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+        width: 60em;
+        animation-duration: 1s;
+        animation-name: glissementLeft;
+
+
+        @media screen and (min-width: 426px) {
+            margin-bottom: 1rem;
+        }
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            align-items: center;
+            width: 30em;
+            margin-top: 4rem;
+        }
+
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            align-items: center;
+            width: 25em;
+        }
+
+        @media screen and (max-width: 425px) {
+            width: 20em;
+        }
+
+        img{
+            max-width: 400px;
+            border-radius: 10px;
+
+            @media screen and (max-width: 425px){
+                width: 300px;
+            }
+        }
+
+        .specialisteRightContainer{
+            max-width: 400px;
+
+            h3{
+                font-size: 35px;
+                font-weight: 300;
+                text-align: center;
+            }
+
+            p{
+                margin-top: 1rem;
+                font-weight: lighter;
+                max-width: 814px;
+                text-align: center;
+                font-size: 18px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 600px;
+                margin-top: 1rem;
+            }
+
+            @media screen and (max-width: 425px) {
+                width: 300px;
+            }
+        }
+    }
+
+    @keyframes glissementLeft {
+        from {
+            opacity: 0;
+        }
+        
+        to {
+            opacity: 1;
+        }
+    }
+
+    .first {
+        margin-bottom: 200px;
+    }
+}
+
+@mixin imageAndTextRight {
+    .specialisteRight{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+        width: 60em;
+        animation-duration: 2s;
+        animation-name: glissementRight;
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 30em;
+            margin-top: 4rem;
+        }
+
+        @media screen and (max-width: 500px) {
+            align-items: center;
+            width: 25em;
+        }
+
+        @media screen and (max-width: 425px) {
+            width: 20em;
+        }
+
+        img{
+            max-width: 400px;
+            border-radius: 10px;
+
+            @media screen and (max-width: 425px){
+                width: 300px;
+            }
+        }
+
+        .specialisteRightContainer{
+            max-width: 400px;
+
+
+            h3{
+                font-size: 35px;
+                font-weight: 300;
+                text-align: center;
+            }
+
+            p{
+                margin-top: 1rem;
+                font-weight: lighter;
+                max-width: 814px;
+                text-align: center;
+                font-size: 18px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 600px;
+                margin-top: 1rem;
+            }
+
+            @media screen and (max-width: 425px) {
+                width: 300px;
+            }
+        }
+    }
+
+    @keyframes glissementRight {
+        from {
+            opacity: 0;
+        }
+        
+        to {
+            opacity: 1;
+        }
+    }
+
+    .first {
+        margin-bottom: 200px;
+    }
+}

@@ -1,7 +1,65 @@
+@import "../Mixins/btn.scss";
 @import "../component/homeNavigation";
+@import "../Mixins/imageAndText";
+@import "../Mixins/titleAndText";
 
 header{
     -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.45); 
     box-shadow: 0px 1px 15px -1px rgba(0,0,0,0.45);
     @include homeNavigation;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .littleConnect{
+        margin-left: 1rem;
+        width: 95%;
+        margin-top: 1rem;
+        color: #405A5C;
+        font-weight: 300;
+        font-size: 12px;
+
+        a{
+            text-decoration: none;
+            color: #0396A6;
+            // font-weight: bold;
+            font-size: 12px;
+            margin: 0;
+        }
+        @media screen and (min-width: 426px) {
+            display: none;
+        }
+
+        @media screen and (max-width: 420px) {
+            width: 95%;
+        }
+    }
+
+    @include titleAndText;
+    @include imageAndTextLeft;
+    @include imageAndTextRight;
+    @include btn;
+
+    .new{
+        @media screen and (min-width: 426px) {
+            margin-bottom: 180px;
+        }
+    }
+
+    a{
+        display: none;
+        text-decoration: none;
+        margin-top: 1rem;
+        color: #0396A6;
+        font-weight: bold;
+        font-size: 16px;
+
+        @media screen and (max-width: 425px) {
+            display: block;
+        }
+    }
+
 }

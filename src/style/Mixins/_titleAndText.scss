@@ -1,0 +1,31 @@
+@mixin titleAndText {
+    h1{
+        margin-top: 1rem;
+        font-weight:400;
+        font-size: 60px;
+        color: #405A5C;
+
+        @media screen and (max-width: 475px) {
+            font-size: 40px;
+        }
+    }
+    
+    .description{
+        margin-top: 1rem;
+        font-weight: lighter;
+        max-width: 814px;
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .description::after{
+        content: "";
+        width: 90%;
+        border-bottom: 1px solid #405A5C;
+        margin-top: 2rem;
+    }
+}

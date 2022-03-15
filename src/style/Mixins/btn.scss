@@ -1,7 +1,9 @@
 @mixin btn{
-    button{
+    .btnUn{
         cursor: pointer;
-        margin-top: 1rem;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 2rem;
         width: 120px;
         height: 60px;
         border: 0;
@@ -10,18 +12,19 @@
         font-weight: bold;
         font-size: 15px;
         border-radius: 10px;
-        margin-right: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         @media screen and (max-width: 700px) {
             width: 110px;
             height: 50px;
             font-size: 12px;
-            margin-right: 1rem;
         }
     }
 
-    button:hover{
-        box-shadow: 0px 1px 15px -1px rgb(0 0 0 / 30%);
+    .btnUn:hover, .btnDeux:hover{
+        box-shadow: 0px 1px 15px -1px rgb(0 0 0 / 15%);
     }
 
     .btnDeux{

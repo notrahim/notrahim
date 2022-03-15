@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeNavigation from '../component/HomeNavigation';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import Button from "../component/Button"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import DropDown from '../component/DropDown';
@@ -9,9 +9,6 @@ import TitleAndText from '../component/TitleAndText';
 import ImageAndText from '../component/ImageAndText';
 
 const HomePage = () => {
-    
-    const sectionOne = ()=>{
-    }
 
     return (
         <>
@@ -26,9 +23,10 @@ const HomePage = () => {
                         perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”'/>
                     <button className="btnUn">Isoler mon logement</button>
                     <section className="specialiste">
-                        <ImageAndText img="./img/photo-iti.jpeg" alt="isolation interieur" title="Spécialiste de l’économie d’énergie " text= "Lorem ipsum dolor sit amet. Aut nesciunt distinctio ab quasi ipsam non voluptatem inventor aut explicabo modi eum porro beatae. Est commodi officiis et fugiat nemo sit minus voluptatum. Sed porro error aut inventore minima vel architecto velit ea accusantium officiis." />
+                        <ImageAndText sens="left" img="./img/photo-iti.jpeg" alt="isolation interieur" title="Spécialiste de l’économie d’énergie " text= "Lorem ipsum dolor sit amet. Aut nesciunt distinctio ab quasi ipsam non voluptatem inventor aut explicabo modi eum porro beatae. Est commodi officiis et fugiat nemo sit minus voluptatum. Sed porro error aut inventore minima vel architecto velit ea accusantium officiis." />
+
                     </section>
-                    <button className="btnDeux">En savoir plus</button>
+                    <NavLink to="/about" className="btnUn">En savoir plus</NavLink>
                 </div>    
                 <section className="smallBottomContainer">
                     <DropDown question="Pourquoi bien isoler son logement ? " text="Lorem ipsum dolor sit amet. Aut nesciunt distinctio ab quasi ipsam non voluptatem inventore aut explicabo modi eum porro beatae. Est commodi officiis et fugiat nemo sit minus voluptatum. Sed porro error aut inventore minima vel architecto velit ea accusantium officiis."/>
@@ -36,7 +34,7 @@ const HomePage = () => {
                     <DropDown question="Comment ça fonctionne ? " text="Lorem ipsum dolor sit amet. Aut nesciunt distinctio ab quasi ipsam non voluptatem inventore aut explicabo modi eum porro beatae. Est commodi officiis et fugiat nemo sit minus voluptatum. Sed porro error aut inventore minima vel architecto velit ea accusantium officiis."/>
                     <DropDown question="Qui sommes-nous ? " text="Lorem ipsum dolor sit amet. Aut nesciunt distinctio ab quasi ipsam non voluptatem inventore aut explicabo modi eum porro beatae. Est commodi officiis et fugiat nemo sit minus voluptatum. Sed porro error aut inventore minima vel architecto velit ea accusantium officiis."/>
                     <div className="btnContainer">
-                        <button className="btnUn">Isoler mon logement</button>
+                        <Button value="Isoler mon logement" link="/nous-contacter"/>
                     </div>
                 </section>
                 <section className="bottomContainer">
@@ -58,7 +56,7 @@ const HomePage = () => {
                             <FontAwesomeIcon icon={faCircleCheck} /> 
                             <span>Participation à l'éffort écologique</span>
                         </div>
-                            <div className="endContainer"><button>Isoler mon <br/>logement</button></div>
+                            <div className="endContainer"><NavLink to="/nous-contacter" className="btnUn">Isoler mon <br/>logement</NavLink></div>
                     </div>
                     <div className="garantiesContainer">
                         <div className="garanties">
