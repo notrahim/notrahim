@@ -48,7 +48,11 @@ const LandingPage = () => {
                     </section>
                     <section className="rightContainer">
                         <Formulaire />
-                        <div className="containerBottom"></div>
+                        <div className="containerBottom">
+                            <h3>+ de <span>10</span> ans <br/> d'experience</h3>
+                            <h3>RDV en <br/><span>24</span>/<span>48h</span></h3>
+                            <h3>+ de 3000 <br/>réalisations</h3>
+                        </div>
                     </section>
                 </div>
             </main>
