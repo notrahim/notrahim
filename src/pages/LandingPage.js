@@ -9,10 +9,12 @@ const LandingPage = () => {
                 <LandingPageNavigation />
             </header>
             <main className="landingPage"> 
-                <div className="leftContainer">
-                    <div className="container"></div>
+                <div className="globalContainer">
+                    <div className="leftContainer">
+                        <div className="container"></div>
+                    </div>
+                    <div className="rightContainer"></div>
                 </div>
-                <div className="rightContainer"></div>
             </main>
         </>
     );

@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 const About = () => {
     return (
         <>
-            <header>
+            <header className="aboutHeader">
                 <HomeNavigation urlValue='about' />
             </header>
             <main className="about">

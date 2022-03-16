@@ -12,7 +12,7 @@ const HomePage = () => {
 
     return (
         <>
-            <header>
+            <header className="homePageHeader">
                 <HomeNavigation urlValue='accueil' />
             </header>
             <main className="homePage">
