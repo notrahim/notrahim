@@ -84,6 +84,14 @@
         .specialiste {
             margin-top: 1rem;
         }
+
+        .imageAndText{
+            margin-bottom: 2rem;
+            
+            @media screen and (max-width:425px) {
+                margin-bottom: 0;
+            }
+        }
     
         @media screen and (min-width: 426px) {
             .btnUn{

@@ -10,7 +10,7 @@ const ImageAndText = (props) => {
 
     if(sens === "left"){
         return (
-            <div className={addClass != undefined ? "first specialisteLeft specialiste" : "specialisteLeft specialiste"}>
+            <div className={addClass != undefined ? addClass + " first specialisteLeft specialiste" : "specialisteLeft specialiste"}>
                 <img src={img} alt={alt} />
                 <div className="specialisteRightContainer">
                     <h3>{title}</h3>
@@ -20,7 +20,7 @@ const ImageAndText = (props) => {
         );
     } else {
         return (
-            <div className={addClass != undefined ? "first specialisteRight specialiste" : "specialisteRight specialiste"}>
+            <div className={addClass != undefined ? addClass + "first specialisteRight specialiste" : "specialisteRight specialiste"}>
                 <div className="specialisteRightContainer">
                     <h3>{title}</h3>
                     <p>{text}</p>

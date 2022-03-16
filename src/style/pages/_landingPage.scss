@@ -1,4 +1,5 @@
 @import "../component/landingPageNavigation";
+@import "../component/formulaire";
 
 header{
     -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0); 
@@ -7,6 +8,7 @@ header{
 .landingPage{
     width: 100%;
     height: calc(100vh - 4.5em);
+    min-height: 100%;
     display: flex;
     animation-name: opacity;
     animation-duration: 1.5s;
@@ -36,6 +38,8 @@ header{
                 background-color:rgba(255, 255, 255, 0.92);
                 
                 .whereAreMe{
+                    margin-top: 1rem;
+                    margin-left: 1rem;
                     display: flex;
                     a{
                         text-decoration: none;
@@ -55,6 +59,90 @@ header{
                         margin-left: 3px;
                     }
                 }
+
+                .textContainer{
+                    width: 100%;
+                    height: 90%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .title{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-top: 3rem;
+
+                        @media screen and (max-height: 440px) {
+                            height: 100%;
+                            justify-content: center;
+                            margin-bottom: 3rem;
+                        }
+                    }
+
+                    h1{
+                        font-size: 48px;
+                        font-weight: bold;
+                    }
+                    p{
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                    span{
+                        font-size: 48px;
+                        font-weight: bold;
+                        color: #F28963;
+                    }
+                    .question{
+                        margin-bottom: 1.5rem;
+                        overflow: scroll;
+                        margin-top: 3rem;
+
+                        @media screen and (max-height: 440px) {
+                            display: none;
+                        }
+                        .dropDownContainer{
+                            margin-top: 1rem;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            max-width: 325px;
+                            .dropDown{
+                                width: 90%;
+                                cursor: pointer;
+                                font-size: 18px;
+                                color:#0396A6;
+                                margin-bottom: 0.5rem;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                @media screen and (max-width: 400px) {
+                                    font-size: 18px;
+                                }
+                                img{
+                                    width: 12px;
+                                    height: 12px;
+                                    margin-left: 1rem;
+                                }
+                            }
+                            .lign{
+                                width: 90%;
+                                border: 1px solid #0396A6;
+                            }
+                            p{
+                                margin-top: 1rem;
+                                text-align: center;
+                                font-weight: 100;
+                                width: 88%;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
             }
         }
         .rightContainer{
@@ -62,6 +150,19 @@ header{
             height: 100%;
             background-color: rgba(3, 150, 166, 1);
             border-radius: 0 100px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            @include formulaire;
+
+            .containerBottom{
+                height: 20%;
+                width: 95%;
+                background-color:aquamarine;
+            }
+
         }
     }
 }

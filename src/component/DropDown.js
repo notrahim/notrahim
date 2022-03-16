@@ -6,10 +6,11 @@ const DropDown = (props) => {
 
     const question = props.question
     const text = props.text
+    const classValue = props.class
 
     if(!openBtn) {
         return (
-            <div className="dropDownContainer">
+            <div className={classValue === undefined ? "dropDownContainer": "dropDownContainer " + classValue}>
                 <div onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
                     {question}
                     <img src="../img/SVG/1x/chevronBottom.png" alt="chevron bottom" />
@@ -20,7 +21,7 @@ const DropDown = (props) => {
     } 
 
     return (
-        <div className="dropDownContainer">
+        <div className={classValue === undefined ? "dropDownContainer": "dropDownContainer " + classValue}>
             <div onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
                 {question}
                 <img src="../img/SVG/1x/chevron.png" alt="chevron rop" />
