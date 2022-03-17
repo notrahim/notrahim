@@ -28,8 +28,10 @@ const Formulaire = () => {
             <form onSubmit={sub}>
                 {/* <p>{thisValue}</p> */}
                 {boxOne()}
-                <button onClick={()=>setThisValue(thisValue+1)} className="btnUn">Suivant</button>
             </form>
+            <div className="btnContainer">
+                <button onClick={()=>setThisValue(thisValue+1)} className="btnUn">Suivant</button>
+            </div>
         </div>
     );
 };

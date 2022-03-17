@@ -20,6 +20,10 @@ body{
             min-height: calc(100vh + 155px);
             
             @include footer;
+
+            @media screen and (max-width: 768px) {
+                min-height: 100vh;
+            }
         }
     }
 }
