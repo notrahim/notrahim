@@ -1,0 +1,114 @@
+@mixin card {
+    .cardContainer{
+        margin-top: 2rem;
+        width: 95%;
+        height: 17rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        @media screen and (max-width: 768px) {
+            height: 34rem;
+            margin-bottom: 4rem;
+        }
+
+        .card{
+            height: 13rem;
+            width: 12rem;
+            border-radius: 10px;
+            cursor: pointer;
+            -webkit-box-shadow: 1px 4px 4px 1px rgba(0,0,0,0.25); 
+            box-shadow: 1px 4px 4px 1px rgba(37, 6, 6, 0.25);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width: 1420px) {
+                width: 9.6em;
+                height: 12em;
+            }
+
+            @media screen and (max-width: 1180px) {
+                height: 16rem;
+                width: 13rem;
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 9.6em;
+                height: 12em;
+            }
+
+            @media screen and (max-width: 768px) {
+                flex-direction: row;
+                justify-content: start;
+                height: 5rem;
+                width: 100%;
+                max-width: 30rem;
+                margin-bottom: 1rem;
+            }
+
+            .pointExt{
+                position: absolute;
+                top: 0.7rem;
+                right: 0.7rem;
+                height: 20px;
+                width: 20px;
+                background-color: #C4C4C4;
+                border-radius: 50%;
+
+                @media screen and (max-width: 768px) {
+
+                    top: 40%;
+                }
+            }
+
+            img{
+                width: 8rem;
+
+                @media screen and (max-width: 1420px) {
+                    width: 7rem;
+                }
+
+                @media screen and (max-width: 768px) {
+                    width: 4rem;
+                    margin-left: 2rem;
+                }
+            }
+
+            h4{
+                text-align: center;
+                margin-top: 1rem;
+
+                @media screen and (max-width: 768px) {
+                    margin: 0;
+                    margin-left: 3rem;
+                }
+            }
+        }
+
+        .selected{
+            border: 3px solid #F28963;
+
+            .pointExt{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .pointInt{
+                    width: 15px;
+                    height: 15px;
+                    background-color: #F28963;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .card:hover{
+            -webkit-box-shadow: 0px 6px 6px 2px rgba(0,0,0,0.35); 
+            box-shadow: 0px 6px 6px 2px rgba(0,0,0,0.35);
+        }
+
+    }
+}
