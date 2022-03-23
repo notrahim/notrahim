@@ -1,19 +1,29 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Card from './Card';
+import { nextArray } from '../../../redux/actions/action';
 
 const ChexkBox = () => {
-    const [valid, setValid] = useState(false)
-    const [error, setError] = useState(false)
+    const [value, setValue] = useState('non')
     const [clickedOne, setClickedOne] = useState(false)
     const [clickedTwo, setClickedTwo] = useState(false)
     const [clickedThree, setClickedThree] = useState(false)
     const [clickedFour, setClickedFour] = useState(false)
 
+    const globalStateArray = useSelector(state => state.arrayOne)
+    const dispatch = useDispatch();
+    // console.log(clickedOne);
+
+    const returnValue = ()=>{
+        setClickedOne(!clickedOne)
+        dispatch(nextArray(clickedOne))
+    }
+
     return (
         <>
             <div className="cardContainer">
-                <div onClick={()=>setClickedOne(!clickedOne)} className={clickedOne ? "card selected" : "card"}>
+                <div onClick={returnValue} className={clickedOne ? "card selected" : "card"}>
                     <Card img="isolation-in.svg" title="ITI (Isolation Murs Interieurs)"/>
                 </div>  
                 <div onClick={()=>setClickedTwo(!clickedTwo)} className={clickedTwo ? "card selected" : "card"}>
