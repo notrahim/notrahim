@@ -1,7 +1,17 @@
 const initState = {
     isLoading : false,
     isLogin : false,
-    arrayOne : false
+    arrayOne : false,
+    prospect : {
+        nom: "",
+        email:"",
+        tel:"",
+        codePostal: "",
+        presation:"",
+        surface:"",
+        age:"",
+        realisation:""
+    }
 }
 
 const reducer = (state = initState, action)=>{

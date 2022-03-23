@@ -1,38 +1,95 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Card from './Card';
-import { nextArray } from '../../../redux/actions/action';
+import { nextArrayPrestation, addPrestation } from '../../../redux/actions/action';
 
 const ChexkBox = () => {
-    const [value, setValue] = useState('non')
     const [clickedOne, setClickedOne] = useState(false)
     const [clickedTwo, setClickedTwo] = useState(false)
     const [clickedThree, setClickedThree] = useState(false)
     const [clickedFour, setClickedFour] = useState(false)
-
-    const globalStateArray = useSelector(state => state.arrayOne)
+    const [prestation, setPrestation] = useState([])
     const dispatch = useDispatch();
-    // console.log(clickedOne);
 
-    const returnValue = ()=>{
-        setClickedOne(!clickedOne)
-        dispatch(nextArray(clickedOne))
+
+
+    const returnValue = async (value)=>{
+        setTimeout(()=>{
+            switch (value) {
+                case "one":
+                    setClickedOne(!clickedOne)
+                    if(prestation.length > -1){
+                        if(!prestation.includes("iti")){
+                            setPrestation([...prestation, "iti"])
+                        }else{
+                            prestation.splice(prestation.indexOf("iti"), 1);
+                        }
+                    }
+                    break;
+                 
+                case "two":
+                    setClickedTwo(!clickedTwo)
+                    if(prestation.length > -1){
+                        if(!prestation.includes("ite")){
+                            setPrestation([...prestation, "ite"])
+                        }else{
+                            prestation.splice(prestation.indexOf("ite"), 1);
+                        }
+                    }
+                    break; 
+                 
+                case "three":
+                    setClickedThree(!clickedThree)
+                    if(prestation.length > -1){
+                        if(!prestation.includes("isolation des combles")){
+                            setPrestation([...prestation, "isolation des combles"])
+                        }else{
+                            prestation.splice(prestation.indexOf("isolation des combles"), 1);
+                        }
+                    }
+                    break;
+                 
+                case "four":
+                    setClickedFour(!clickedFour)
+                    if(prestation.length > -1){
+                        if(!prestation.includes("isolation sous toiture")){
+                            setPrestation([...prestation, "isolation sous toiture"])
+                        }else{
+                            prestation.splice(prestation.indexOf("isolation sous toiture"), 1);
+                        }
+                    }
+                    break;      
+            
+                default: console.log('error');
+                    break;
+            }
+        }, 200)
     }
+
+    useEffect(()=>{
+        if(clickedOne || clickedTwo || clickedThree || clickedFour){
+            dispatch(nextArrayPrestation(true))
+            dispatch(addPrestation(prestation))
+        } else {
+            dispatch(nextArrayPrestation(false))
+            dispatch(addPrestation(prestation))
+        }
+    }, [clickedOne || clickedTwo || clickedThree || clickedFour])
 
     return (
         <>
             <div className="cardContainer">
-                <div onClick={returnValue} className={clickedOne ? "card selected" : "card"}>
+                <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="isolation-in.svg" title="ITI (Isolation Murs Interieurs)"/>
                 </div>  
-                <div onClick={()=>setClickedTwo(!clickedTwo)} className={clickedTwo ? "card selected" : "card"}>
+                <div onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
                     <Card img="isolation-ext.svg" title="ITE (Isolation Murs Extérieurs)"/>
                 </div>  
-                <div onClick={()=>setClickedThree(!clickedThree)} className={clickedThree ? "card selected" : "card"}>
+                <div onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
                     <Card img="Isolation-combles.svg" title="Isolation Des Combles"/>
                 </div>  
-                <div onClick={()=>setClickedFour(!clickedFour)} className={clickedFour ? "card selected" : "card"}>
+                <div onClick={()=>returnValue("four")} className={clickedFour ? "card selected" : "card"}>
                     <Card img="Isolation-toiture.svg" title="Isolation Sous-Rampant(Toiture)"/>
                 </div>  
             </div>

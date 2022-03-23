@@ -3,7 +3,7 @@ import ProgressLign from './component/ProgressLign';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ChexkBox from './component/ChexkBox';
-import { nextArray } from '../../redux/actions/action';
+import { nextArrayPrestation } from '../../redux/actions/action';
 
 const Formulaire = () => {
     const [progress, setProgress]=useState(20);
@@ -17,7 +17,7 @@ const Formulaire = () => {
 
     const showThisStates = ()=>{
         console.log(state);
-        dispatch(nextArray(!state.isLoading))
+        dispatch(nextArrayPrestation(!state.isLoading))
     }
 
     const boxOne = () =>{
@@ -27,9 +27,7 @@ const Formulaire = () => {
     const checkBtn = ()=>{
         if(state.arrayOne){
             setThisValue(thisValue+1)
-            // console.log(state);
         }else{
-            // console.log(state);
         }
     }
 
@@ -44,10 +42,8 @@ const Formulaire = () => {
                 <ProgressLign progress={progress} />
             </div>
             <form onSubmit={sub}>
-                {/* <p>{thisValue}</p> */}
                 {boxOne()}
             </form>
-            {/* <button onClick={showThisStates}>click here</button> */}
             <div className="btnContainer">
                 <button onClick={checkBtn} className="btnUn">Suivant</button>
             </div>

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import DropDown from '../component/DropDown';
 import Formulaire from '../component/formulaire/Formulaire';
 import LandingPageNavigation from '../component/LandingPageNavigation';
+import Test from '../component/Test';
 //TODO Creer une modal pour qu'a l'ouverture de la page, la partie main soit entièrement visible 
 //BUG Je pense que la solution est d'iterer la navbar au scroll
 const LandingPage = () => {
@@ -56,6 +57,7 @@ const LandingPage = () => {
                                 <h2>Jusqu'à <span>10000€</span> d'aide</h2>
                             </div>
                             <Formulaire />
+                            {/* <Test /> */}
                             <div className="containerBottom">
                                 <h3>+ de <span>10</span> ans <br/> d'experience</h3>
                                 <h3>RDV en <br/><span>24</span>/<span>48h</span></h3>
