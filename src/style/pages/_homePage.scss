@@ -111,6 +111,9 @@
         display: none;
         margin-bottom: 170px;
         width: 90%;
+        @media screen and (max-width: 425px) {
+            margin-bottom: 0;
+        }
 
         .dropDownContainer{
             margin-top: 1rem;
@@ -130,10 +133,15 @@
                 @media screen and (max-width: 400px) {
                     font-size: 18px;
                 }
+                p{
+                    color: #0396A6;
+                    font-weight: bold;
+                }
                 img{
                     width: 12px;
                     height: 12px;
                     margin-left: 1rem;
+                    margin-top: 1rem;
                 }
             }
             .lign{
@@ -145,7 +153,6 @@
                 text-align: center;
                 font-weight: 100;
                 width: 88%;
-                font-size: 12px;
             }
         }
 

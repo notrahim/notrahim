@@ -47,11 +47,20 @@ const LandingPage = () => {
                         </div>
                     </section>
                     <section className="rightContainer">
-                        <Formulaire />
-                        <div className="containerBottom">
-                            <h3>+ de <span>10</span> ans <br/> d'experience</h3>
-                            <h3>RDV en <br/><span>24</span>/<span>48h</span></h3>
-                            <h3>+ de 3000 <br/>réalisations</h3>
+                        <div className="container">
+                            <div className="topMobil">
+                                <div className="connection">
+                                    <p>Déjà un projet avec nous ?</p>
+                                    <NavLink to="/">Connectez-vous</NavLink>
+                                </div>
+                                <h2>Jusqu'à <span>10000€</span> d'aide</h2>
+                            </div>
+                            <Formulaire />
+                            <div className="containerBottom">
+                                <h3>+ de <span>10</span> ans <br/> d'experience</h3>
+                                <h3>RDV en <br/><span>24</span>/<span>48h</span></h3>
+                                <h3>+ de 3000 <br/>réalisations</h3>
+                            </div>
                         </div>
                     </section>
                 </div>

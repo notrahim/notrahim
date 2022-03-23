@@ -4,8 +4,6 @@ const Card = (props) => {
     const img = props.img;
     const title = props.title;
 
-    console.log(img);
-
     return (
         <>
             <div className="pointExt">

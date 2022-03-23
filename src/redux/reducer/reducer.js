@@ -1,6 +1,7 @@
 const initState = {
     isLoading : false,
     isLogin : false,
+    arrayOne : false
 }
 
 const reducer = (state = initState, action)=>{
@@ -8,7 +9,7 @@ const reducer = (state = initState, action)=>{
         case "next":
             return {
                 ...state,
-                isLoading: true
+                arrayOne: action.payload
             }
     
         default: return state

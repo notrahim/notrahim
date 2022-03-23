@@ -1,5 +1,6 @@
-const nextArray = ()=>{
+export const nextArray = (bool)=>{
     return{
-        type: "success"
+        type: "next",
+        payload: bool
     }
 }
