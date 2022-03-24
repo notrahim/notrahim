@@ -3,6 +3,7 @@ import ProgressLign from './component/ProgressLign';
 import { useSelector, useDispatch } from 'react-redux';
 import ChexkBox from './component/ChexkBox';
 import { nextArrayPrestation, removeValueInArray } from '../../redux/actions/action';
+import CheckBoxTwo from './component/CheckBoxTwo';
 
 const Formulaire = () => {
     const maxArray = 8;
@@ -24,6 +25,7 @@ const Formulaire = () => {
 
     const boxOne = () =>{
         if(state.valueOfArray === 1) return(<ChexkBox/>)
+        if(state.valueOfArray === 2) return(<CheckBoxTwo/>)
     }
 
     return (
