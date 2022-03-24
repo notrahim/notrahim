@@ -61,6 +61,20 @@ export const removMeasure = (measure)=>{
     }
 }
 
+export const addWhen = (when) =>{
+    return{
+        type: "addWhen",
+        payload: when
+    }
+}
+
+export const removWhen = (when) =>{
+    return {
+        type: "removeWhen",
+        payload: when
+    }
+}
+
 export const addValueInArray = () =>{
     return{
         type: "addValueInArray"

@@ -98,6 +98,24 @@ const reducer = (state = initState, action)=>{
                 }
             }  
 
+        case "addWhen": 
+            return{
+                ...state,
+                ...state.prospect,
+                prospect:{
+                    realisation: action.payload
+                }
+            }  
+            
+        case "removeWhen":
+            return{
+                ...state,
+                ...state.prospect,
+                prospect:{
+                    realisation: null
+                }
+            }   
+
         case "addValueInArray": 
             if(state.valueOfArray <= 6){
                 return{

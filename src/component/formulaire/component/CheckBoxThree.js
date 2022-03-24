@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Card from './Card';
-import { useDispatch, useSelector } from 'react-redux';
-import { nextArrayPrestation, addValueInArray, addLodging, removLodging, addOld, removOld } from '../../../redux/actions/action';
+import { useDispatch } from 'react-redux';
+import { nextArrayPrestation, addValueInArray, addOld, removOld } from '../../../redux/actions/action';
 
 const CheckBoxThree = () => {
     const [clickedOne, setClickedOne] = useState(false)
@@ -10,7 +10,7 @@ const CheckBoxThree = () => {
     const [clickedThree, setClickedThree] = useState(false)
     const [date, setDate] = useState([])
     const dispatch = useDispatch()
-    const globalOrValue = clickedOne || clickedTwo ;
+    const globalOrValue = clickedOne || clickedTwo || clickedThree ;
 
     const returnValue = async (value)=>{
         setTimeout(()=>{

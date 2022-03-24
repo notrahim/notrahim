@@ -6,6 +6,8 @@ import ChexkBox from './component/ChexkBox';
 import { nextArrayPrestation, removeValueInArray } from '../../redux/actions/action';
 import CheckBoxTwo from './component/CheckBoxTwo';
 import CheckBoxThree from './component/CheckBoxThree';
+import CheckBoxFour from './component/CheckBoxFour';
+import CheckBoxFive from './component/CheckBoxFive';
 
 const Formulaire = () => {
     const maxArray = 8;
@@ -30,7 +32,6 @@ const Formulaire = () => {
         } else if(state.valueOfArray === 6){
             setTitle("Prenons rendez-vous")
         } 
-        // setAddClass("")
     }, 10)
 
     function calculProgressBar(state, maxProgress){
@@ -54,6 +55,12 @@ const Formulaire = () => {
         } 
         if(state.valueOfArray === 3){
             return(<CheckBoxThree />)
+        }
+        if(state.valueOfArray === 4){
+            return(<CheckBoxFour />)
+        }
+        if(state.valueOfArray === 5){
+            return(<CheckBoxFive />)
         }
     }
 
