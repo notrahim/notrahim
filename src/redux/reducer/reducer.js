@@ -47,9 +47,11 @@ const reducer = (state = initState, action)=>{
             
 
         case "removeValueInArray": 
-        return{
-            ...state, 
-            valueOfArray: state.valueOfArray -1
+        if(state.valueOfArray > 1){
+            return{
+                ...state, 
+                valueOfArray: state.valueOfArray -1
+            }
         }
         
         default: return state

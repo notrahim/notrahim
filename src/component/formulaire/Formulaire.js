@@ -1,15 +1,17 @@
 import React from 'react';
 import ProgressLign from './component/ProgressLign';
-import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ChexkBox from './component/ChexkBox';
 import { nextArrayPrestation, removeValueInArray } from '../../redux/actions/action';
 
 const Formulaire = () => {
-    const [progress, setProgress]=useState(20);
-    const [thisValue, setThisValue]=useState(1)
+    const maxArray = 8;
     const state = useSelector(state => state)
     const dispatch = useDispatch()
+
+    function calculProgressBar(state, maxProgress){
+        return (100 * state)/maxProgress
+    }
 
     const sub = (e)=>{
         e.preventDefault()
@@ -32,14 +34,11 @@ const Formulaire = () => {
             </button>
             <div className="question">
                 <h2>Vous souhaitez isoler :</h2>
-                <ProgressLign progress={progress} />
+                <ProgressLign progress={calculProgressBar(state.valueOfArray, maxArray)} />
             </div>
             <form onSubmit={sub}>
                 {boxOne()}
             </form>
-            {/* <div className="btnContainer">
-                <button onClick={checkBtn} className="btnUn">Suivant</button>
-            </div> */}
         </div>
     );
 };

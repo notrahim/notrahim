@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from './Card';
 import { nextArrayPrestation, addPrestation, addValueInArray, removPrestation } from '../../../redux/actions/action';
 
@@ -11,6 +11,7 @@ const ChexkBox = () => {
     const [clickedFour, setClickedFour] = useState(false)
     const [prestation, setPrestation] = useState([])
     const dispatch = useDispatch();
+    const whatArray = useSelector(state=>state.valueOfArray)
 
     const globalOrValue = clickedOne || clickedTwo || clickedThree || clickedFour;
 
