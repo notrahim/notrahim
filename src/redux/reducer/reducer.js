@@ -23,12 +23,19 @@ const reducer = (state = initState, action)=>{
                 arrayOne: action.payload
             }
     
-        case "prestation":
+        case "addPrestation":
             return{ 
                 ...state,
                 prospect: {
-                    ...state.prospect,
                     prestation: state.prospect.prestation.concat(action.payload)
+                }
+            }  
+            
+        case "removePrestation":
+            return{
+                ...state,
+                prospect: {
+                    prestation: []
                 }
             }    
 

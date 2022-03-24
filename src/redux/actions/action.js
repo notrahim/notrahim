@@ -7,7 +7,14 @@ export const nextArrayPrestation = (bool)=>{
 
 export const addPrestation = (prestation)=>{
     return{
-        type: "prestation",
+        type: "addPrestation",
+        payload: prestation
+    }
+}
+
+export const removPrestation = (prestation)=>{
+    return{
+        type: "removePrestation",
         payload: prestation
     }
 }

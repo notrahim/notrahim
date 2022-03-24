@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Card from './Card';
-import { nextArrayPrestation, addPrestation, addValueInArray } from '../../../redux/actions/action';
+import { nextArrayPrestation, addPrestation, addValueInArray, removPrestation } from '../../../redux/actions/action';
 
 const ChexkBox = () => {
     const [clickedOne, setClickedOne] = useState(false)
@@ -12,7 +12,7 @@ const ChexkBox = () => {
     const [prestation, setPrestation] = useState([])
     const dispatch = useDispatch();
 
-
+    const globalOrValue = clickedOne || clickedTwo || clickedThree || clickedFour;
 
     const returnValue = async (value)=>{
         setTimeout(()=>{
@@ -64,10 +64,11 @@ const ChexkBox = () => {
                 default: console.log('error');
                     break;
             }
-        }, 400)
+        }, 200)
     }
 
     useEffect(()=>{
+        dispatch(removPrestation())
         if(clickedOne || clickedTwo || clickedThree || clickedFour){
             dispatch(nextArrayPrestation(true))
         } else {
@@ -75,12 +76,13 @@ const ChexkBox = () => {
         }
         console.log(prestation);
         if(clickedOne) dispatch(addPrestation(prestation))
-    }, [clickedOne || clickedTwo || clickedThree || clickedFour])
+    }, [globalOrValue])
 
     const checkBtn = (e)=>{
         e.preventDefault()
-        dispatch(addValueInArray())
-        if(clickedOne || clickedTwo || clickedThree || clickedFour) dispatch(addPrestation(prestation))
+        if(globalOrValue) dispatch(addValueInArray())
+        
+        if(globalOrValue) dispatch(addPrestation(prestation))
        
     }
 
