@@ -1,6 +1,6 @@
 export const nextArrayPrestation = (bool)=>{
     return{
-        type: "next",
+        type: "nextPrestation",
         payload: bool
     }
 }
@@ -16,6 +16,20 @@ export const removPrestation = (prestation)=>{
     return{
         type: "removePrestation",
         payload: prestation
+    }
+}
+
+export const addLodging = (lodging) =>{
+    return{
+        type: "addLodging",
+        payload: lodging
+    }
+}
+
+export const removLodging = (lodging)=>{
+    return{
+        type: "removeLodging",
+        payload: lodging
     }
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Card from './Card';
 import { useDispatch, useSelector } from 'react-redux';
-import { nextArrayPrestation, addPrestation, addValueInArray, removPrestation } from '../../../redux/actions/action';
+import { nextArrayPrestation, addValueInArray, addLodging, removLodging } from '../../../redux/actions/action';
 
 
 const CheckBoxTwo = () => {
@@ -17,22 +17,26 @@ const CheckBoxTwo = () => {
             switch (value) {
                 case "one":
                     setClickedOne(!clickedOne)
+                    setClickedTwo(false)
                     if(home.length > -1){
-                        if(!home.includes("iti")){
-                            sethome([...home, "iti"])
-                        }else{
-                            home.splice(home.indexOf("iti"), 1);
+                        if(!home.includes("appartement") && !home.includes("immeuble")){
+                            sethome([...home, "appartement"])
+                        }else if (!home.includes("appartement") && home.includes("immeuble")){
+                            home.splice(home.indexOf("immeuble"), 1)
+                            sethome([...home, "appartement"])
                         }
                     }
                     break;
                  
                 case "two":
                     setClickedTwo(!clickedTwo)
+                    setClickedOne(false)
                     if(home.length > -1){
-                        if(!home.includes("ite")){
-                            sethome([...home, "ite"])
-                        }else{
-                            home.splice(home.indexOf("ite"), 1);
+                        if(!home.includes("appartement") && !home.includes("immeuble")){
+                            sethome([...home, "immeuble"])
+                        }else if (!home.includes("immeuble") && home.includes("appartement")){
+                            home.splice(home.indexOf("appartement"), 1)
+                            sethome([...home, "immeuble"])
                         }
                     }
                     break;     
@@ -44,21 +48,21 @@ const CheckBoxTwo = () => {
     }
 
     useEffect(()=>{
-        dispatch(removPrestation())
+        dispatch(removLodging())
         if(globalOrValue){
             dispatch(nextArrayPrestation(true))
         } else {
             dispatch(nextArrayPrestation(false))
         }
         console.log(home);
-        if(clickedOne) dispatch(addPrestation(home))
+        if(clickedOne) dispatch(addLodging(home))
     }, [globalOrValue])
 
     const checkBtn = (e)=>{
         e.preventDefault()
         if(globalOrValue) dispatch(addValueInArray())
         
-        if(globalOrValue) dispatch(addPrestation(home))
+        if(globalOrValue) dispatch(addLodging(home))
        
     }
     return (
