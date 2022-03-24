@@ -71,30 +71,27 @@
 
     form{
         @include card;
-        @media screen and (max-width: 425px) {
-            
-        }
+        // .btnContainer{
+        //     margin-bottom: 2rem;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     @media screen and (max-width: 425px) {
+        //         margin-top: 2rem;
+        //     }
+    
+        //     .btnUn{
+        //         background-color: #0396A6;
+        //         width: 185px;
+        //         height: 75px;
+        //         color: white;
+        //         font-size: 24px;
+        //         border-radius: 10px;
+        //         @media screen and (max-height: 660px) {
+        //             margin-top: 3rem;
+        //         }
+        //     }
+        // }
     }
 
-    .btnContainer{
-        margin-bottom: 2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @media screen and (max-width: 425px) {
-            margin-top: 2rem;
-        }
-
-        .btnUn{
-            background-color: #0396A6;
-            width: 185px;
-            height: 75px;
-            color: white;
-            font-size: 24px;
-            border-radius: 10px;
-            @media screen and (max-height: 660px) {
-                margin-top: 3rem;
-            }
-        }
-    }
 }

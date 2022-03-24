@@ -11,3 +11,15 @@ export const addPrestation = (prestation)=>{
         payload: prestation
     }
 }
+
+export const addValueInArray = () =>{
+    return{
+        type: "addValueInArray"
+    }
+}
+
+export const removeValueInArray = () =>{
+    return{
+        type: "removeValueInArray"
+    }
+}

@@ -3,7 +3,7 @@ import ProgressLign from './component/ProgressLign';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ChexkBox from './component/ChexkBox';
-import { nextArrayPrestation } from '../../redux/actions/action';
+import { nextArrayPrestation, removeValueInArray } from '../../redux/actions/action';
 
 const Formulaire = () => {
     const [progress, setProgress]=useState(20);
@@ -21,19 +21,12 @@ const Formulaire = () => {
     }
 
     const boxOne = () =>{
-        if(thisValue === 1) return(<ChexkBox/>)
-    }
-
-    const checkBtn = ()=>{
-        if(state.arrayOne){
-            setThisValue(thisValue+1)
-        }else{
-        }
+        if(state.valueOfArray === 1) return(<ChexkBox/>)
     }
 
     return (
         <div className="globalFormContainer">
-            <button onClick={()=>setThisValue(thisValue-1)} className="returnBtn">
+            <button onClick={()=>dispatch(removeValueInArray())} className="returnBtn">
                 <img src="./img/SVG/chevron-left-blue.png" alt="chevron right"/>
                 retour
             </button>
@@ -44,9 +37,9 @@ const Formulaire = () => {
             <form onSubmit={sub}>
                 {boxOne()}
             </form>
-            <div className="btnContainer">
+            {/* <div className="btnContainer">
                 <button onClick={checkBtn} className="btnUn">Suivant</button>
-            </div>
+            </div> */}
         </div>
     );
 };

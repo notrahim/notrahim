@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Card from './Card';
-import { nextArrayPrestation, addPrestation } from '../../../redux/actions/action';
+import { nextArrayPrestation, addPrestation, addValueInArray } from '../../../redux/actions/action';
 
 const ChexkBox = () => {
     const [clickedOne, setClickedOne] = useState(false)
@@ -64,18 +64,25 @@ const ChexkBox = () => {
                 default: console.log('error');
                     break;
             }
-        }, 200)
+        }, 400)
     }
 
     useEffect(()=>{
         if(clickedOne || clickedTwo || clickedThree || clickedFour){
             dispatch(nextArrayPrestation(true))
-            dispatch(addPrestation(prestation))
         } else {
             dispatch(nextArrayPrestation(false))
-            dispatch(addPrestation(prestation))
         }
+        console.log(prestation);
+        if(clickedOne) dispatch(addPrestation(prestation))
     }, [clickedOne || clickedTwo || clickedThree || clickedFour])
+
+    const checkBtn = (e)=>{
+        e.preventDefault()
+        dispatch(addValueInArray())
+        if(clickedOne || clickedTwo || clickedThree || clickedFour) dispatch(addPrestation(prestation))
+       
+    }
 
     return (
         <>
@@ -92,6 +99,9 @@ const ChexkBox = () => {
                 <div onClick={()=>returnValue("four")} className={clickedFour ? "card selected" : "card"}>
                     <Card img="Isolation-toiture.svg" title="Isolation Sous-Rampant(Toiture)"/>
                 </div>  
+            </div>
+            <div className="btnContainer">
+                <button onClick={checkBtn} className="btnUn">Suivant</button>
             </div>
         </>
     )
