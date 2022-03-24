@@ -33,6 +33,34 @@ export const removLodging = (lodging)=>{
     }
 }
 
+export const addOld = (old)=>{
+    return{
+        type:"addOld",
+        payload: old
+    }
+}
+
+export const removOld = (old)=>{
+    return{
+        type: "removeOld",
+        payload: old
+    }
+}
+
+export const addMeasure = (measure)=>{
+    return{
+        type: "addMeasure",
+        payload: measure
+    }
+}
+
+export const removMeasure = (measure)=>{
+    return{
+        type: "removeMeasure",
+        payload: measure
+    }
+}
+
 export const addValueInArray = () =>{
     return{
         type: "addValueInArray"

@@ -65,7 +65,7 @@ const ChexkBox = () => {
                 default: console.log('error');
                     break;
             }
-        }, 200)
+        }, 20)
     }
 
     useEffect(()=>{

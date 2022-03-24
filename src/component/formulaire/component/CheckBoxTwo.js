@@ -44,7 +44,7 @@ const CheckBoxTwo = () => {
                 default: console.log('error');
                     break;
             }
-        }, 200)
+        }, 20)
     }
 
     useEffect(()=>{
@@ -65,6 +65,7 @@ const CheckBoxTwo = () => {
         if(globalOrValue) dispatch(addLodging(home))
        
     }
+    
     return (
         <>
             <div className="cardContainer">

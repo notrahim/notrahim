@@ -6,6 +6,7 @@ const initState = {
     valueOfArray: 1,
     prospect : {
         nom: null,
+        prenom: null,
         email:null,
         tel:null,
         codePostal: null,
@@ -59,22 +60,62 @@ const reducer = (state = initState, action)=>{
                 prospect:{
                     typeLogement: null
                 }
+            }  
+            
+        case "addOld":
+            return{
+                ...state,
+                ...state.prospect,
+                prospect:{
+                    age: action.payload
+                }
             }    
+            
+        case "removeOld":
+            return{
+                ...state,
+                ...state.prospect,
+                prospect:{
+                    age: null
+                }
+            }  
+         
+        case "addMeasure":
+            return{
+                ...state,
+                ...state.prospect,
+                prospect:{
+                    surface: action.payload
+                }
+            } 
+            
+        case "removeMeasure":
+            return{
+                ...state,
+                ...state.prospect,
+                prospect:{
+                    surface: null
+                }
+            }  
 
         case "addValueInArray": 
-            return{
-                ...state, 
-                valueOfArray: state.valueOfArray +1
+            if(state.valueOfArray <= 6){
+                return{
+                    ...state, 
+                    valueOfArray: state.valueOfArray +1
+                }
             }
+            break;
             
 
         case "removeValueInArray": 
-        if(state.valueOfArray > 1){
-            return{
-                ...state, 
-                valueOfArray: state.valueOfArray -1
+            if(state.valueOfArray > 1){
+                return{
+                    ...state, 
+                    valueOfArray: state.valueOfArray -1
+                }
             }
-        }
+            break;
         
         default: return state
     }
