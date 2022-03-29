@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addNameValue, addNewsLaterValue } from '../../../redux/actions/action';
 
 const FormulaireFinal = () => {
@@ -34,6 +34,7 @@ const FormulaireFinal = () => {
     const globalValue = nameValue && prenomValue && codePostalValue && phoneValue && mailValue && rgpdValue;
 
     const dispatch = useDispatch()
+    const isLoading = useSelector(state=>state.isLoading)
 
     const checkBtn = (e)=>{
         e.preventDefault()

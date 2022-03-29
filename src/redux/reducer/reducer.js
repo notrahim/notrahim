@@ -7,7 +7,7 @@ const initState = {
     prospect : {
         nom: null,
         prenom: null,
-        email:null,
+        mail:null,
         tel:null,
         codePostal: null,
         rgpd: false,
@@ -122,6 +122,7 @@ const reducer = (state = initState, action)=>{
         return{
             ...state, 
             ...state.prospect,
+            isLoading: true,
             prospect:{
                 nom: action.payload.nom,
                 prenom: action.payload.prenom,
