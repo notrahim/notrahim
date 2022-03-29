@@ -118,14 +118,14 @@ const reducer = (state = initState, action)=>{
                 }
             } 
             
-        case "addNomValue": 
+        case "addNameValue": 
         return{
             ...state, 
             ...state.prospect,
             prospect:{
                 nom: action.payload.nom,
                 prenom: action.payload.prenom,
-                tel: action.payload.phone,
+                tel: action.payload.tel,
                 mail: action.payload.mail,
                 codePostal: action.payload.codePostal,
                 rgpd: action.payload.rgpd,

@@ -11,12 +11,12 @@ const ChexkBox = () => {
     const [clickedFour, setClickedFour] = useState(false)
     const [prestation, setPrestation] = useState([])
     const [globalError, setGlobalError] = useState(false)
-    
+
     const dispatch = useDispatch();
 
     const globalOrValue = clickedOne || clickedTwo || clickedThree || clickedFour;
 
-    const returnValue = async (value)=>{
+    const returnValue = (value)=>{
         setTimeout(()=>{
             switch (value) {
                 case "one":

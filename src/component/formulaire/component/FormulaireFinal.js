@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addNameValue, addNewsLaterValue } from '../../../redux/actions/action';
 
 const FormulaireFinal = () => {
     const regexName =/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -29,7 +31,9 @@ const FormulaireFinal = () => {
 
     const [globalError, setGlobalError] = useState(false)
 
-    const globalValue = nameValue || prenomValue || codePostalValue || phoneValue || mailValue || rgpdValue;
+    const globalValue = nameValue && prenomValue && codePostalValue && phoneValue && mailValue && rgpdValue;
+
+    const dispatch = useDispatch()
 
     const checkBtn = (e)=>{
         e.preventDefault()
@@ -79,6 +83,15 @@ const FormulaireFinal = () => {
         //validation du contener global
         if(globalValue){
             setGlobalError(false)
+            dispatch(addNameValue({
+                nom: nameValue,
+                prenom: prenomValue,
+                codePostal: codePostalValue,
+                tel: phoneValue,
+                mail: mailValue,
+                rgpd: rgpdValue,
+                newsLater: newsLaterBool
+            }))
         }else{
             setGlobalError(true)
         }

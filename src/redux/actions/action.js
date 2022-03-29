@@ -77,7 +77,7 @@ export const removWhen = (when) =>{
 
 export const addNameValue = (value) =>{
     return{
-        type: "addNomValue",
+        type: "addNameValue",
         payload: value
     }
 }
