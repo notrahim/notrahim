@@ -8,6 +8,7 @@ import CheckBoxTwo from './component/CheckBoxTwo';
 import CheckBoxThree from './component/CheckBoxThree';
 import CheckBoxFour from './component/CheckBoxFour';
 import CheckBoxFive from './component/CheckBoxFive';
+import FormulaireFinal from './component/FormulaireFinal';
 
 const Formulaire = () => {
     const maxArray = 8;
@@ -61,6 +62,9 @@ const Formulaire = () => {
         }
         if(state.valueOfArray === 5){
             return(<CheckBoxFive />)
+        }
+        if(state.valueOfArray === 6){
+            return(<FormulaireFinal />)
         }
     }
 

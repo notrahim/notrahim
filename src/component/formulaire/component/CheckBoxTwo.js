@@ -9,6 +9,7 @@ const CheckBoxTwo = () => {
     const [clickedOne, setClickedOne] = useState(false)
     const [clickedTwo, setClickedTwo] = useState(false)
     const [home, sethome] = useState([])
+    const [globalError, setGlobalError] = useState(false)
     const dispatch = useDispatch()
     const globalOrValue = clickedOne || clickedTwo ;
 
@@ -54,21 +55,26 @@ const CheckBoxTwo = () => {
         } else {
             dispatch(nextArrayPrestation(false))
         }
-        console.log(home);
+        // console.log(home);
         if(clickedOne) dispatch(addLodging(home))
     }, [globalOrValue])
 
     const checkBtn = (e)=>{
         e.preventDefault()
-        if(globalOrValue) dispatch(addValueInArray())
+        if(globalOrValue) {
+           dispatch(addValueInArray()) 
+           dispatch(addLodging(home))
+           setGlobalError(false)
+        } else {
+            setGlobalError(true)
+        }
         
-        if(globalOrValue) dispatch(addLodging(home))
        
     }
     
     return (
         <>
-            <div className="cardContainer">
+            <div className={globalError ? "error cardContainer" : "cardContainer"}>
                 <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="house.svg" title="Une Maison"/>
                 </div>  
@@ -77,7 +83,8 @@ const CheckBoxTwo = () => {
                 </div>   
             </div>
             <div className="btnContainer">
-                <button onClick={checkBtn} className="btnUn">Suivant</button>
+                <button onClick={checkBtn} className={globalError ? "error btnUn" : "btnUn"}>Suivant</button>
+                <div className={globalError ? "hiddenError" : "error"}>Veuillez selectionner le type de logement</div>
             </div>
         </>
     );

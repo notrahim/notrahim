@@ -10,6 +10,8 @@ const ChexkBox = () => {
     const [clickedThree, setClickedThree] = useState(false)
     const [clickedFour, setClickedFour] = useState(false)
     const [prestation, setPrestation] = useState([])
+    const [globalError, setGlobalError] = useState(false)
+    
     const dispatch = useDispatch();
 
     const globalOrValue = clickedOne || clickedTwo || clickedThree || clickedFour;
@@ -74,21 +76,24 @@ const ChexkBox = () => {
         } else {
             dispatch(nextArrayPrestation(false))
         }
-        console.log(prestation);
+        // console.log(prestation)
         if(clickedOne) dispatch(addPrestation(prestation))
     }, [globalOrValue])
 
     const checkBtn = (e)=>{
         e.preventDefault()
-        if(globalOrValue) dispatch(addValueInArray())
-        
-        if(globalOrValue) dispatch(addPrestation(prestation))
-       
+        if(globalOrValue){
+            dispatch(addValueInArray())
+            dispatch(addPrestation(prestation))
+            setGlobalError(false)
+        } else{
+            setGlobalError(true)
+        }
     }
 
     return (
         <>
-            <div className="cardContainer">
+            <div className={globalError ? "error cardContainer" : "cardContainer"}>
                 <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="isolation-in.svg" title="ITI (Isolation Murs Interieurs)"/>
                 </div>  
@@ -103,7 +108,8 @@ const ChexkBox = () => {
                 </div>  
             </div>
             <div className="btnContainer">
-                <button onClick={checkBtn} className="btnUn">Suivant</button>
+                <button className={globalError ? "error btnUn" : "btnUn"} onClick={checkBtn} >Suivant</button>
+                <div className={globalError ? "hiddenError" : "error"}>Veuillez selectionner une préstation</div>
             </div>
         </>
     )

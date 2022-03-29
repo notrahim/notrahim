@@ -10,6 +10,8 @@ const initState = {
         email:null,
         tel:null,
         codePostal: null,
+        rgpd: false,
+        newsLater: false,
         prestation:[],
         typeLogement: null,
         surface:null,
@@ -114,8 +116,24 @@ const reducer = (state = initState, action)=>{
                 prospect:{
                     realisation: null
                 }
-            }   
-
+            } 
+            
+        case "addNomValue": 
+        return{
+            ...state, 
+            ...state.prospect,
+            prospect:{
+                nom: action.payload.nom,
+                prenom: action.payload.prenom,
+                tel: action.payload.phone,
+                mail: action.payload.mail,
+                codePostal: action.payload.codePostal,
+                rgpd: action.payload.rgpd,
+                newsLater: action.payload.newsLater
+            }
+        }   
+        
+         
         case "addValueInArray": 
             if(state.valueOfArray <= 6){
                 return{

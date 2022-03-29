@@ -75,6 +75,50 @@ export const removWhen = (when) =>{
     }
 }
 
+export const addNameValue = (value) =>{
+    return{
+        type: "addNomValue",
+        payload: value
+    }
+}
+
+export const addPrenomValue = (value) =>{
+    return{
+        type: "addPrenomValue",
+        payload: value
+    }
+}
+
+export const addCodePostalValue = (value) =>{
+    return{
+        type: "addCodePostalValue",
+        payload: value
+    }
+}
+
+export const addPhoneValue = (value) =>{
+    return{
+        type: "addPhoneValue",
+        payload: value
+    }
+}
+
+export const addRGPDValue = (value) =>{
+    return{
+        type: "addRGPDValue",
+        payload: value
+    }
+}
+
+export const addNewsLaterValue = (value) =>{
+    return{
+        type: "addNewsLaterValue",
+        payload: value
+    }
+}
+
+
+
 export const addValueInArray = () =>{
     return{
         type: "addValueInArray"
