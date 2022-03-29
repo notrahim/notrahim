@@ -27,6 +27,8 @@ const FormulaireFinal = () => {
 
     const [newsLaterBool, setNewsLaterNews] = useState(false)
 
+    const [globalError, setGlobalError] = useState(false)
+
     const globalValue = nameValue || prenomValue || codePostalValue || phoneValue || mailValue || rgpdValue;
 
     const checkBtn = (e)=>{
@@ -73,44 +75,54 @@ const FormulaireFinal = () => {
         }else {
             setErrorRGPD(true)
         }
+
+        //validation du contener global
+        if(globalValue){
+            setGlobalError(false)
+        }else{
+            setGlobalError(true)
+        }
     }    
 
     return (
         <>
-            <div className={errorName ? "nom error": "nom"}>
-                <label for="name">Nom*</label>
-                <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e)=>setNameValue(e.target.value)} required ></input>
-            </div>
-            <div className={errorPrenom ? "prenom error": "prenom"}>
-                <label for="Nom">Prenom*</label>
-                <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e)=>setPrenomValue(e.target.value)} required ></input>
-            </div>
-            <div className={errorCodePostal ? "codePostal error": "codePostal"}>
-                <label for="CodePostal">Code postal*</label>
-                <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e)=>setCodePostalValue(e.target.value)} required ></input>
-            </div>
-            <div className={errorPhone ? "phone error": "phone"}>
-                <label for="phone">Téléphone*</label>
-                <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e)=>setPhoneValue(e.target.value)} required ></input>
-            </div>
-            <div className={errorMail ? "email error": "email"}>
-                <label for="email">Email*</label>
-                <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e)=>setMailValue(e.target.value)} required ></input>
-            </div>
-            <div className="checkbox">
-                <p>En savoir plus sur la gestion de vos données et de vos droits</p>
-                <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br/> Pour le permettre veuillez cocher les cases ci-dessous: </p>
-                <div className={errorRGPD ? "rgpd error": "rgpd"}>
-                    <input onClick={()=>setRgpdValue(!rgpdValue)} type="checkbox" id="one" name="one" required/>
-                    <label for="one">Être contacter par l’éditeur du site dans le cadre de ma demande*</label>
+            <div className={globalError? "error finalFormContainer" : "finalFormContainer"}>
+                <div className={errorName ? "nom error": "nom"}>
+                    <label for="name">Nom*</label>
+                    <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e)=>setNameValue(e.target.value)} required ></input>
                 </div>
-                <div className="newsLater">
-                    <input onClick={()=>setNewsLaterNews(!newsLaterBool)} type="checkbox" id="two" name="two"/>
-                    <label for="two">Recevoir des offres commerciales par voie éléctronique</label>
+                <div className={errorPrenom ? "prenom error": "prenom"}>
+                    <label for="Nom">Prenom*</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e)=>setPrenomValue(e.target.value)} required ></input>
+                </div>
+                <div className={errorCodePostal ? "codePostal error": "codePostal"}>
+                    <label for="CodePostal">Code postal*</label>
+                    <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e)=>setCodePostalValue(e.target.value)} required ></input>
+                </div>
+                <div className={errorPhone ? "phone error": "phone"}>
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e)=>setPhoneValue(e.target.value)} required ></input>
+                </div>
+                <div className={errorMail ? "email error": "email"}>
+                    <label for="email">Email*</label>
+                    <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e)=>setMailValue(e.target.value)} required ></input>
+                </div>
+                <div className="checkbox">
+                    <p>En savoir plus sur la gestion de vos données et de vos droits</p>
+                    <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br/> Pour le permettre veuillez cocher les cases ci-dessous: </p>
+                    <div className={errorRGPD ? "rgpd error": "rgpd"}>
+                        <input onClick={()=>setRgpdValue(!rgpdValue)} type="checkbox" id="one" name="one" required/>
+                        <label for="one">Être contacter par l’éditeur du site dans le cadre de ma demande*</label>
+                    </div>
+                    <div className="newsLater">
+                        <input onClick={()=>setNewsLaterNews(!newsLaterBool)} type="checkbox" id="two" name="two"/>
+                        <label for="two">Recevoir des offres commerciales par voie éléctronique</label>
+                    </div>
                 </div>
             </div>
             <div className="btnContainer">
-                <button onClick={checkBtn} className="btnUn">Envoyer</button>
+                <button className={globalError ? "error btnUn" : "btnUn"} onClick={checkBtn} >Suivant</button>
+                <div className={globalError ? "hiddenError" : "error"}>Veuillez saisir vos coordonnées</div>
             </div>
         </>
     );
