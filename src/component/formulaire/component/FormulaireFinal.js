@@ -1,7 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNameValue, addNewsLaterValue } from '../../../redux/actions/action';
+import { addNameValue, addNewsLaterValue, isNotLoading, isLoading} from '../../../redux/actions/action';
+import axios from "axios"
 
 const FormulaireFinal = () => {
     const regexName =/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -34,9 +35,10 @@ const FormulaireFinal = () => {
     const globalValue = nameValue && prenomValue && codePostalValue && phoneValue && mailValue && rgpdValue;
 
     const dispatch = useDispatch()
-    const isLoading = useSelector(state=>state.isLoading)
+    const state= useSelector(state=>state)
 
-    const checkBtn = (e)=>{
+    //Validation des data saisi via les regex et gestion des erreurs en fontion
+    const checkBtn = async (e)=>{
         e.preventDefault()
 
         //CheckNom
@@ -83,54 +85,99 @@ const FormulaireFinal = () => {
 
         //validation du contener global
         if(globalValue){
-            setGlobalError(false)
-            dispatch(addNameValue({
-                nom: nameValue,
-                prenom: prenomValue,
-                codePostal: codePostalValue,
-                tel: phoneValue,
-                mail: mailValue,
-                rgpd: rgpdValue,
-                newsLater: newsLaterBool
-            }))
+                setGlobalError(false)
+                if(state.name === null || state.prenom === null || state.mail === null || state.tel === null || state.codePostal === null){
+                    await dispatch(addNameValue({
+                        nom: nameValue,
+                        prenom: prenomValue,
+                        codePostal: codePostalValue,
+                        tel: phoneValue,
+                        mail: mailValue,
+                        rgpd: rgpdValue,
+                        newsLater: newsLaterBool
+                    }))
+                    await addUser();
+                }
         }else{
             setGlobalError(true)
         }
     }    
 
+    //Post via axios des data saisis par l'utilisateur     
+    const addUser = async ()=>{
+            axios
+          .post('http://localhost:1337/api/prospects', {
+                "data": {
+                  "name": nameValue,
+                  "prenom": prenomValue,
+                  "email": mailValue,
+                  "phone": phoneValue,
+                  "prestation": state.prestation.toString(),
+                  "habitation": state.typeLogement.toString(),
+                  "age": state.age.toString(),
+                  "surface": state.surface.toString(),
+                  "date": state.realisation.toString(),
+                  "codepostal": codePostalValue,
+                  "rgpd": state.rgpd,
+                  "newslaters": state.newsLater
+                }
+          })
+          .then(response => {
+              console.log('User profile', response);
+              dispatch(isNotLoading())
+          })
+          .catch(error => {
+            // console.log('An error occurred:', error.response);
+          });
+    }
+
     return (
         <>
             <div className={globalError? "error finalFormContainer" : "finalFormContainer"}>
                 <div className={errorName ? "nom error": "nom"}>
-                    <label for="name">Nom*</label>
-                    <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e)=>setNameValue(e.target.value)} required ></input>
+                    <label>
+                        Nom*
+                        <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e)=>setNameValue(e.target.value)} required></input>
+                    </label>
                 </div>
                 <div className={errorPrenom ? "prenom error": "prenom"}>
-                    <label for="Nom">Prenom*</label>
-                    <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e)=>setPrenomValue(e.target.value)} required ></input>
+                    <label>
+                        Prenom*
+                        <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e)=>setPrenomValue(e.target.value)} required></input>
+                    </label>
                 </div>
                 <div className={errorCodePostal ? "codePostal error": "codePostal"}>
-                    <label for="CodePostal">Code postal*</label>
-                    <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e)=>setCodePostalValue(e.target.value)} required ></input>
+                    <label>
+                        Code postal*
+                        <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e)=>setCodePostalValue(e.target.value)} required></input>
+                    </label>
                 </div>
                 <div className={errorPhone ? "phone error": "phone"}>
-                    <label for="phone">Téléphone*</label>
-                    <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e)=>setPhoneValue(e.target.value)} required ></input>
+                    <label>
+                        Téléphone*
+                        <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e)=>setPhoneValue(e.target.value)} required></input>
+                    </label>
                 </div>
                 <div className={errorMail ? "email error": "email"}>
-                    <label for="email">Email*</label>
-                    <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e)=>setMailValue(e.target.value)} required ></input>
+                    <label>
+                        Email*
+                        <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e)=>setMailValue(e.target.value)} required></input>
+                    </label>
                 </div>
                 <div className="checkbox">
                     <p>En savoir plus sur la gestion de vos données et de vos droits</p>
                     <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br/> Pour le permettre veuillez cocher les cases ci-dessous: </p>
                     <div className={errorRGPD ? "rgpd error": "rgpd"}>
-                        <input onClick={()=>setRgpdValue(!rgpdValue)} type="checkbox" id="one" name="one" required/>
-                        <label for="one">Être contacter par l’éditeur du site dans le cadre de ma demande*</label>
+                        <label>
+                            <input onClick={()=>setRgpdValue(!rgpdValue)} type="checkbox" id="one" name="one" required/>
+                            Être contacter par l’éditeur du site dans le cadre de ma demande*
+                        </label>
                     </div>
                     <div className="newsLater">
-                        <input onClick={()=>setNewsLaterNews(!newsLaterBool)} type="checkbox" id="two" name="two"/>
-                        <label for="two">Recevoir des offres commerciales par voie éléctronique</label>
+                        <label>
+                            <input onClick={()=>setNewsLaterNews(!newsLaterBool)} type="checkbox" id="two" name="two"/>
+                            Recevoir des offres commerciales par voie éléctronique
+                        </label>
                     </div>
                 </div>
             </div>

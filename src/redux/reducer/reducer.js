@@ -4,24 +4,34 @@ const initState = {
     arrayOne : false,
     arrayTwo : false,
     valueOfArray: 1,
-    prospect : {
-        nom: null,
-        prenom: null,
-        mail:null,
-        tel:null,
-        codePostal: null,
-        rgpd: false,
-        newsLater: false,
-        prestation:[],
-        typeLogement: null,
-        surface:null,
-        age:null,
-        realisation:null
-    }
+    nom: null,
+    prenom: null,
+    mail:null,
+    tel:null,
+    codePostal: null,
+    rgpd: false,
+    newsLater: false,
+    prestation:[],
+    typeLogement: null,
+    surface:null,
+    age:null,
+    realisation:null
 }
 
 const reducer = (state = initState, action)=>{
     switch (action.type) {
+        case "isLoading":
+            return{
+                ...state,
+                isLoading: false
+            }
+
+        case "isNotLoading":
+            return{
+                ...state,
+                isLoading: true
+            }    
+
         case "next":
             return {
                 ...state,
@@ -31,107 +41,76 @@ const reducer = (state = initState, action)=>{
         case "addPrestation":
             return{ 
                 ...state,
-                ...state.prospect,
-                prospect: {
-                    prestation: state.prospect.prestation.concat(action.payload)
-                }
+                prestation: state.prestation.concat(action.payload)
             }  
             
         case "removePrestation":
             return{
                 ...state,
-                ...state.prospect,
-                prospect: {
-                    prestation: []
-                }
+                prestation: []
             }  
             
         case"addLodging":
             return{
                 ...state,
-                ...state.prospect,
-                prospect: {
-                    typeLogement: action.payload
-                }
+                typeLogement: action.payload
             }  
             
         case "removeLodging":
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    typeLogement: null
-                }
+                typeLogement: null
             }  
             
         case "addOld":
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    age: action.payload
-                }
+                age: action.payload
             }    
             
         case "removeOld":
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    age: null
-                }
+                age: null
             }  
          
         case "addMeasure":
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    surface: action.payload
-                }
+                surface: action.payload
             } 
             
         case "removeMeasure":
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    surface: null
-                }
+                surface: null
             }  
 
         case "addWhen": 
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    realisation: action.payload
-                }
+                realisation: action.payload
             }  
             
         case "removeWhen":
             return{
                 ...state,
-                ...state.prospect,
-                prospect:{
-                    realisation: null
-                }
+                realisation: null
             } 
             
         case "addNameValue": 
         return{
             ...state, 
+            isLoading: true,
             ...state.prospect,
             isLoading: true,
-            prospect:{
-                nom: action.payload.nom,
-                prenom: action.payload.prenom,
-                tel: action.payload.tel,
-                mail: action.payload.mail,
-                codePostal: action.payload.codePostal,
-                rgpd: action.payload.rgpd,
-                newsLater: action.payload.newsLater
-            }
+            nom: action.payload.nom,
+            prenom: action.payload.prenom,
+            tel: action.payload.tel,
+            mail: action.payload.mail,
+            codePostal: action.payload.codePostal,
+            rgpd: action.payload.rgpd,
+            newsLater: action.payload.newsLater
         }   
         
          

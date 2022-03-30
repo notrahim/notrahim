@@ -7,8 +7,7 @@ import { useSelector } from 'react-redux';
 //TODO Creer une modal pour qu'a l'ouverture de la page, la partie main soit entièrement visible 
 //BUG Je pense que la solution est d'iterer la navbar au scroll
 const LandingPage = () => {
-    const isLoading = useSelector(state => state.isLoading)
-
+    const isLoading = useSelector(state => state.isLoading);
     return (
         <>
             <div className={isLoading ? "loader isLoading" : "loader"}></div>   

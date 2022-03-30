@@ -92,8 +92,6 @@ const CheckBoxThree = () => {
         } else{
             setGlobalError(true)
         }
-        
-       
     }
 
     return (
