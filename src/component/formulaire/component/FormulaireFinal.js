@@ -94,7 +94,7 @@ const FormulaireFinal = () => {
                         "codePostal": codePostalValue,
                         "tel": phoneValue,
                         "mail": mailValue,
-                        "rgpd": rgpdValue,
+                        "rgpd": !rgpdValue,
                         "newsLater": newsLaterBool
                     }))
                     await dispatch(addUser({
@@ -108,8 +108,8 @@ const FormulaireFinal = () => {
                         "surface": state.surface.toString(),
                         "date": state.realisation.toString(),
                         "codepostal": codePostalValue,
-                        "rgpd": state.rgpd,
-                        "newslaters": state.newsLater
+                        "rgpd": rgpdValue, 
+                        "newslaters": newsLaterBool
                     }));
                 }
         }else{
@@ -117,9 +117,12 @@ const FormulaireFinal = () => {
         }
     }    
 
-    function changeRGP (e) {
+    function changeRGP () {
         setRgpdValue(!rgpdValue);
-        console.log(rgpdValue);
+    }
+
+    function changeNewsLatter (e) {
+        setNewsLaterNews(!newsLaterBool);
     }
 
     return (
@@ -160,13 +163,13 @@ const FormulaireFinal = () => {
                     <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br/> Pour le permettre veuillez cocher les cases ci-dessous: </p>
                     <div className={errorRGPD ? "rgpd error": "rgpd"}>
                         <label>
-                            <input onChange={changeRGP} type="checkbox" id="one" name="one" checked={rgpdValue} required/>
+                            <input onChange={changeRGP} type="checkbox" id="one" name="one" required/>
                             Être contacter par l’éditeur du site dans le cadre de ma demande*
                         </label>
                     </div>
                     <div className="newsLater">
                         <label>
-                            <input onClick={()=>setNewsLaterNews(!newsLaterBool)} type="checkbox" id="two" name="two"/>
+                            <input onChange={changeNewsLatter} type="checkbox" id="two" name="two"/>
                             Recevoir des offres commerciales par voie éléctronique
                         </label>
                     </div>
