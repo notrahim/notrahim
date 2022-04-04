@@ -143,31 +143,16 @@ export const removeValueInArray = () =>{
     }
 }
 
-// export function putUserLastName (nom, prenom, email, phone, prestation, habitation, age, surface, date, codePostal, rgpd, newsLaters){
-//     return async () =>{
-//         try{
-//             const response = await axios({
-//                 method: 'put',
-//                 url: 'http://localhost:1337/api/prospects',
-//                 "data": {
-//                   "name": nom,
-//                   "prenom": prenom,
-//                   "email": email,
-//                   "phone": phone,
-//                   "prestation": prestation.toString(),
-//                   "habitation": habitation.toString(),
-//                   "age": age.toString(),
-//                   "surface": surface.toString(),
-//                   "date": date.toString(),
-//                   "codepostal": codePostal,
-//                   "rgpd": rgpd,
-//                   "newslaters": newsLaters
-//                 }
-//             })
-//             console.log(response);
-//             // await dispatch(changeName(response.data));
-//         } catch (error){
-
-//         }
-//     }
-// }
+export function addUser(user) {
+    return (dispatch) => {
+        dispatch({type : "addNameValue", payload: user});
+        axios.post("http://localhost:1337/api/prospects", {"data" : user})
+        .then(
+            response => {
+                    console.log(response);
+                    dispatch({type : "addGlobalUserValue", payload : response})
+                },
+                error => console.log(error)
+            );    
+    };
+}

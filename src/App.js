@@ -16,7 +16,7 @@ function App() {
           <Route path="/nous-contacter" element={<LandingPage />}/>
           <Route path="/*" element={<NotFound />}/>
         </Routes>
-      <Footer />  
+        <Footer />  
       </BrowserRouter>
     </div>
   );

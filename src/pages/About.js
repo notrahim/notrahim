@@ -4,8 +4,10 @@ import TitleAndText from '../component/TitleAndText';
 import ImageAndText from '../component/ImageAndText';
 import Button from '../component/Button';
 import { NavLink } from 'react-router-dom'; 
+import {mpl} from 'my-personnal-library';
 
 const About = () => {
+    mpl(2, 3)
     return (
         <>
             <header className="aboutHeader">

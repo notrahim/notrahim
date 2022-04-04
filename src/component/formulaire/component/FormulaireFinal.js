@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNameValue, addNewsLaterValue, isNotLoading, isLoading} from '../../../redux/actions/action';
-import axios from "axios"
+import { addNameValue, isLoading, addUser} from '../../../redux/actions/action';
 
 const FormulaireFinal = () => {
     const regexName =/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -41,6 +40,8 @@ const FormulaireFinal = () => {
     const checkBtn = async (e)=>{
         e.preventDefault()
 
+        dispatch(isLoading())
+
         //CheckNom
         if(nameValue !== null && regexName.test(nameValue)){
             setErrorName(false);
@@ -76,7 +77,7 @@ const FormulaireFinal = () => {
             setErrorMail(true)
         }
 
-        //Check RGPD
+        // Check RGPD
         if(rgpdValue){
             setErrorRGPD(false);
         }else {
@@ -88,47 +89,37 @@ const FormulaireFinal = () => {
                 setGlobalError(false)
                 if(state.name === null || state.prenom === null || state.mail === null || state.tel === null || state.codePostal === null){
                     await dispatch(addNameValue({
-                        nom: nameValue,
-                        prenom: prenomValue,
-                        codePostal: codePostalValue,
-                        tel: phoneValue,
-                        mail: mailValue,
-                        rgpd: rgpdValue,
-                        newsLater: newsLaterBool
+                        "name": nameValue,
+                        "prenom": prenomValue,
+                        "codePostal": codePostalValue,
+                        "tel": phoneValue,
+                        "mail": mailValue,
+                        "rgpd": rgpdValue,
+                        "newsLater": newsLaterBool
                     }))
-                    await addUser();
+                    await dispatch(addUser({
+                        "name": nameValue,
+                        "prenom": prenomValue,
+                        "email": mailValue,
+                        "phone": phoneValue,
+                        "prestation": state.prestation.toString(),
+                        "habitation": state.typeLogement.toString(),
+                        "age": state.age.toString(),
+                        "surface": state.surface.toString(),
+                        "date": state.realisation.toString(),
+                        "codepostal": codePostalValue,
+                        "rgpd": state.rgpd,
+                        "newslaters": state.newsLater
+                    }));
                 }
         }else{
             setGlobalError(true)
         }
     }    
 
-    //Post via axios des data saisis par l'utilisateur     
-    const addUser = async ()=>{
-            axios
-          .post('http://localhost:1337/api/prospects', {
-                "data": {
-                  "name": nameValue,
-                  "prenom": prenomValue,
-                  "email": mailValue,
-                  "phone": phoneValue,
-                  "prestation": state.prestation.toString(),
-                  "habitation": state.typeLogement.toString(),
-                  "age": state.age.toString(),
-                  "surface": state.surface.toString(),
-                  "date": state.realisation.toString(),
-                  "codepostal": codePostalValue,
-                  "rgpd": state.rgpd,
-                  "newslaters": state.newsLater
-                }
-          })
-          .then(response => {
-              console.log('User profile', response);
-              dispatch(isNotLoading())
-          })
-          .catch(error => {
-            // console.log('An error occurred:', error.response);
-          });
+    function changeRGP (e) {
+        setRgpdValue(!rgpdValue);
+        console.log(rgpdValue);
     }
 
     return (
@@ -169,7 +160,7 @@ const FormulaireFinal = () => {
                     <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br/> Pour le permettre veuillez cocher les cases ci-dessous: </p>
                     <div className={errorRGPD ? "rgpd error": "rgpd"}>
                         <label>
-                            <input onClick={()=>setRgpdValue(!rgpdValue)} type="checkbox" id="one" name="one" required/>
+                            <input onChange={changeRGP} type="checkbox" id="one" name="one" checked={rgpdValue} required/>
                             Être contacter par l’éditeur du site dans le cadre de ma demande*
                         </label>
                     </div>

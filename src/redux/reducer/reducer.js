@@ -99,10 +99,9 @@ const reducer = (state = initState, action)=>{
             } 
             
         case "addNameValue": 
+        // console.log("payload : ", action.payload.name);
         return{
             ...state, 
-            isLoading: true,
-            ...state.prospect,
             isLoading: true,
             nom: action.payload.nom,
             prenom: action.payload.prenom,
@@ -110,8 +109,14 @@ const reducer = (state = initState, action)=>{
             mail: action.payload.mail,
             codePostal: action.payload.codePostal,
             rgpd: action.payload.rgpd,
-            newsLater: action.payload.newsLater
-        }   
+            newsLater: action.payload.newsLater,
+        }  
+        
+        case "addGlobalUserValue":
+            return{
+                ...state, 
+                isLoading: false
+            }
         
          
         case "addValueInArray": 
