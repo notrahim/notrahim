@@ -88,15 +88,15 @@ const FormulaireFinal = () => {
         if(globalValue){
                 setGlobalError(false)
                 if(state.name === null || state.prenom === null || state.mail === null || state.tel === null || state.codePostal === null){
-                    await dispatch(addNameValue({
-                        "name": nameValue,
-                        "prenom": prenomValue,
-                        "codePostal": codePostalValue,
-                        "tel": phoneValue,
-                        "mail": mailValue,
-                        "rgpd": !rgpdValue,
-                        "newsLater": newsLaterBool
-                    }))
+                    // await dispatch(addNameValue({
+                    //     "name": nameValue,
+                    //     "prenom": prenomValue,
+                    //     "codePostal": codePostalValue,
+                    //     "tel": phoneValue,
+                    //     "mail": mailValue,
+                    //     "rgpd": !rgpdValue,
+                    //     "newsLater": newsLaterBool
+                    // }))
                     await dispatch(addUser({
                         "name": nameValue,
                         "prenom": prenomValue,
@@ -107,7 +107,7 @@ const FormulaireFinal = () => {
                         "age": state.age.toString(),
                         "surface": state.surface.toString(),
                         "date": state.realisation.toString(),
-                        "codepostal": codePostalValue,
+                        "codePostal": codePostalValue,
                         "rgpd": rgpdValue, 
                         "newslaters": newsLaterBool
                     }));
@@ -121,7 +121,7 @@ const FormulaireFinal = () => {
         setRgpdValue(!rgpdValue);
     }
 
-    function changeNewsLatter (e) {
+    function changeNewsLatter () {
         setNewsLaterNews(!newsLaterBool);
     }
 

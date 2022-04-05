@@ -20,13 +20,13 @@ const initState = {
 
 const reducer = (state = initState, action)=>{
     switch (action.type) {
-        case "isLoading":
+        case "isNotLoading":
             return{
                 ...state,
                 isLoading: false
             }
 
-        case "isNotLoading":
+        case "isLoading":
             return{
                 ...state,
                 isLoading: true
@@ -99,17 +99,16 @@ const reducer = (state = initState, action)=>{
             } 
             
         case "addNameValue": 
-        // console.log("payload : ", action.payload.name);
         return{
             ...state, 
             isLoading: true,
-            nom: action.payload.nom,
+            nom: action.payload.name,
             prenom: action.payload.prenom,
-            tel: action.payload.tel,
-            mail: action.payload.mail,
+            tel: action.payload.phone,
+            mail: action.payload.email,
             codePostal: action.payload.codePostal,
             rgpd: action.payload.rgpd,
-            newsLater: action.payload.newsLater,
+            newsLater: action.payload.newsLaters,
         }  
         
         case "addGlobalUserValue":

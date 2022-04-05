@@ -145,12 +145,12 @@ export const removeValueInArray = () =>{
 
 export function addUser(user) {
     return (dispatch) => {
+        console.log(user);
         dispatch({type : "addNameValue", payload: user});
         axios.post("http://localhost:1337/api/prospects", {"data" : user})
         .then(
             response => {
                     console.log(response);
-                    dispatch({type : "addGlobalUserValue", payload : response})
                 },
                 error => console.log(error)
             );    
