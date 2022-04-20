@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Footer from "./component/Footer";
 import LandingPage from "./pages/LandingPage";
+import ConnectionPage from "./pages/ConnectionPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/nous-contacter" element={<LandingPage />}/>
+          <Route path="/connection" element={<ConnectionPage />}/>
           <Route path="/*" element={<NotFound />}/>
         </Routes>
         <Footer />  

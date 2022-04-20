@@ -1,9 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from './Button';
 
 const HomeNavigation = (props) => {
     const urlValue = props.urlValue;
+
+    const [inClientSpace, setInClientSpace] = useState(false)
 
     function changeBtn(btn){
         if(urlValue === undefined) return "btnNav ";
@@ -11,6 +14,10 @@ const HomeNavigation = (props) => {
             return "btnNav " + btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e") + " clicked"
         }
         return "btnNav " + btn.split(" ").join("").toLowerCase().replace(/[éèê]/g,"e")  
+    }
+
+    const changeUserSpaceClass = () =>{
+        return inClientSpace ? "space clicked" : "space"
     }
 
     return (
@@ -23,13 +30,12 @@ const HomeNavigation = (props) => {
                 </nav>
             </div>
             <div className="navRight">
-                {/* <button>Isoler mon <br/>logement</button> */}
                 <Button link="/nous-contacter" value="Isoler mon logement" addClass="node"/>
-                <NavLink to="/" className="signIn">
-                    <div className="imgContainer">
+                <NavLink to="/connection" className="signIn" onClick={()=>setInClientSpace(true)}>
+                    <div className="imgContainer" >
                         <img src="./img/SVG/login.svg" alt="connection" />   
                     </div>
-                    <p>espace client</p>
+                    <p className={changeBtn("connection")}>espace client</p>
                 </NavLink>
             </div>
         </div>

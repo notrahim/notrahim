@@ -127,6 +127,13 @@
                         display: none;
                     }
                 }
+                .clicked::after{
+                        margin-top: 1px;
+                        content: "";
+                        height: 3px;
+                        background-color: #F28963;
+                }
+                
             }
 
             .signIn:hover{
