@@ -7,6 +7,9 @@ const ConnectionPage = () => {
             <header className="homePageHeader">
                 <HomeNavigation urlValue='connection' />
             </header>
+            <main className="connectionPage" >
+                
+            </main>
         </>
     );
 };
