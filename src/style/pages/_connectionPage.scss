@@ -1,5 +1,11 @@
+@import "../component/adminConnectionFormulaire";
+
 .connectionPage{
     background-color: #0396A6;
     width: 100vw;
-    min-height: calc(100vh + 155px);
+    min-height: calc(100vh - 72px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include adminConnectionFormulaire;
 }

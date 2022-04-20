@@ -1,4 +1,5 @@
 import React from 'react';
+import AdminConnectionFormulaire from '../component/AdminConnectionFormulaire';
 import HomeNavigation from '../component/HomeNavigation';
 
 const ConnectionPage = () => {
@@ -8,7 +9,7 @@ const ConnectionPage = () => {
                 <HomeNavigation urlValue='connection' />
             </header>
             <main className="connectionPage" >
-                
+                <AdminConnectionFormulaire />
             </main>
         </>
     );
