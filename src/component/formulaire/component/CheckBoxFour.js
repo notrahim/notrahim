@@ -102,15 +102,15 @@ const CheckBoxFour = () => {
     return (
         <>
         <div className={globalError ? "error cardContainer" : "cardContainer"}>
-                <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
+                <button onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="calendar.svg" title="- de 50m²"/>
-                </div>  
-                <div onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
                     <Card img="calendar.svg" title="entre 50 et 100m²"/>
-                </div>   
-                <div onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
+                </button>   
+                <button onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
                     <Card img="calendar.svg" title="+ de 100m²"/>
-                </div>   
+                </button>   
             </div>
             <div className="btnContainer">
                 <button className={globalError ? "error btnUn" : "btnUn"} onClick={checkBtn} >Suivant</button>

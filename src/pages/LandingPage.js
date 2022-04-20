@@ -3,14 +3,37 @@ import { NavLink } from 'react-router-dom';
 import DropDown from '../component/DropDown';
 import Formulaire from '../component/formulaire/Formulaire';
 import LandingPageNavigation from '../component/LandingPageNavigation';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { isNotLoading, removeProspect } from '../redux/actions/action';
 //TODO Creer une modal pour qu'a l'ouverture de la page, la partie main soit entièrement visible 
 //BUG Je pense que la solution est d'iterer la navbar au scroll
+
+
 const LandingPage = () => {
+    const dispatch = useDispatch()
+    
+    const closeModal = ()=>{
+        dispatch(removeProspect())
+        dispatch(isNotLoading())
+    }
+    
+    const showModal = ()=>{
+        return (
+            <div className="modalValide">
+                <div className="Container">
+                    <NavLink to="/about" className="btnUn"><FontAwesomeIcon icon={faXmark} onClick={closeModal} /></NavLink>
+                    <h3>Merci, <br/> nous vous contacterons dans les 24/48h.</h3>
+                </div>
+            </div>
+        )
+    }
+
     const isLoading = useSelector(state => state.isLoading);
     return (
         <>
-            <div className={isLoading ? "loader isLoading" : "loader"}></div>   
+            {isLoading ? showModal() : null} 
             <header>
                 <LandingPageNavigation />
             </header>

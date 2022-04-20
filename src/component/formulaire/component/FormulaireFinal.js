@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNameValue, isLoading, addUser} from '../../../redux/actions/action';
+import { isLoading, addUser, isNotLoading} from '../../../redux/actions/action';
 
 const FormulaireFinal = () => {
     const regexName =/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -39,8 +39,6 @@ const FormulaireFinal = () => {
     //Validation des data saisi via les regex et gestion des erreurs en fontion
     const checkBtn = async (e)=>{
         e.preventDefault()
-
-        dispatch(isLoading())
 
         //CheckNom
         if(nameValue !== null && regexName.test(nameValue)){
@@ -88,15 +86,6 @@ const FormulaireFinal = () => {
         if(globalValue){
                 setGlobalError(false)
                 if(state.name === null || state.prenom === null || state.mail === null || state.tel === null || state.codePostal === null){
-                    // await dispatch(addNameValue({
-                    //     "name": nameValue,
-                    //     "prenom": prenomValue,
-                    //     "codePostal": codePostalValue,
-                    //     "tel": phoneValue,
-                    //     "mail": mailValue,
-                    //     "rgpd": !rgpdValue,
-                    //     "newsLater": newsLaterBool
-                    // }))
                     await dispatch(addUser({
                         "name": nameValue,
                         "prenom": prenomValue,
@@ -111,6 +100,8 @@ const FormulaireFinal = () => {
                         "rgpd": rgpdValue, 
                         "newslaters": newsLaterBool
                     }));
+
+                    dispatch(isLoading())
                 }
         }else{
             setGlobalError(true)
@@ -132,30 +123,35 @@ const FormulaireFinal = () => {
                     <label>
                         Nom*
                         <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e)=>setNameValue(e.target.value)} required></input>
+                        {errorName ? <span>Veuillez saisir un nom valide</span> : null}
                     </label>
                 </div>
                 <div className={errorPrenom ? "prenom error": "prenom"}>
                     <label>
                         Prenom*
                         <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e)=>setPrenomValue(e.target.value)} required></input>
+                        {errorPrenom ? <span>Veuillez saisir un prénom valide</span> : null}
                     </label>
                 </div>
                 <div className={errorCodePostal ? "codePostal error": "codePostal"}>
                     <label>
                         Code postal*
                         <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e)=>setCodePostalValue(e.target.value)} required></input>
+                        {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
                     </label>
                 </div>
                 <div className={errorPhone ? "phone error": "phone"}>
                     <label>
                         Téléphone*
                         <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e)=>setPhoneValue(e.target.value)} required></input>
+                        {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span>:null}
                     </label>
                 </div>
                 <div className={errorMail ? "email error": "email"}>
                     <label>
                         Email*
                         <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e)=>setMailValue(e.target.value)} required></input>
+                        {errorMail ? <span>Veuillez saisir un email valide</span> : null}
                     </label>
                 </div>
                 <div className="checkbox">
@@ -166,6 +162,7 @@ const FormulaireFinal = () => {
                             <input onChange={changeRGP} type="checkbox" id="one" name="one" required/>
                             Être contacter par l’éditeur du site dans le cadre de ma demande*
                         </label>
+                        {errorRGPD ? <span>Veuillez accepter nos conditions RGPD pour continuer</span>:null}
                     </div>
                     <div className="newsLater">
                         <label>

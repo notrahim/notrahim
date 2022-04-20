@@ -76,7 +76,6 @@ const ChexkBox = () => {
         } else {
             dispatch(nextArrayPrestation(false))
         }
-        // console.log(prestation)
         if(clickedOne) dispatch(addPrestation(prestation))
     }, [globalOrValue])
 
@@ -94,18 +93,18 @@ const ChexkBox = () => {
     return (
         <>
             <div className={globalError ? "error cardContainer" : "cardContainer"}>
-                <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
+                <button onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="isolation-in.svg" title="ITI (Isolation Murs Interieurs)"/>
-                </div>  
-                <div onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
                     <Card img="isolation-ext.svg" title="ITE (Isolation Murs Extérieurs)"/>
-                </div>  
-                <div onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
                     <Card img="Isolation-combles.svg" title="Isolation Des Combles"/>
-                </div>  
-                <div onClick={()=>returnValue("four")} className={clickedFour ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("four")} className={clickedFour ? "card selected" : "card"}>
                     <Card img="Isolation-toiture.svg" title="Isolation Sous-Rampant(Toiture)"/>
-                </div>  
+                </button>  
             </div>
             <div className="btnContainer">
                 <button className={globalError ? "error btnUn" : "btnUn"} onClick={checkBtn} >Suivant</button>

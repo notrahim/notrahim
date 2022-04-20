@@ -138,18 +138,18 @@ const CheckBoxFive = () => {
     return (
         <>
         <div className={globalError ? "error cardContainer" : "cardContainer"}>
-                <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
+                <button onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="calendar.svg" title={valueOne}/>
-                </div>  
-                <div onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
                     <Card img="calendar.svg" title={valueTwo}/>
-                </div>   
-                <div onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
+                </button>   
+                <button onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
                     <Card img="calendar.svg" title={valueThree} />
-                </div>   
-                <div onClick={()=>returnValue("four")} className={clickedFour? "card selected" : "card"}>
+                </button>   
+                <button onClick={()=>returnValue("four")} className={clickedFour? "card selected" : "card"}>
                     <Card img="calendar.svg" title={valueFour} />
-                </div>   
+                </button>   
             </div>
             <div className="btnContainer">
                 <button className={globalError ? "error btnUn" : "btnUn"} onClick={checkBtn} >Suivant</button>

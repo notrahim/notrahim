@@ -97,15 +97,15 @@ const CheckBoxThree = () => {
     return (
         <>
             <div className={globalError ? "error cardContainer" : "cardContainer"}>
-                <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
+                <button onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="calendar.svg" title="- de 2ans"/>
-                </div>  
-                <div onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
                     <Card img="calendar.svg" title="+ de 2ans"/>
-                </div>   
-                <div onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
+                </button>   
+                <button onClick={()=>returnValue("three")} className={clickedThree ? "card selected" : "card"}>
                     <Card img="calendar.svg" title="+ de 15ans"/>
-                </div>   
+                </button>   
             </div>
             <div className="btnContainer">
                 <button onClick={checkBtn} className={globalError ? "error btnUn" : "btnUn"}>Suivant</button>

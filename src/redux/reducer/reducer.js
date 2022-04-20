@@ -97,6 +97,24 @@ const reducer = (state = initState, action)=>{
                 ...state,
                 realisation: null
             } 
+
+        case "removeProspect":
+            return{
+                ...state,
+                valueOfArray: 1,
+                nom: null,
+                prenom: null,
+                mail:null,
+                tel:null,
+                codePostal: null,
+                rgpd: false,
+                newsLater: false,
+                prestation:[],
+                typeLogement: null,
+                surface:null,
+                age:null,
+                realisation:null
+            }    
             
         case "addNameValue": 
         return{

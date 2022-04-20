@@ -75,12 +75,12 @@ const CheckBoxTwo = () => {
     return (
         <>
             <div className={globalError ? "error cardContainer" : "cardContainer"}>
-                <div onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
+                <button onClick={()=>returnValue("one")} className={clickedOne ? "card selected" : "card"}>
                     <Card img="house.svg" title="Une Maison"/>
-                </div>  
-                <div onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
+                </button>  
+                <button onClick={()=>returnValue("two")} className={clickedTwo ? "card selected" : "card"}>
                     <Card img="immeuble.svg" title="Un Appartement"/>
-                </div>   
+                </button>   
             </div>
             <div className="btnContainer">
                 <button onClick={checkBtn} className={globalError ? "error btnUn" : "btnUn"}>Suivant</button>

@@ -127,7 +127,7 @@ export const isLoading = ()=>{
 
 export const isNotLoading = ()=>{
     return{
-        type: "isLoading"
+        type: "isNotLoading"
     }
 }
 
@@ -140,6 +140,12 @@ export const addValueInArray = () =>{
 export const removeValueInArray = () =>{
     return{
         type: "removeValueInArray"
+    }
+}
+
+export const removeProspect = ()=>{
+    return{
+        type: "removeProspect"
     }
 }
 
