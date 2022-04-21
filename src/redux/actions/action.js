@@ -149,6 +149,13 @@ export const removeProspect = ()=>{
     }
 }
 
+export const showUser = (data)=>{
+    return{
+        type: "showUser",
+        payload: data
+    }
+}
+
 export function addUser(user) {
     return (dispatch) => {
         console.log(user);
@@ -161,4 +168,23 @@ export function addUser(user) {
                 error => console.log(error)
             );    
     };
+}
+
+export function userConnect(user){
+    // alert(user.identifier)
+    return (dispatch)=>{
+        dispatch({type: "isLoading"});
+        try{
+            axios.post("http://localhost:1337/api/auth/local", {
+                identifier: user.identifier,
+                password: user.password
+            }).then((response)=>{
+                localStorage.setItem("jwt", response.data.jwt);
+                if (response.status > 201) throw new Error("echec authentification");
+                dispatch(showUser(response.data.user))
+            })
+        } catch(err){
+            console.log(err);
+        }
+       }
 }

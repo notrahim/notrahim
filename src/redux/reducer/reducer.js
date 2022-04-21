@@ -1,160 +1,179 @@
 const initState = {
-    isLoading : false,
-    isLogin : false,
-    arrayOne : false,
-    arrayTwo : false,
+    isLoading: false,
+    isLogin: false,
+    arrayOne: false,
+    arrayTwo: false,
     valueOfArray: 1,
     nom: null,
     prenom: null,
-    mail:null,
-    tel:null,
+    mail: null,
+    tel: null,
     codePostal: null,
     rgpd: false,
     newsLater: false,
-    prestation:[],
+    prestation: [],
     typeLogement: null,
-    surface:null,
-    age:null,
-    realisation:null
+    surface: null,
+    age: null,
+    realisation: null,
+    admin: {
+        username: "",
+        email: "",
+        passeword: "",
+        token: localStorage.jwt
+    }
 }
 
-const reducer = (state = initState, action)=>{
+const reducer = (state = initState, action) => {
     switch (action.type) {
         case "isNotLoading":
-            return{
+            return {
                 ...state,
                 isLoading: false
             }
 
         case "isLoading":
-            return{
+            return {
                 ...state,
                 isLoading: true
-            }    
+            }
 
         case "next":
             return {
                 ...state,
                 arrayOne: action.payload
             }
-    
+
         case "addPrestation":
-            return{ 
+            return {
                 ...state,
                 prestation: state.prestation.concat(action.payload)
-            }  
-            
+            }
+
         case "removePrestation":
-            return{
+            return {
                 ...state,
                 prestation: []
-            }  
-            
-        case"addLodging":
-            return{
+            }
+
+        case "addLodging":
+            return {
                 ...state,
                 typeLogement: action.payload
-            }  
-            
+            }
+
         case "removeLodging":
-            return{
+            return {
                 ...state,
                 typeLogement: null
-            }  
-            
+            }
+
         case "addOld":
-            return{
+            return {
                 ...state,
                 age: action.payload
-            }    
-            
+            }
+
         case "removeOld":
-            return{
+            return {
                 ...state,
                 age: null
-            }  
-         
+            }
+
         case "addMeasure":
-            return{
+            return {
                 ...state,
                 surface: action.payload
-            } 
-            
+            }
+
         case "removeMeasure":
-            return{
+            return {
                 ...state,
                 surface: null
-            }  
+            }
 
-        case "addWhen": 
-            return{
+        case "addWhen":
+            return {
                 ...state,
                 realisation: action.payload
-            }  
-            
+            }
+
         case "removeWhen":
-            return{
+            return {
                 ...state,
                 realisation: null
-            } 
+            }
 
         case "removeProspect":
-            return{
+            return {
                 ...state,
                 valueOfArray: 1,
                 nom: null,
                 prenom: null,
-                mail:null,
-                tel:null,
+                mail: null,
+                tel: null,
                 codePostal: null,
                 rgpd: false,
                 newsLater: false,
-                prestation:[],
+                prestation: [],
                 typeLogement: null,
-                surface:null,
-                age:null,
-                realisation:null
-            }    
-            
-        case "addNameValue": 
-        return{
-            ...state, 
-            isLoading: true,
-            nom: action.payload.name,
-            prenom: action.payload.prenom,
-            tel: action.payload.phone,
-            mail: action.payload.email,
-            codePostal: action.payload.codePostal,
-            rgpd: action.payload.rgpd,
-            newsLater: action.payload.newsLaters,
-        }  
-        
+                surface: null,
+                age: null,
+                realisation: null
+            }
+
+        case "addNameValue":
+            return {
+                ...state,
+                isLoading: true,
+                nom: action.payload.name,
+                prenom: action.payload.prenom,
+                tel: action.payload.phone,
+                mail: action.payload.email,
+                codePostal: action.payload.codePostal,
+                rgpd: action.payload.rgpd,
+                newsLater: action.payload.newsLaters,
+            }
+
         case "addGlobalUserValue":
-            return{
-                ...state, 
+            return {
+                ...state,
                 isLoading: false
             }
-        
-         
-        case "addValueInArray": 
-            if(state.valueOfArray <= 6){
-                return{
-                    ...state, 
-                    valueOfArray: state.valueOfArray +1
-                }
-            }
-            break;
-            
 
-        case "removeValueInArray": 
-            if(state.valueOfArray > 1){
-                return{
-                    ...state, 
-                    valueOfArray: state.valueOfArray -1
+
+        case "addValueInArray":
+            if (state.valueOfArray <= 6) {
+                return {
+                    ...state,
+                    valueOfArray: state.valueOfArray + 1
                 }
             }
             break;
-        
+
+
+        case "removeValueInArray":
+            if (state.valueOfArray > 1) {
+                return {
+                    ...state,
+                    valueOfArray: state.valueOfArray - 1
+                }
+            }
+            break;
+
+        case "showUser":
+            setTimeout(()=>{
+                console.log(action.payload);
+            }, 1000)
+            return {
+                ...state,
+               admin: {
+                ...state.admin,
+                username: action.payload.username,
+                email: action.payload.email
+            }
+            }
+
         default: return state
     }
 }
