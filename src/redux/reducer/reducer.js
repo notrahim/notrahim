@@ -1,6 +1,7 @@
 const initState = {
     isLoading: false,
     isLogin: false,
+    connectionRefused: false,
     arrayOne: false,
     arrayTwo: false,
     valueOfArray: 1,
@@ -161,17 +162,22 @@ const reducer = (state = initState, action) => {
             }
             break;
 
-        case "showUser":
-            setTimeout(()=>{
-                console.log(action.payload);
-            }, 1000)
+        case "connectionRefused":
             return {
                 ...state,
-               admin: {
-                ...state.admin,
-                username: action.payload.username,
-                email: action.payload.email
+                connectionRefused: true,
             }
+
+        case "showUser":
+            return {
+                ...state,
+                connectionRefused: false,
+                isLogin: true,
+                admin: {
+                    ...state.admin,
+                    username: action.payload.username,
+                    email: action.payload.email
+                }
             }
 
         default: return state

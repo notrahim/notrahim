@@ -180,11 +180,10 @@ export function userConnect(user){
                 password: user.password
             }).then((response)=>{
                 localStorage.setItem("jwt", response.data.jwt);
-                if (response.status > 201) throw new Error("echec authentification");
                 dispatch(showUser(response.data.user))
             })
-        } catch(err){
-            console.log(err);
+        }catch(err){
+            // console.log(err);
         }
-       }
+    }
 }
