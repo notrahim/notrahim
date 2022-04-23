@@ -5,6 +5,7 @@ const initState = {
     arrayOne: false,
     arrayTwo: false,
     valueOfArray: 1,
+    prospectValid: false,
     nom: null,
     prenom: null,
     mail: null,
@@ -179,6 +180,18 @@ const reducer = (state = initState, action) => {
                     username: action.payload.username,
                     email: action.payload.email
                 }
+            }
+
+        case "prospectValid":
+            return{
+                ...state,
+                prospectValid: true
+            }    
+        
+        case "prospectIsNotValid":
+            return{
+                ...state,
+                prospectValid: false
             }
 
         case "addProspectInData":

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoading, addUser, isNotLoading} from '../../../redux/actions/action';
+import { isLoading, addUser, isNotLoading, prospectValid} from '../../../redux/actions/action';
 
 const FormulaireFinal = () => {
     const regexName =/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -101,7 +101,7 @@ const FormulaireFinal = () => {
                         "newslaters": newsLaterBool
                     }));
 
-                    dispatch(isLoading())
+                    dispatch(prospectValid())
                 }
         }else{
             setGlobalError(true)

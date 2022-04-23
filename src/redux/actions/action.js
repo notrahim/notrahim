@@ -131,6 +131,18 @@ export const isNotLoading = ()=>{
     }
 }
 
+export const prospectValid = ()=>{
+    return{
+        type: "prospectValid"
+    }
+}
+
+export const prospectIsNotValid = ()=>{
+    return{
+        type: "prospectIsNotValid"
+    }
+}
+
 export const addValueInArray = () =>{
     return{
         type: "addValueInArray"
