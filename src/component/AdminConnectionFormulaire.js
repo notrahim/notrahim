@@ -2,16 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { userConnect } from '../redux/actions/action';
+import { isNotLoading, userConnect } from '../redux/actions/action';
 
 const AdminConnectionFormulaire = () => {
     const dispatch = useDispatch()
-
+    
     const navigate = useNavigate()
+    
+    const state = useSelector(state => state)
+    
+    if(state.isLogin){
+        navigate("/admin")
+    }
 
     const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
-    const state = useSelector(state => state)
 
     const [email, setEmail] = useState("");
     const [password, setPassWord] = useState("");
@@ -19,9 +24,9 @@ const AdminConnectionFormulaire = () => {
     const [error, setError] = useState(false)
 
     const tcheckAdminValue = (e)=>{
-        setError(false)
         e.preventDefault()
         if(regexMail.test(email)){
+            setError(false)
             const admin = {
                 "identifier": email,
                 "password": password
@@ -29,11 +34,13 @@ const AdminConnectionFormulaire = () => {
             dispatch(userConnect(admin))
         }else{
             setError(true)
+            dispatch(isNotLoading())
         }
         if(state.isLogin){
-            navigate("/")
-        } 
+            navigate("/admin")
+        }
     }
+
 
     return (
         <div className="formContainer">
@@ -47,6 +54,7 @@ const AdminConnectionFormulaire = () => {
                 </label>
                 <button onClick={tcheckAdminValue}>Se Connecter</button>
                 <NavLink to="/">Retour</NavLink>
+                {error ? <span className="error">Mail ou mot de passe invalide</span> : null}
             </form>
         </div>
     );

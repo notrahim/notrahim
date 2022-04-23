@@ -22,7 +22,8 @@ const initState = {
         email: "",
         passeword: "",
         token: localStorage.jwt
-    }
+    },
+    prospect: []
 }
 
 const reducer = (state = initState, action) => {
@@ -179,6 +180,12 @@ const reducer = (state = initState, action) => {
                     email: action.payload.email
                 }
             }
+
+        case "addProspectInData":
+            return {
+                ...state,
+                prospect: [...state.prospect, action.payload.data.data]
+            }    
 
         default: return state
     }

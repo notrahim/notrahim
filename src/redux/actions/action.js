@@ -171,7 +171,6 @@ export function addUser(user) {
 }
 
 export function userConnect(user){
-    // alert(user.identifier)
     return (dispatch)=>{
         dispatch({type: "isLoading"});
         try{
@@ -181,9 +180,26 @@ export function userConnect(user){
             }).then((response)=>{
                 localStorage.setItem("jwt", response.data.jwt);
                 dispatch(showUser(response.data.user))
+                dispatch(isNotLoading())
             })
         }catch(err){
-            // console.log(err);
+        }
+    }
+}
+
+export function showAllProspect(){
+    return dispatch => {
+        try{
+            axios.get("http://localhost:1337/api/prospects/", {
+                headers: {
+                    Authorization: `Bearer `+ localStorage.jwt,
+                }
+            })
+            .then((response)=>{
+                dispatch({type: "addProspectInData", payload: response})
+            })
+        }catch(err){
+            console.log(err);
         }
     }
 }

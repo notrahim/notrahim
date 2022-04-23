@@ -6,8 +6,12 @@ import About from "./pages/About";
 import Footer from "./component/Footer";
 import LandingPage from "./pages/LandingPage";
 import ConnectionPage from "./pages/ConnectionPage";
+import AdminPage from "./pages/AdminPage";
+import { useState } from "react";
 
 function App() {
+  const state = useState(state => state)
+
   return (
     <div className="App">
       <BrowserRouter >
@@ -16,6 +20,8 @@ function App() {
           <Route path="/about" element={<About />}/>
           <Route path="/nous-contacter" element={<LandingPage />}/>
           <Route path="/connection" element={<ConnectionPage />}/>
+          {/* <Route path="/admin" element={state.isLogin? <AdminPage /> : <NotFound />}/> */}
+          <Route path="/admin" element={<AdminPage />}/>
           <Route path="/*" element={<NotFound />}/>
         </Routes>
         <Footer />  
