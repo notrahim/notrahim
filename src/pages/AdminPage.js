@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {gsap} from 'gsap';
 import { showAllProspect } from '../redux/actions/action';
 import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
+import ProspectArray from '../component/ProspectArray';
 
 const AdminPage = () => {
     const state = useSelector(state => state )
@@ -33,6 +34,7 @@ const AdminPage = () => {
         <div style={{minHeight:"100vh"}}>
             <NavLink to="/" >
                 <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
+                <ProspectArray />
             </NavLink>
         </div>
     );
