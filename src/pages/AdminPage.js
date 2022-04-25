@@ -15,7 +15,7 @@ const AdminPage = () => {
     const navigate = useNavigate()
 
     useEffect(()=>{ 
-        document.title = `TeraBois Tableau de bord`;
+        document.title = `TeraBois | Tableau de bord`;
         whatDoIDo()
         gsap.from(title.current, {
             opacity: 0,
@@ -35,7 +35,7 @@ const AdminPage = () => {
 
     return (
         <div style={{minHeight:"100vh"}}>
-            <NavLink to="/" >
+            <NavLink to="/accueil" >
                 <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
                 <ProspectArray />
             </NavLink>
