@@ -5,9 +5,15 @@ import ImageAndText from '../component/ImageAndText';
 import Button from '../component/Button';
 import { NavLink } from 'react-router-dom'; 
 import {mpl} from 'my-personnal-library';
+import {useEffect} from 'react';
 
 const About = () => {
     mpl(2, 3)
+
+    useEffect (()=>{
+        document.title = "TeraBois | Nos Préstations"
+    })
+
     return (
         <>
             <header className="aboutHeader">

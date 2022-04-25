@@ -6,7 +6,8 @@ import LandingPageNavigation from '../component/LandingPageNavigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import { isNotLoading, prospectIsNotValid, removeProspect } from '../redux/actions/action';
+import {  prospectIsNotValid, removeProspect } from '../redux/actions/action';
+import {useEffect} from 'react';
 //TODO Creer une modal pour qu'a l'ouverture de la page, la partie main soit entièrement visible 
 //BUG Je pense que la solution est d'iterer la navbar au scroll
 
@@ -18,6 +19,19 @@ const LandingPage = () => {
         dispatch(removeProspect())
         dispatch(prospectIsNotValid())
     }
+
+    
+    useEffect(()=>{
+        setTimeout(()=>{
+            if (!window.onload){
+                console.log("non");
+            }else {
+                console.log("ok");
+            }
+        }, 2000)
+        console.log(window.onload);
+        document.title = "TeraBois | Rendez-vous"
+    })
     
     const showModal = ()=>{
         return (

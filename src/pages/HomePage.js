@@ -7,8 +7,13 @@ import {faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import DropDown from '../component/DropDown';
 import TitleAndText from '../component/TitleAndText';
 import ImageAndText from '../component/ImageAndText';
+import {useEffect} from 'react';
 
 const HomePage = () => {
+
+    useEffect(() => {
+        document.title = "TeraBois | Accueil"
+    }, [])
 
     return (
         <>

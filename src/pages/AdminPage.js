@@ -14,14 +14,9 @@ const AdminPage = () => {
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        // console.log(upperCaseFirstLatter(state.admin.username)); 
-
-        if(!state.isLogin){
-            navigate("/*")
-        }else{
-            dispatch(showAllProspect())
-        }
+    useEffect(()=>{ 
+        document.title = `TeraBois Tableau de bord`;
+        whatDoIDo()
         gsap.from(title.current, {
             opacity: 0,
             x: 120,
@@ -29,6 +24,14 @@ const AdminPage = () => {
             ease: 'power4.inOut',
         })
     },[])
+
+    const whatDoIDo = () => {
+        if(!state.isLogin){
+            navigate("/*")
+        }else{
+            dispatch(showAllProspect())
+        }
+    }
 
     return (
         <div style={{minHeight:"100vh"}}>

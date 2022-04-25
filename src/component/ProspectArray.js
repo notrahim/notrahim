@@ -33,14 +33,14 @@ const ProspectArray = (props) => {
                 <tr key={prospect.id}>
                     <td>{prospect.attributes.name}</td>
                     <td>{prospect.attributes.email}</td>
-                    <td>{prospect.attributes.phone}</td>
+                    <td>{"0"+prospect.attributes.phone}</td>
                     <td>{prospect.attributes.codePostal}</td>
                     <td>{prospect.attributes.prestation}</td>
                     <td>{prospect.attributes.habitation}</td>
                     <td>{prospect.attributes.age}</td>
                     <td>{prospect.attributes.surface}</td>
                     <td>{prospect.attributes.date}</td>
-                    <td>{prospect.attributes.newslaters}</td>
+                    <td>{prospect.attributes.newslaters === true ? "Oui":"Non"}</td>
                 </tr>
             )) : <tr><td>Aucun propspect</td></tr>}
 
