@@ -37,8 +37,8 @@ const AdminPage = () => {
         <div style={{minHeight:"100vh"}}>
             <NavLink to="/accueil" >
                 <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
-                <ProspectArray />
             </NavLink>
+            <ProspectArray />
         </div>
     );
 };
