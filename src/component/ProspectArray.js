@@ -2,10 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect, createRef } from 'react';
 import ProspectModal from './ProspectModal';
+import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
 
 let initNbUserOne = 0;
 let initNbUserTwo = 10;
 let zoomProspect;
+let idProspect;
 
 const ProspectArray = () => {
     const state = useSelector(state => state);
@@ -71,9 +73,10 @@ const ProspectArray = () => {
         )
     }
 
-    const showProspect = (prospect) => {
+    const showProspect = (prospect, id) => {
         setShowModal(true);
         zoomProspect = prospect;
+        idProspect = id;
     }
 
     const hiddenProspect = (e) => {
@@ -101,7 +104,7 @@ const ProspectArray = () => {
 
     return (
         <>  
-            {showModal ? <ProspectModal data={zoomProspect} closeModal={setShowModal}/> : null}
+            {showModal ? <ProspectModal data={zoomProspect} id={idProspect} closeModal={setShowModal}/> : null}
             <h3>Contacts total: <span>{totalUser}</span></h3>
             <table className="propsectArrayContainer">
                 <thead>
@@ -121,16 +124,16 @@ const ProspectArray = () => {
                 <tbody>
                     {state.prospect[0] !== undefined ? showUser.map(prospect => (
                         <tr key={prospect.id}>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.name}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.email}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{"0" + prospect.attributes.phone}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.codePostal}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.prestation}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.habitation}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.age}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.surface}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.date}</td>
-                            <td onClick={()=>showProspect(prospect.attributes)}>{prospect.attributes.newslaters === true ? "Oui" : "Non"}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.name) }</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.email}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{"0" + prospect.attributes.phone}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.codePostal}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.prestation) }</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.habitation)}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.age)}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.surface)}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.date)}</td>
+                            <td onClick={()=>showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.newslaters === true ? "Oui" : "Non"}</td>
                         </tr>
                     )) : <tr><td>Aucun propspect</td></tr>}
                 </tbody>

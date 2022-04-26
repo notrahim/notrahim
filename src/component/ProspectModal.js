@@ -1,10 +1,21 @@
 import React from 'react';
-import { useState, useEffect, createRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { mofificationOfComments } from '../redux/actions/action';
 import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
 
+let addCommentValue;
+
 const ProspectModal = (props) => {
+    const [commentValue, setCommentValue] = useState("")
 
     const data = props.data;
+    const id = props.id
+
+    const changeValue = (e)=>{
+        e.preventDefault()
+        setCommentValue(e.target.value);
+        addCommentValue = e.target.value
+    }
 
     return (
         <div className="prospectModal">
@@ -45,6 +56,11 @@ const ProspectModal = (props) => {
                 <div className="prospectContainer_date">
                     <p>Date d'intervention:</p>
                     <h4>{data.date}</h4>
+                </div>
+                <div className="prospectContainer_comment">
+                    <p>Commentaire:</p>
+                    <input placeholder="Ajouter un commantaire" value={commentValue} onChange={changeValue} />
+                    {addCommentValue !== undefined ?<button onClick={()=>mofificationOfComments(id, addCommentValue)}>Ajouter</button>: null}
                 </div>
             </div>
         </div>

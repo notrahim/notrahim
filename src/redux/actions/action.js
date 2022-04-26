@@ -215,3 +215,28 @@ export function showAllProspect(){
         }
     }
 }
+
+export function mofificationOfComments(id, text){
+    console.log(localStorage.getItem("jwt"));
+    try{
+        axios.put(
+            `http://localhost:1337/api/prospects/${id}`,
+            {
+                data: {
+                    comments: text,
+                }
+            },
+            {
+                headers: {
+                Authorization:
+                    'Bearer ' + localStorage.jwt,
+                },
+            }
+        ).then(response =>{
+            console.log(response);
+        })
+    }catch(err){
+        console.log(err);
+    }
+}
+
