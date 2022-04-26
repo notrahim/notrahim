@@ -1,5 +1,6 @@
 const initState = {
     isLoading: false,
+    arrayLoading: false,
     isLogin: false,
     connectionRefused: false,
     arrayOne: false,
@@ -198,6 +199,18 @@ const reducer = (state = initState, action) => {
             return {
                 ...state,
                 prospect: [...state.prospect, action.payload.data.data]
+            }    
+
+        case "loadingProspectArray":
+            return{
+                ...state,
+                arrayLoading: true
+            } 
+
+        case "notLoadingProspectArray":
+            return{
+                ...state,
+                arrayLoading: false
             }    
 
         default: return state

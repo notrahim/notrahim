@@ -27,7 +27,7 @@ const AdminPage = () => {
 
     const whatDoIDo = () => {
         if(!state.isLogin){
-            navigate("/*")
+            navigate("/accueil")
         }else{
             dispatch(showAllProspect())
         }
