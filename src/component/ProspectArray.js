@@ -4,26 +4,35 @@ import { useState, useEffect, createRef } from 'react';
 
 const ProspectArray = (props) => {
     const state = useSelector(state => state);
-    const array = props.array;
     const dispatch = useDispatch()
 
-    const [showUser, setShowUser] = useState(null);
+    const [showUser, setShowUser] = useState([]);
 
     const [totalUser, setTotalUser] = useState(null)
 
     useEffect(() => {
         addStatePropspect();
     }, [state.prospect[0]])
+
+    //Play function when the showUser is not empty
+    useEffect(()=>{
+        if(showUser !== []){
+            console.log(showUser);
+            console.log(totalUser);
+        }
+    }, [showUser])
     
+    //Initialisation of the all state 
     const addStatePropspect = async () => {
-        // console.log(state.prospect[0]);
         if(state.prospect[0] === undefined){
             await state.prospect[0]
             dispatch({type: "loadingProspectArray"})
         } 
         else{
             console.log(state.prospect[0]);
-            dispatch({type: "notLoadingProspectArray"})
+            await dispatch({type: "notLoadingProspectArray"})
+            await setTotalUser(state.prospect[0].length);
+            await setShowUser(state.prospect[0].slice(0, 10));
         } 
         
     }
