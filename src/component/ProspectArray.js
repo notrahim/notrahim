@@ -17,6 +17,8 @@ const ProspectArray = () => {
     const [totalUser, setTotalUser] = useState(null)
     const [showModal, setShowModal] = useState(false);
 
+    console.log(totalUser);
+
 
     useEffect(() => {
         addStatePropspect();

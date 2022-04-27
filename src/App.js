@@ -12,11 +12,14 @@ import { useState } from "react";
 function App() {
   const state = useState(state => state)
 
+  console.log(window.location.pathname);
+
   return (
     <div className="App">
       <BrowserRouter >
         <Routes>
           <Route path="/accueil" element={<HomePage />}/>
+          <Route path="/" element={<HomePage />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/nous-contacter" element={<LandingPage />}/>
           <Route path="/connection" element={<ConnectionPage />}/>

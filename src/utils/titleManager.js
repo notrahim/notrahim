@@ -21,19 +21,30 @@ export function handleTitle(){
             }
         } else if(window.location.pathname === "/nous-contacter"){
             document.title = "TeraBois | Rendez-vous";
-        }    
+        }   
+
         if(window.location.pathname === "/connection"){
             if(document.hidden){
                 document.title= "TeraBois | Connexion";
             }
             document.title= "TeraBois | Connexion";
         }
-        if(window.location.pathname === "/accueil"){
+
+        if(window.location.pathname === "/"){
             if(document.hidden){
                 document.title= "TeraBois | Accueil";
             }
             document.title= "TeraBois | Accueil";
         }
+
+        if(window.location.pathname === ""){
+            if(document.hidden){
+                document.title= "TeraBois | Accueil";
+            }
+            document.title= "TeraBois | Accueil";
+        }
+
+
         if(window.location.pathname === "/about"){
             if(document.hidden){
                 document.title= "TeraBois | A Propos";
@@ -48,7 +59,7 @@ export function handleTitle(){
             document.title= "TeraBois | Tableau de bord";
         }
 
-        if(window.location.pathname !== "/nous-contacter" && window.location.pathname !== "/connection" && window.location.pathname !== "/accueil" && window.location.pathname !== "/about" && window.location.pathname !== "/admin"){
+        if(window.location.pathname !== "/nous-contacter" && window.location.pathname !== "/connection" && window.location.pathname !== "/accueil" && window.location.pathname !== "/about" && window.location.pathname !== "/admin" && window.location.pathname !== "/"){
             if(document.hidden){
                 document.title= "TeraBois | Page 404";
             }
