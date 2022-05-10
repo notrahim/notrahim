@@ -4,18 +4,41 @@ import { useDispatch} from 'react-redux';
 import Card from './Card';
 import { nextArrayPrestation, addPrestation, addValueInArray, removPrestation } from '../../../redux/actions/action';
 
+/**
+ * CheckBox One Component
+ * @returns A React component.
+ */
 const ChexkBox = () => {
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedOne, setClickedOne] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedTwo, setClickedTwo] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedThree, setClickedThree] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedFour, setClickedFour] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [prestation, setPrestation] = useState([])
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [globalError, setGlobalError] = useState(false)
 
+    /* It's a hook that allows us to use state in a functional component. */
     const dispatch = useDispatch();
 
+    /* It's a variable that allows us to know if one of the checkbox is checked. */
     const globalOrValue = clickedOne || clickedTwo || clickedThree || clickedFour;
 
+    /**
+     * It's a function that takes a value as a parameter and returns a function that sets the state of
+     * the clicked button to true or false depending on the value of the clicked button
+     * @param value - the value of the button clicked
+     */
     const returnValue = (value)=>{
         setTimeout(()=>{
             switch (value) {
@@ -69,6 +92,7 @@ const ChexkBox = () => {
         }, 20)
     }
 
+    /* It's a hook that allows us to use state in a functional component. */
     useEffect(()=>{
         dispatch(removPrestation())
         if(clickedOne || clickedTwo || clickedThree || clickedFour){
@@ -79,6 +103,11 @@ const ChexkBox = () => {
         if(clickedOne) dispatch(addPrestation(prestation))
     }, [globalOrValue])
 
+    /**
+     * It checks if the globalOrValue is true, if it is, it adds the prestation in the array and in the
+     * global state, if not, it sets the globalError to true
+     * @param e - the event
+     */
     const checkBtn = (e)=>{
         e.preventDefault()
         if(globalOrValue){
@@ -90,6 +119,7 @@ const ChexkBox = () => {
         }
     }
 
+    /* It's a function that returns a JSX element. */
     return (
         <>
             <div className={globalError ? "error cardContainer" : "cardContainer"}>

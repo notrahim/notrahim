@@ -4,18 +4,48 @@ import Card from './Card';
 import { useDispatch } from 'react-redux';
 import { nextArrayPrestation, addValueInArray, addMeasure, removMeasure } from '../../../redux/actions/action';
 
+/**
+ * CheckBox Four Component
+ * @returns A React component.
+ */
 const CheckBoxFour = () => {
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedOne, setClickedOne] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedTwo, setClickedTwo] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedThree, setClickedThree] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [measure, setMeasure] = useState([])
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [globalError, setGlobalError] = useState(false)
+
+    /* It's a hook that allows us to use dispatch in a functional component. */
     const dispatch = useDispatch()
+
+    /* It's a variable that allows us to know if one of the three buttons is clicked. */
     const globalOrValue = clickedOne || clickedTwo || clickedThree ;
+
+    /* It's a variable that allows us to know if one of the three buttons is clicked. */
     const measureOne = "- de 50m²";
+
+    /* It's a variable that allows us to know if one of the three buttons is clicked. */
     const measureTwo = "entre 50 et 100m²";
+
+    /* It's a variable that allows us to know if one of the three buttons is clicked. */
     const measureThree = "+ de 100m²";
 
+    /**
+     * The function takes in a value, and depending on the value, it will set the state of the
+     * clickedOne, clickedTwo, and clickedThree variables to true or false, and it will also add or
+     * remove the measureOne, measureTwo, and measureThree variables from the measure array
+     * @param value - the value of the button that was clicked
+     */
     const returnValue = async (value)=>{
         setTimeout(()=>{
             switch (value) {
@@ -76,6 +106,7 @@ const CheckBoxFour = () => {
         }, 20)
     }
 
+    /* It's a hook that allows us to perform side effects in a functional component. */
     useEffect(()=>{
         dispatch(removMeasure())
         if(globalOrValue){
@@ -95,10 +126,9 @@ const CheckBoxFour = () => {
         } else{
             setGlobalError(true)
         }
-        
-       
     }
 
+    /* It's a function that returns a JSX element. */
     return (
         <>
         <div className={globalError ? "error cardContainer" : "cardContainer"}>

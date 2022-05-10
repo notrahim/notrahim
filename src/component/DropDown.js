@@ -2,12 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 
 const DropDown = (props) => {
+    
+    /* It's a hook that allows us to use state in a functional component. */
     const [openBtn, setOpenBtn] = useState(false);
 
+    /* It's destructuring the props. */
     const question = props.question
+    
+    /* It's destructuring the props. */
     const text = props.text
+    
+    /* It's destructuring the props. */
     const classValue = props.class
 
+    /* It's a ternary operator. It's a conditional operator that assigns a value to a variable based on
+    some condition. */
     if(!openBtn) {
         return (
             <div className={classValue === undefined ? "dropDownContainer": "dropDownContainer " + classValue}>
@@ -20,6 +29,8 @@ const DropDown = (props) => {
         )
     } 
 
+    /* It's a ternary operator. It's a conditional operator that assigns a value to a variable based on
+        some condition. */
     return (
         <div className={classValue === undefined ? "dropDownContainer": "dropDownContainer " + classValue}>
             <div onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
@@ -31,7 +42,6 @@ const DropDown = (props) => {
         </div>
 
     )
-
 };
 
 export default DropDown;

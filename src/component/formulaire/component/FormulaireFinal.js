@@ -1,172 +1,220 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoading, addUser, isNotLoading, prospectValid} from '../../../redux/actions/action';
+import { isLoading, addUser, isNotLoading, prospectValid } from '../../../redux/actions/action';
 
+
+/**
+ * Formulaire component
+ * It's a function that returns a JSX element
+ * @returns It's a JSX element.
+ */
 const FormulaireFinal = () => {
-    const regexName =/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+
+    /* It's a regex to check if the name is valid. */
+    const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
+
+    /* It's a regex to check if the code postal is valid. */
     const regexCodePostal = /[0-9]{5}/g;
+
+    /* It's a regex to check if the phone number is valid. */
     const regexPhone = /^\d{10}$/;
+
+    /* It's a regex to check if the mail is valid. */
     const regexMail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+    /* It's a hook to manage the state of the component. */
     const [errorName, setErrorName] = useState(false)
+
+    /* It's a hook to manage the state of the component. */
     const [nameValue, setNameValue] = useState(null)
 
+    /* It's a hook to manage the state of the component. */
     const [errorPrenom, setErrorPrenom] = useState(false)
+
+    /* It's a hook to manage the state of the component. */
     const [prenomValue, setPrenomValue] = useState(null)
 
+    /* It's a hook to manage the state of the component. */
     const [errorCodePostal, setErrorCodePostal] = useState(false)
+
+    /* It's a hook to manage the state of the component. */
     const [codePostalValue, setCodePostalValue] = useState(null)
 
+    /* It's a hook to manage the state of the component. */
     const [errorPhone, setErrorPhone] = useState(false)
+
+    /* It's a hook to manage the state of the component. */
     const [phoneValue, setPhoneValue] = useState(null)
 
+    /* It's a hook to manage the state of the component. */
     const [errorMail, setErrorMail] = useState(false)
+
+    /* It's a hook to manage the state of the component. */
     const [mailValue, setMailValue] = useState(null)
 
+    /* It's a hook to manage the state of the component. */
     const [errorRGPD, setErrorRGPD] = useState(false)
+
+    /* It's a hook to manage the state of the component. */
     const [rgpdValue, setRgpdValue] = useState(false)
 
+    /* It's a hook to manage the state of the component. */
     const [newsLaterBool, setNewsLaterNews] = useState(false)
 
+    /* It's a hook to manage the state of the component. */
     const [globalError, setGlobalError] = useState(false)
 
+    /* It's a boolean that check if all the input are filled. */
     const globalValue = nameValue && prenomValue && codePostalValue && phoneValue && mailValue && rgpdValue;
 
+    /* It's a hook that allow us to dispatch an action. */
     const dispatch = useDispatch()
-    const state= useSelector(state=>state)
 
-    //Validation des data saisi via les regex et gestion des erreurs en fontion
-    const checkBtn = async (e)=>{
+    /* It's a hook that allow us to get the state of the store. */
+    const state = useSelector(state => state)
+
+    /**
+     * It checks the form and sends the data to the database.
+     * @param e - event
+     */
+    const checkBtn = async (e) => {
         e.preventDefault()
 
         //CheckNom
-        if(nameValue !== null && regexName.test(nameValue)){
+        if (nameValue !== null && regexName.test(nameValue)) {
             setErrorName(false);
-        }else {
+        } else {
             setErrorName(true)
         }
 
         //CheckPrenom
-        if(prenomValue !== null && regexName.test(prenomValue)){
+        if (prenomValue !== null && regexName.test(prenomValue)) {
             setErrorPrenom(false);
-        }else {
+        } else {
             setErrorPrenom(true)
         }
-        
+
         //CheckCodePostal
-        if(codePostalValue !== null && regexCodePostal.test(codePostalValue)){
+        if (codePostalValue !== null && regexCodePostal.test(codePostalValue)) {
             setErrorCodePostal(false);
-        }else {
+        } else {
             setErrorCodePostal(true)
         }
 
         //CheckPhone
-        if(phoneValue !== null && regexPhone.test(phoneValue)){
+        if (phoneValue !== null && regexPhone.test(phoneValue)) {
             setErrorPhone(false);
-        }else {
+        } else {
             setErrorPhone(true)
         }
 
         //CheckMail
-        if(mailValue !== null && regexMail.test(mailValue)){
+        if (mailValue !== null && regexMail.test(mailValue)) {
             setErrorMail(false);
-        }else {
+        } else {
             setErrorMail(true)
         }
 
         // Check RGPD
-        if(rgpdValue){
+        if (rgpdValue) {
             setErrorRGPD(false);
-        }else {
+        } else {
             setErrorRGPD(true)
         }
 
         //validation du contener global
-        if(globalValue){
-                setGlobalError(false)
-                if(state.name === null || state.prenom === null || state.mail === null || state.tel === null || state.codePostal === null){
-                    await dispatch(addUser({
-                        "name": nameValue,
-                        "prenom": prenomValue,
-                        "email": mailValue,
-                        "phone": phoneValue,
-                        "prestation": state.prestation.toString(),
-                        "habitation": state.typeLogement.toString(),
-                        "age": state.age.toString(),
-                        "surface": state.surface.toString(),
-                        "date": state.realisation.toString(),
-                        "codePostal": codePostalValue,
-                        "rgpd": rgpdValue, 
-                        "newslaters": newsLaterBool
-                    }));
+        if (globalValue) {
+            setGlobalError(false)
+            if (state.name === null || state.prenom === null || state.mail === null || state.tel === null || state.codePostal === null) {
+                await dispatch(addUser({
+                    "name": nameValue,
+                    "prenom": prenomValue,
+                    "email": mailValue,
+                    "phone": phoneValue,
+                    "prestation": state.prestation.toString(),
+                    "habitation": state.typeLogement.toString(),
+                    "age": state.age.toString(),
+                    "surface": state.surface.toString(),
+                    "date": state.realisation.toString(),
+                    "codePostal": codePostalValue,
+                    "rgpd": rgpdValue,
+                    "newslaters": newsLaterBool
+                }));
 
-                    dispatch(prospectValid())
-                }
-        }else{
+                dispatch(prospectValid())
+            }
+        } else {
             setGlobalError(true)
         }
-    }    
+    }
 
-    function changeRGP () {
+    /**
+     * It changes the value of the rgpdValue variable
+     */
+    function changeRGP() {
         setRgpdValue(!rgpdValue);
     }
 
-    function changeNewsLatter () {
+    /**
+     * It changes the value of the newsLaterBool variable.
+     */
+    function changeNewsLatter() {
         setNewsLaterNews(!newsLaterBool);
     }
 
+    /* It's a function that returns a JSX element. */
     return (
         <>
-            <div className={globalError? "error finalFormContainer" : "finalFormContainer"}>
-                <div className={errorName ? "nom error": "nom"}>
+            <div className={globalError ? "error finalFormContainer" : "finalFormContainer"}>
+                <div className={errorName ? "nom error" : "nom"}>
                     <label>
                         Nom*
-                        <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e)=>setNameValue(e.target.value)} required></input>
+                        <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e) => setNameValue(e.target.value)} required></input>
                         {errorName ? <span>Veuillez saisir un nom valide</span> : null}
                     </label>
                 </div>
-                <div className={errorPrenom ? "prenom error": "prenom"}>
+                <div className={errorPrenom ? "prenom error" : "prenom"}>
                     <label>
                         Prenom*
-                        <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e)=>setPrenomValue(e.target.value)} required></input>
+                        <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e) => setPrenomValue(e.target.value)} required></input>
                         {errorPrenom ? <span>Veuillez saisir un prénom valide</span> : null}
                     </label>
                 </div>
-                <div className={errorCodePostal ? "codePostal error": "codePostal"}>
+                <div className={errorCodePostal ? "codePostal error" : "codePostal"}>
                     <label>
                         Code postal*
-                        <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e)=>setCodePostalValue(e.target.value)} required></input>
+                        <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e) => setCodePostalValue(e.target.value)} required></input>
                         {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
                     </label>
                 </div>
-                <div className={errorPhone ? "phone error": "phone"}>
+                <div className={errorPhone ? "phone error" : "phone"}>
                     <label>
                         Téléphone*
-                        <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e)=>setPhoneValue(e.target.value)} required></input>
-                        {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span>:null}
+                        <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e) => setPhoneValue(e.target.value)} required></input>
+                        {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span> : null}
                     </label>
                 </div>
-                <div className={errorMail ? "email error": "email"}>
+                <div className={errorMail ? "email error" : "email"}>
                     <label>
                         Email*
-                        <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e)=>setMailValue(e.target.value)} required></input>
+                        <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e) => setMailValue(e.target.value)} required></input>
                         {errorMail ? <span>Veuillez saisir un email valide</span> : null}
                     </label>
                 </div>
                 <div className="checkbox">
                     <p>En savoir plus sur la gestion de vos données et de vos droits</p>
-                    <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br/> Pour le permettre veuillez cocher les cases ci-dessous: </p>
-                    <div className={errorRGPD ? "rgpd error": "rgpd"}>
+                    <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br /> Pour le permettre veuillez cocher les cases ci-dessous: </p>
+                    <div className={errorRGPD ? "rgpd error" : "rgpd"}>
                         <label>
-                            <input onChange={changeRGP} type="checkbox" id="one" name="one" required/>
+                            <input onChange={changeRGP} type="checkbox" id="one" name="one" required />
                             Être contacter par l’éditeur du site dans le cadre de ma demande*
                         </label>
-                        {errorRGPD ? <span>Veuillez accepter nos conditions RGPD pour continuer</span>:null}
+                        {errorRGPD ? <span>Veuillez accepter nos conditions RGPD pour continuer</span> : null}
                     </div>
                     <div className="newsLater">
                         <label>
-                            <input onChange={changeNewsLatter} type="checkbox" id="two" name="two"/>
+                            <input onChange={changeNewsLatter} type="checkbox" id="two" name="two" />
                             Recevoir des offres commerciales par voie éléctronique
                         </label>
                     </div>

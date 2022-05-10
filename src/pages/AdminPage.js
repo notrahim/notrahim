@@ -7,13 +7,25 @@ import { showAllProspect } from '../redux/actions/action';
 import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
 import ProspectArray from '../component/ProspectArray';
 
+/**
+ * It's a function that returns a div that contains a NavLink to the home page, a h1 that contains a
+ * greeting to the admin and a ProspectArray component
+ */
 const AdminPage = () => {
+
+    /* It's a hook that allows us to access the state of the store. */
     const state = useSelector(state => state )
+
+    /* It's a hook that allows us to dispatch an action to the store. */
     const dispatch = useDispatch()
+
+    /* It's a hook that allows us to create a reference to a DOM element. */
     const title = createRef()
 
+    /* It's a hook that allows us to navigate to a specific page. */
     const navigate = useNavigate()
 
+    /* It's a hook that allows us to perform side effects in a functional component. */
     useEffect(()=>{ 
         document.title = `TeraBois | Tableau de bord`;
         whatDoIDo()
@@ -25,6 +37,10 @@ const AdminPage = () => {
         })
     },[])
 
+    /**
+     * If the user is not logged in, he is redirected to the home page, otherwise, the function
+     * showAllProspect is called
+     */
     const whatDoIDo = () => {
         if(!state.isLogin){
             navigate("/accueil")
@@ -33,6 +49,9 @@ const AdminPage = () => {
         }
     }
 
+    /* It's a function that returns a div that contains a NavLink to the home page, a h1 that contains
+    a
+    greeting to the admin and a ProspectArray component */
     return (
         <div style={{minHeight:"100vh"}}>
             <NavLink to="/accueil" >

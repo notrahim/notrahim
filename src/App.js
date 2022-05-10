@@ -9,11 +9,18 @@ import ConnectionPage from "./pages/ConnectionPage";
 import AdminPage from "./pages/AdminPage";
 import { useState } from "react";
 
+/**
+ * A function that returns a component.
+ * @returns The return value of the function passed to useState.
+ */
 function App() {
+
+  /* It's a hook that allows you to use state in a functional component. */
   const state = useState(state => state)
 
-  console.log(window.location.pathname);
+  // console.log(window.location.pathname);
 
+  /* It's a hook that allows you to use state in a functional component. */
   return (
     <div className="App">
       <BrowserRouter >

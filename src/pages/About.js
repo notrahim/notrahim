@@ -7,13 +7,21 @@ import { NavLink } from 'react-router-dom';
 import {mpl} from 'my-personnal-library';
 import {useEffect} from 'react';
 
+/**
+ * It's a function that returns a JSX element.
+ * @returns It's a function that returns a JSX element.
+ */
 const About = () => {
+
+    /* It's a function from my personnal library. It's a function that return the sum of two numbers. */
     mpl(2, 3)
 
+    /* It's a function from react that allow to change the title of the page. */
     useEffect (()=>{
         document.title = "TeraBois | Nos Préstations"
     })
 
+    /* It's a function that returns a JSX element. */
     return (
         <>
             <header className="aboutHeader">

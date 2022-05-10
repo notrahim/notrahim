@@ -10,13 +10,29 @@ import CheckBoxFour from './component/CheckBoxFour';
 import CheckBoxFive from './component/CheckBoxFive';
 import FormulaireFinal from './component/FormulaireFinal';
 
+/**
+ * It's a function that returns a div with a button, a div with a h2 and a progress bar, and a form
+ * with a checkbox
+ * @returns A component that is a form.
+ */
 const Formulaire = () => {
+
+    /* It's a constant that is used to calculate the progress bar. */
     const maxArray = 8;
+
+    /* It's a hook that is used to get the state of the store. */
     const state = useSelector(state => state)
+
+    /* It's a hook that is used to dispatch an action. */
     const dispatch = useDispatch()
+
+    /* It's a hook that is used to set the title of the component. */
     const [title, setTitle] = useState("Bonjour")
+
+    /* It's a hook that is used to set the class of the button. */
     const [addClass, setAddClass] = useState("")
 
+    /* It's a function that is used to change the title of the component. */
     setTimeout(()=>{
         if(state.valueOfArray === 1){
             setAddClass("hidden")
@@ -35,18 +51,36 @@ const Formulaire = () => {
         } 
     }, 10)
 
+    /**
+     * It takes two arguments, state and maxProgress, and returns the percentage of the progress bar
+     * @param state - the current state of the progress bar
+     * @param maxProgress - The maximum value of the progress bar.
+     * @returns The percentage of the progress bar.
+     */
     function calculProgressBar(state, maxProgress){
         return (100 * state)/maxProgress
     }
 
+   /**
+    * The function sub is called when the form is submitted. The function prevents the default action
+    * of the form submission
+    * @param e - the event object
+    */
     const sub = (e)=>{
         e.preventDefault()
     }
 
+    /**
+     * A function that is used to change the state of the application.
+     */
     const showThisStates = ()=>{
         dispatch(nextArrayPrestation(!state.isLoading))
     }
 
+    /**
+     * It returns a component depending on the value of the state
+     * @returns The function boxOne is returning the value of the state.valueOfArray.
+     */
     const boxOne = () =>{
         if(state.valueOfArray === 1) {
             return(<ChexkBox/>)
@@ -68,6 +102,7 @@ const Formulaire = () => {
         }
     }
 
+    /* It's a function that returns a JSX element. */
     return (
         <div className="globalFormContainer">
             <button onClick={()=>dispatch(removeValueInArray())} className={"returnBtn "+ addClass}>

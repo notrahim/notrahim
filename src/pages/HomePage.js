@@ -9,12 +9,18 @@ import TitleAndText from '../component/TitleAndText';
 import ImageAndText from '../component/ImageAndText';
 import {useEffect} from 'react';
 
+/**
+ * It's a function that returns a JSX element
+ * @returns The HomePage component is being returned.
+ */
 const HomePage = () => {
 
+    /* It's a hook that allows you to perform side effects in function components. */
     useEffect(() => {
         document.title = "TeraBois | Accueil"
     }, [])
 
+   /* It's a function that returns a JSX element */
     return (
         <>
             <header className="homePageHeader">

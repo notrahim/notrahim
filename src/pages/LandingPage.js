@@ -13,15 +13,26 @@ import { handleTitle, whatPage } from '../utils/titleManager';
 //BUG Je pense que la solution est d'iterer la navbar au scroll
 
 const LandingPage = () => {
+
+    /* It's a hook that allows you to dispatch actions to the Redux store. */
     const dispatch = useDispatch()
 
+    /**
+     * It dispatches two actions, one to remove the prospect from the store, and the other to set the
+     * prospect's validity to false
+     */
     const closeModal = () => {
         dispatch(removeProspect())
         dispatch(prospectIsNotValid())
     }
 
+    /* It's a function that allows to change the title of the page depending on the page you are on. */
     whatPage()
 
+    /**
+     * It shows a modal when the user clicks on the submit button.
+     * @returns The modal is being returned.
+     */
     const showModal = () => {
         return (
             <div className="modalValide">
@@ -33,8 +44,10 @@ const LandingPage = () => {
         )
     }
 
-
+    /* It's a hook that allows you to subscribe to Redux store updates. */
     const prospectValid = useSelector(state => state.prospectValid);
+
+    /* It's a function that allows to change the title of the page depending on the page you are on. */
     return (
         <>
             {prospectValid ? showModal() : null}

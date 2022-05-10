@@ -11,6 +11,7 @@ export function handleTitle(){
     document.title = "TeraBois | Rendez-vous"
     
     
+    /* A function that changes the title of the page every second. */
     setInterval(()=>{
         if(document.hidden){
             ok = !ok
@@ -37,7 +38,7 @@ export function handleTitle(){
             document.title= "TeraBois | Accueil";
         }
 
-        if(window.location.pathname === ""){
+        if(window.location.pathname === "/accueil"){
             if(document.hidden){
                 document.title= "TeraBois | Accueil";
             }

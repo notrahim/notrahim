@@ -4,15 +4,34 @@ import Card from './Card';
 import { useDispatch, useSelector } from 'react-redux';
 import { nextArrayPrestation, addValueInArray, addLodging, removLodging } from '../../../redux/actions/action';
 
-
+/**
+ * CheckBox Two Component
+ * @returns A React component.
+ */
 const CheckBoxTwo = () => {
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedOne, setClickedOne] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [clickedTwo, setClickedTwo] = useState(false)
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [home, sethome] = useState([])
+
+    /* It's a hook that allows us to use state in a functional component. */
     const [globalError, setGlobalError] = useState(false)
+
+    /* It's a hook that allows us to use dispatch in a functional component. */
     const dispatch = useDispatch()
+
+    /* It's a variable that allows us to know if one of the two buttons is clicked. */
     const globalOrValue = clickedOne || clickedTwo ;
 
+    /**
+     * It's an asynchronous function that takes a value as a parameter and returns a value
+     * @param value - the value of the button clicked
+     */
     const returnValue = async (value)=>{
         setTimeout(()=>{
             switch (value) {
@@ -48,6 +67,7 @@ const CheckBoxTwo = () => {
         }, 20)
     }
 
+    /* It's a hook that allows us to perform side effects in a functional component. */
     useEffect(()=>{
         dispatch(removLodging())
         if(globalOrValue){
@@ -59,6 +79,11 @@ const CheckBoxTwo = () => {
         if(clickedOne) dispatch(addLodging(home))
     }, [globalOrValue])
 
+    /**
+     * It checks if the globalOrValue is true, if it is, it adds the value to the array and adds the
+     * lodging to the home. If it's false, it sets the globalError to true
+     * @param e - the event
+     */
     const checkBtn = (e)=>{
         e.preventDefault()
         if(globalOrValue) {
@@ -68,10 +93,9 @@ const CheckBoxTwo = () => {
         } else {
             setGlobalError(true)
         }
-        
-       
     }
     
+    /* It's a function that returns a JSX element. */
     return (
         <>
             <div className={globalError ? "error cardContainer" : "cardContainer"}>
