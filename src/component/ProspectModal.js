@@ -30,6 +30,8 @@ const ProspectModal = (props) => {
     /* It's a variable that stores the id of the prospect that is passed to the component. */
     const id = props.id
 
+    console.log(data.comments);
+
     /**
      * The function takes an event as an argument, prevents the default action, and sets the comment
      * value to the value of the event target
@@ -98,7 +100,7 @@ const ProspectModal = (props) => {
                 </div>
                 <div className="prospectContainer_comment">
                     <p>Commentaire:</p>
-                    <input placeholder="Ajouter un commantaire" value={commentValue} onChange={changeValue} />
+                    <input value={data.comments !== null ? data.comments:addCommentValue} placeholder="Ajouter un commantaire" onChange={changeValue} />
                     {addCommentValue !== undefined ?<button onClick={()=>mofificationOfComments(id, addCommentValue)}>Ajouter</button>: null}
                 </div>
             </div>
