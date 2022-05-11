@@ -296,12 +296,19 @@ export const showUser = (data)=>{
  */
 export function addUser(user) {
     return (dispatch) => {
-        // console.log(user);
+        console.log(user);
         dispatch({type : "addNameValue", payload: user});
-        axios.post("http://localhost:1337/api/prospects", {"data" : user})
+        axios.post("http://localhost:1337/api/prospects", {
+            "data" : user
+        },{
+            headers: {
+            Authorization:
+                'Bearer ' + localStorage.jwt,
+            },
+        })
         .then(
             response => {
-                    // console.log(response);
+                    console.log(response);
                 },
                 error => console.log(error)
             );    
