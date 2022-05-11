@@ -33,9 +33,9 @@ const SelectDropDown = (props) => {
     }
 
     return (
-        <button type="button" className={'selectDropDown ' + addClass}>
+        <button type="button" className={'selectDropDown ' + addClass}onClick={()=>setOpenBtn(!openBtn)}>
             <h4>{title}</h4>
-            {!openBtn ? <FontAwesomeIcon icon={faChevronDown} onClick={()=>setOpenBtn(true)}/>: <FontAwesomeIcon icon={faChevronUp} onClick={()=>setOpenBtn(false)}/>}
+            {!openBtn ? <FontAwesomeIcon icon={faChevronDown} />: <FontAwesomeIcon icon={faChevronUp} onClick={()=>setOpenBtn(false)}/>}
             {!openBtn ? null : bottom()}
         </button>
     );
