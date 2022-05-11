@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const AddPropsectInAdminPage = () => {
     return (
         <div className='addPropsectInAdminPage'>
