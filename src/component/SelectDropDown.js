@@ -12,7 +12,7 @@ const SelectDropDown = (props) => {
 
     const addClass = props.addClass !== undefined ? props.addClass : null
 
-    const [title, setTitle] = useState(list[0])
+    const [title, setTitle] = useState(props.title)
 
     const handleTitle = (el)=>{
         setTitle(el)
@@ -32,11 +32,11 @@ const SelectDropDown = (props) => {
     }
 
     return (
-        <div className={'selectDropDown ' + addClass}>
+        <button type="button" className={'selectDropDown ' + addClass}>
             <h4>{title}</h4>
             {!openBtn ? <FontAwesomeIcon icon={faChevronDown} onClick={()=>setOpenBtn(true)}/>: <FontAwesomeIcon icon={faChevronUp} onClick={()=>setOpenBtn(false)}/>}
             {!openBtn ? null : bottom()}
-        </div>
+        </button>
     );
 };
 
