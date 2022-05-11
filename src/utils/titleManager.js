@@ -1,5 +1,5 @@
 export function whatPage (){
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
     handleTitle()
 }
 
