@@ -6,6 +6,9 @@ import {gsap} from 'gsap';
 import { showAllProspect } from '../redux/actions/action';
 import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
 import ProspectArray from '../component/ProspectArray';
+import AddPropsectInAdminPage from '../component/AddPropsectInAdminPage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faPlus } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * It's a function that returns a div that contains a NavLink to the home page, a h1 that contains a
@@ -24,6 +27,9 @@ const AdminPage = () => {
 
     /* It's a hook that allows us to navigate to a specific page. */
     const navigate = useNavigate()
+
+    /* It's a hook that allows us to create a state variable. */
+    const [showAddProspectInAdminPage, setShowAddProspectInAdminPage] = useState(false)
 
     /* It's a hook that allows us to perform side effects in a functional component. */
     useEffect(()=>{ 
@@ -49,14 +55,27 @@ const AdminPage = () => {
         }
     }
 
+    /**
+     * It sets the state of the showAddProspectInAdminPage to true
+     */
+    const showAddProspectModal = ()=>{
+        setShowAddProspectInAdminPage(true);
+    }
+
     /* It's a function that returns a div that contains a NavLink to the home page, a h1 that contains
     a
     greeting to the admin and a ProspectArray component */
     return (
         <div style={{minHeight:"100vh"}}>
-            <NavLink to="/accueil" >
-                <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
-            </NavLink>
+            {showAddProspectInAdminPage ? <AddPropsectInAdminPage />:null}
+            <div className='topContainer'>
+                <NavLink to="/accueil" >
+                    <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
+                </NavLink>
+                <div className='addPropsectImg'>
+                    <FontAwesomeIcon icon={faPlus} onClick={()=>showAddProspectModal()}/> 
+                </div>
+            </div>
             <ProspectArray />
         </div>
     );
