@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect} from 'react';
+import { useDispatch} from 'react-redux';
 import { useState } from 'react';
 import SelectDropDown from './SelectDropDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
+import { addUser, prospectValid } from '../redux/actions/action'
 
 const AddPropsectInAdminPage = (props) => {
 
@@ -48,14 +50,93 @@ const AddPropsectInAdminPage = (props) => {
     /* It's a hook to manage the state of the component. */
     const [codePostalValue, setCodePostalValue] = useState(null)
 
+    const [prestation, setPrestation] = useState(null);
 
+    const [logement, setLogement] = useState(null);
+
+    const [age, setAge] = useState(null);
+
+    const [surface, setSurface] = useState(null);
+
+    const [realisation, setRealisation] = useState(null)
+
+    const [globalError, setGlobalError] = useState(false)
+
+    /* It's a hook that allow us to dispatch an action. */
+    const dispatch = useDispatch()
+
+    const submitThis = async (e)=>{
+        e.preventDefault()
+
+        //CheckNom
+        if (nameValue !== null && regexName.test(nameValue)) {
+            setErrorName(false);
+        } else {
+            setErrorName(true)
+        }
+
+        //CheckPrenom
+        if (prenomValue !== null && regexName.test(prenomValue)) {
+            setErrorPrenom(false);
+        } else {
+            setErrorPrenom(true)
+        }
+
+        //CheckCodePostal
+        if (codePostalValue !== null ) {
+            setErrorCodePostal(false);
+        } else {
+            setErrorCodePostal(true)
+        }
+
+        //CheckPhone
+        if (phoneValue !== null && regexPhone.test(phoneValue)) {
+            setErrorPhone(false);
+        } else {
+            setErrorPhone(true)
+        }
+
+        //CheckMail
+        if (emailValue !== null && regexMail.test(emailValue)) {
+            setErrorEmail(false);
+        } else {
+            setErrorEmail(true)
+        }
+
+        if(!errorName && !errorPrenom && !errorCodePostal && !errorPhone && prestation !== null && logement !== null && age !== null && surface !== null && realisation !== null){
+            setGlobalError(true)
+        } else setGlobalError(false)
+
+        // console.log(globalError);
+
+        if(globalError){
+            // console.log("ok");
+            await dispatch(addUser({
+                "name": nameValue,
+                "prenom": prenomValue,
+                "email": emailValue,
+                "phone": phoneValue,
+                "prestation": prestation.toString(),
+                "habitation": logement.toString(),
+                "age": age.toString(),
+                "surface": surface.toString(),
+                "date": realisation.toString(),
+                "codePostal": codePostalValue,
+                "rgpd": true
+            }));
+
+            dispatch(prospectValid())
+
+            props.callBack(false);
+        }
+    }
 
     return (
         <div className='addPropsectInAdminPage'>
             <div className='closeBtn'>
                 <FontAwesomeIcon icon={faXmark} onClick={() => props.callBack(false)}/>
             </div>
-            <form>
+            <form onSubmit={submitThis}>
                 <div className={errorName ? "nom error" : "nom"}>
                     <label>
                         Nom*
@@ -92,11 +173,15 @@ const AddPropsectInAdminPage = (props) => {
                     </label>
                 </div>
                 <div className="dropDownContainer">
-                    <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations"/>
-                    <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement"/>
-                    <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age"/>
-                    <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface"/>
-                    <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation"/>
+                    <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations" callBack={setPrestation}/>
+                    <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement" callBack={setLogement}/>
+                    <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age" callBack={setAge}/>
+                    <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface" callBack={setSurface}/>
+                    <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation" callBack={setRealisation}/>
+                </div>
+                <div className='buttonContainer'>
+                    <button type="submit">Ajouter</button>
+                    <button type="button" onClick={() => props.callBack(false)}>Annuler</button>
                 </div>
             </form>
         </div>
