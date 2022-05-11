@@ -85,7 +85,7 @@ const AddPropsectInAdminPage = () => {
                         {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
                     </label>
                 </div>
-                <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]}/>
+                <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} addClass="prestations"/>
             </form>
         </div>
     );
