@@ -67,7 +67,7 @@ const AdminPage = () => {
     greeting to the admin and a ProspectArray component */
     return (
         <div style={{minHeight:"100vh"}}>
-            {showAddProspectInAdminPage ? <AddPropsectInAdminPage />:null}
+            {showAddProspectInAdminPage ? <AddPropsectInAdminPage callBack={setShowAddProspectInAdminPage}/>:null}
             <div className='topContainer'>
                 <NavLink to="/accueil" >
                     <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
