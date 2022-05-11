@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import SelectDropDown from './SelectDropDown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
-
-const AddPropsectInAdminPage = () => {
+const AddPropsectInAdminPage = (props) => {
 
     /* It's a regex to check if the name is valid. */
     const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -47,8 +48,13 @@ const AddPropsectInAdminPage = () => {
     /* It's a hook to manage the state of the component. */
     const [codePostalValue, setCodePostalValue] = useState(null)
 
+
+
     return (
         <div className='addPropsectInAdminPage'>
+            <div className='closeBtn'>
+                <FontAwesomeIcon icon={faXmark} onClick={() => props.callBack(false)}/>
+            </div>
             <form>
                 <div className={errorName ? "nom error" : "nom"}>
                     <label>
@@ -85,7 +91,13 @@ const AddPropsectInAdminPage = () => {
                         {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
                     </label>
                 </div>
-                <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} addClass="prestations"/>
+                <div className="dropDownContainer">
+                    <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations"/>
+                    <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement"/>
+                    <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age"/>
+                    <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface"/>
+                    <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation"/>
+                </div>
             </form>
         </div>
     );
