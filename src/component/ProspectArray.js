@@ -185,9 +185,6 @@ const ProspectArray = () => {
         <>
             {showModal ? <ProspectModal data={zoomProspect} id={idProspect} closeModal={setShowModal} /> : null}
             <h3>Contacts total: <span>{totalUser}</span></h3>
-            <div className="numberOfPageContainer">
-                {/* {pagination !== [] ? creatPagination() : null} */}
-            </div>
             <table className="propsectArrayContainer">
                 <thead>
                     <tr>
