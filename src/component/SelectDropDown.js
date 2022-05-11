@@ -9,15 +9,22 @@ const SelectDropDown = (props) => {
     const [openBtn, setOpenBtn] = useState(false);
 
     const list = props.list;
-    
-    const title = list[0];
+
+    const addClass = props.addClass !== undefined ? props.addClass : null
+
+    const [title, setTitle] = useState(list[0])
+
+    const handleTitle = (el)=>{
+        setTitle(el)
+        setOpenBtn(false)
+    }
 
     const bottom = ()=>{
         return(
             <div className="selectDropDown-bottom">
                 <ul>
                     {list.map(el=>
-                        <li key={el}>{el}</li>
+                        <li key={el} onClick={()=>handleTitle(el)}>{el}</li>
                     )}
                 </ul>
             </div>
@@ -25,10 +32,10 @@ const SelectDropDown = (props) => {
     }
 
     return (
-        <div className='selectDropDown'>
+        <div className={'selectDropDown ' + addClass}>
             <h4>{title}</h4>
             {!openBtn ? <FontAwesomeIcon icon={faChevronDown} onClick={()=>setOpenBtn(true)}/>: <FontAwesomeIcon icon={faChevronUp} onClick={()=>setOpenBtn(false)}/>}
-            {openBtn ? null : bottom()}
+            {!openBtn ? null : bottom()}
         </div>
     );
 };
