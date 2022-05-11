@@ -17,6 +17,7 @@ const SelectDropDown = (props) => {
     const handleTitle = (el)=>{
         setTitle(el)
         setOpenBtn(false)
+        props.callBack(true)
     }
 
     const bottom = ()=>{
