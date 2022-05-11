@@ -32,7 +32,7 @@ const ProspectModal = (props) => {
     /* It's a variable that stores the id of the prospect that is passed to the component. */
     const id = props.id
 
-    console.log(data.comments);
+    // console.log(data.comments);
 
     /**
      * The function takes an event as an argument, prevents the default action, and sets the comment
