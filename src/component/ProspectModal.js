@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { mofificationOfComments } from '../redux/actions/action';
 import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 /* It's a variable that will be used to store the value of the input. */
 let addCommentValue;
@@ -60,7 +62,9 @@ const ProspectModal = (props) => {
      * @returns A modal with all */
     return (
         <div className="prospectModal">
-            <button onClick={() => props.closeModal(false)}>close</button>
+            {/* <button onClick={() => props.closeModal(false)}>close</button> */}
+            <FontAwesomeIcon icon={faXmark} onClick={() => props.closeModal(false)}/>
+            
             <div className="prospectContainer">
                 <div className="prospectContainer_name">
                     <p>Nom:</p>
