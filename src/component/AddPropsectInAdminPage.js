@@ -1,12 +1,15 @@
 import React, { useEffect} from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {  useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import SelectDropDown from './SelectDropDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faXmark, faCheck} from '@fortawesome/free-solid-svg-icons';
-import { addUser, addUserWhenImAdmin, prospectValid } from '../redux/actions/action'
+import { addUserWhenImAdmin, showAllProspect} from '../redux/actions/action'
 
 const AddPropsectInAdminPage = (props) => {
+
+    const state = useSelector(state => state)
 
     /* It's a regex to check if the name is valid. */
     const regexName = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
@@ -73,6 +76,9 @@ const AddPropsectInAdminPage = (props) => {
 
     /* It's a hook that allow us to dispatch an action. */
     const dispatch = useDispatch()
+    
+    /* It's a hook that allows you to navigate between routes in your application. */
+    const navigate = useNavigate()
 
     /**
      * It's a function that is called when the user clicks on the submit button. It prevents the
@@ -83,7 +89,6 @@ const AddPropsectInAdminPage = (props) => {
      */
     const submitThis = async (e)=>{
         e.preventDefault()
-
 
         //CheckNom
         if (nameValue !== null && regexName.test(nameValue)) {
@@ -144,9 +149,15 @@ const AddPropsectInAdminPage = (props) => {
                 "rgpd": true
             }));
 
+            dispatch(showAllProspect())
+            console.log(state);
+
             // setThks(false)
             setTimeout(()=>{
                 props.callBack(false);
+                // navigate("/admin")
+                props.returnValue(true)
+                // window.location.reload(false);
             }, 2000)
         }
     }
@@ -156,7 +167,6 @@ const AddPropsectInAdminPage = (props) => {
     * @returns A function that returns a div with a checkmark and a h3 tag.
     */
     const showThks = () =>{
-        console.log("Un");
         return(
             <>
                 <div className='thksContainer'>
@@ -172,7 +182,6 @@ const AddPropsectInAdminPage = (props) => {
     * @returns The function showArray is being returned.
     */
     const showArray = ()=>{
-        console.log('deux');
         return(
             <>
                 <div className='closeBtn'>
