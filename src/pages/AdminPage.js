@@ -29,6 +29,9 @@ const AdminPage = () => {
     const navigate = useNavigate()
 
     /* It's a hook that allows us to create a state variable. */
+    const [refreshPage, setRefreshPage] = useState(false)
+
+    /* It's a hook that allows us to create a state variable. */
     const [showAddProspectInAdminPage, setShowAddProspectInAdminPage] = useState(false)
 
     /* It's a hook that allows us to perform side effects in a functional component. */
@@ -67,7 +70,7 @@ const AdminPage = () => {
     greeting to the admin and a ProspectArray component */
     return (
         <div style={{minHeight:"100vh"}}>
-            {showAddProspectInAdminPage ? <AddPropsectInAdminPage callBack={setShowAddProspectInAdminPage}/>:null}
+            {showAddProspectInAdminPage ? <AddPropsectInAdminPage callBack={setShowAddProspectInAdminPage} returnValue={setRefreshPage}/>:null}
             <div className='topContainer'>
                 <NavLink to="/accueil" >
                     <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
@@ -76,7 +79,7 @@ const AdminPage = () => {
                     <FontAwesomeIcon icon={faPlus} onClick={()=>showAddProspectModal()}/> 
                 </div>
             </div>
-            <ProspectArray />
+            <ProspectArray refreshPage={refreshPage} setRefreshPage={setRefreshPage} />
         </div>
     );
 };
