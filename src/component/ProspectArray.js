@@ -21,7 +21,7 @@ let idProspect;
  * It's a function that returns a table with the prospect data, and a pagination component
  * @returns The ProspectArray component is being returned.
  */
-const ProspectArray = () => {
+const ProspectArray = (props) => {
     
     /* It's a hook that is used to get the state of the store. */
     const state = useSelector(state => state);
@@ -48,6 +48,13 @@ const ProspectArray = () => {
     useEffect(() => {
         addStatePropspect();
     }, [state.prospect[0]])
+
+    /* It's a hook that is called after the first render. */
+    // useEffect(() => {
+    //     // console.log(props.refreshPage);
+    //     addStatePropspect();
+    //     props.setRefreshPage(false);
+    // }, [props.refreshPage])
 
     /* It checks if the totalUser variable is not null, if it isn't, it calls the numberOfPage function
     with the totalUser variable as a parameter, and then it loops through the showNumberOfPage
@@ -78,6 +85,7 @@ const ProspectArray = () => {
      * and sets the totalUser and showUser variables
      */
     const addStatePropspect = async () => {
+        // console.log(state.prospect[0].length);
         if (state.prospect[0] === undefined) {
             await state.prospect[0]
             dispatch({ type: "loadingProspectArray" })
