@@ -312,8 +312,6 @@ export function addUser(user) {
 
 export function addUserWhenImAdmin(user) {
     return (dispatch) => {
-        console.log(user);
-        // dispatch({type : "addNameValue", payload: user});
         axios.post("http://localhost:1337/api/prospects", {
             "data" : user
         },{
