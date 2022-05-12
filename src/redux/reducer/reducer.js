@@ -198,7 +198,9 @@ const reducer = (state = initState, action) => {
         case "addProspectInData":
             return {
                 ...state,
-                prospect: [...state.prospect, action.payload.data.data]
+                // prospect: [...state.prospect, action.payload.data.data]
+
+                prospect: [ action.payload.data.data]
             }    
 
         case "loadingProspectArray":
