@@ -1,1 +1,1 @@
-![logo terabois](https://localhost:3000/img/logo.png "Title is optional") 
+![logo terabois](https://github.com/magicniclus/teraboisfrontend/blob/main/public/img/logo.png?raw=true) 
