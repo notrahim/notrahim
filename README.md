@@ -1,7 +1,6 @@
 ![logo terabois](https://github.com/magicniclus/teraboisfrontend/blob/main/public/img/logo.png?raw=true) 
 
 # TeraBois
-
 Projet de création de sites pour l'entreprise Terabois spécialiste en optimisation thermique de l'habitat. L'objectif de ce site est de récupérer des leads, les ajouter à une base de donner et gérer ces derniers dans la page "admin". 
 
 #### Le projet:
@@ -50,5 +49,3 @@ npm i
 ```
 npm run start
 ```
-
-
