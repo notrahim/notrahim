@@ -1,4 +1,4 @@
-![logo terabois](https://github.com/magicniclus/teraboisfrontend/blob/main/public/img/logo.png =70x70?raw=true) 
+![logo terabois](https://github.com/magicniclus/teraboisfrontend/blob/main/public/img/logo.png?raw=true) 
 
 # TeraBois
 
