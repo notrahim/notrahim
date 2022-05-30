@@ -14,10 +14,14 @@ Projet de création de sites pour l'entreprise Terabois spécialiste en optimisa
 
 ## Installing / Getting started
 
-#### Install Packge
+#### Install Package
 ```
 npm i 
 ```
-packagemanager install awesome-project
+
+#### Run the Project
+```
+npm run start
+```
 
 
