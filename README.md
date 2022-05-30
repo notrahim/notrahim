@@ -12,4 +12,12 @@ Projet de création de sites pour l'entreprise Terabois spécialiste en optimisa
 5. Créer une page "admin"
 6. Créer une page "404"
 
+## Installing / Getting started
+
+#### Install Packge
+```
+npm i 
+```
+packagemanager install awesome-project
+
 
