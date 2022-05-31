@@ -39,10 +39,10 @@ const DropDown = (props) => {
         <div className={classValue === undefined ? "dropDownContainer": "dropDownContainer " + classValue}>
             <div onClick={()=>setOpenBtn(!openBtn)} className="dropDown">
                     <p>{question}</p>
-                <img src="../img/SVG/1x/chevron.png" alt="chevron rop" />
+                <img src="../img/SVG/1x/chevron.png" alt="chevron top" className='top' />
             </div>
             <div className="lign"></div>
-            <p>{text}</p>
+            <p className='text'>{text}</p>
         </div>
 
     )
