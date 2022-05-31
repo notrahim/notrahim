@@ -3,7 +3,7 @@
     height: calc(100vh - 78.7px);
     width: 100vw;
     .globalContainer{
-        height: calc(100vh - 78.7px);
+        height: 100%;
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
@@ -76,6 +76,7 @@
                             align-items: center;
                             margin-top: 35px;
                             .dropDown{
+                                cursor: pointer;
                                 display: flex;
                                 align-items: center;
                                 p{
@@ -100,6 +101,7 @@
                                 text-align: center;
                                 max-width: 360px;
                                 margin-top: 15px;
+                                font-size: 18px;
                             }
                         }
                     }
