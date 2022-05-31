@@ -8,17 +8,22 @@
         display: flex;
         flex-wrap: nowrap;
         .leftContainer{
+            background-image: url("../../../public/img/photo-iti.jpg");
+            background-size: cover;
             background-color: antiquewhite;
             width: 40%;
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             @media screen and(max-width: 768px) {
                 display: none;
             }
             .container{
-                height: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+                width: 90%;
+                height: 95%;
                 .whereAreMe{
                     display: flex;
                     align-items: center;
