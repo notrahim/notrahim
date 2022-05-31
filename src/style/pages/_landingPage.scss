@@ -20,15 +20,23 @@
             @media screen and(max-width: 768px) {
                 display: none;
             }
+            @media screen and(max-height: 680px) {
+                display: none;
+            }
             .container{
                 background-color: rgba(255, 255, 255, 0.9);
                 width: 90%;
                 height: 95%;
                 .whereAreMe{
+                    opacity: 0;
                     display: flex;
                     align-items: center;
                     margin-left: 15px;
                     margin-top: 15px;
+                    animation-name: hiddenText;
+                    animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+                    animation-duration: 0.5s;
+                    animation-fill-mode: forwards;
                     a{
                         font-weight: bold;
     
@@ -51,6 +59,12 @@
                     justify-content: space-between;
                     margin-top: 50px;
                     .title{
+                        opacity: 0;
+                        animation-name: hiddenText;
+                        animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+                        animation-duration: 0.5s;
+                        animation-delay: 0.2s;
+                        animation-fill-mode: forwards;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -58,22 +72,37 @@
                             margin-top: 15px;
                             font-size: 48px;
                             font-weight: bold;
+                            @media screen and (max-width: 1017px) {
+                                font-size: 38px;
+                            }
                         }
                         p{
                             margin-top: 15px;
                             font-size: 18px;
                             font-weight: bold;
+                            @media screen and (max-width: 1017px) {
+                                font-size: 15px;
+                            }
                             span{
                                 font-size: 48px;
                                 color: #F28963;
+                                @media screen and (max-width: 1017px) {
+                                    font-size: 38px;
+                                }
                             }
                         }
                     }
                     .question{
+                        opacity: 0;
                         display: flex;
                         justify-content: center;
                         flex-direction: column;
                         margin-bottom: 50px;
+                        animation-name: hiddenText;
+                        animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+                        animation-duration: 0.5s;
+                        animation-delay: 0.4s;
+                        animation-fill-mode: forwards;
                         .dropDownContainer{
                             display: flex;
                             flex-direction: column;
@@ -92,10 +121,25 @@
                                     font-size: 18px;
                                     font-weight: 400;
                                     color: #0396A6;
+                                    @media screen and (max-width: 1017px) {
+                                        font-size: 15px;
+                                    }
+                                    @media screen and (max-width: 913px) {
+                                        font-size: 11px;
+                                    }
                                 }
                                 img{
                                     color: #0396A6;
                                     width: 17px;
+                                    @media screen and (max-width: 1017px) {
+                                        width: 13px;
+                                        margin-bottom: 2px;
+                                    }
+                                }
+                                .top{
+                                    // animation-name: rotateChevron;
+                                    // animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+                                    // animation-duration: 0.1s;
                                 }
                             }
                             .lign{
@@ -108,6 +152,12 @@
                                 max-width: 360px;
                                 margin-top: 15px;
                                 font-size: 18px;
+                                opacity: 0;
+                                animation-name: hiddenText;
+                                animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+                                animation-duration: 0.3s;
+                                animation-delay: 0.1s;
+                                animation-fill-mode: forwards;
                             }
                         }
                     }
@@ -120,6 +170,36 @@
             @media screen and(max-width: 768px) {
                 width: 100%;
             }
+            @media screen and(max-height: 680px) {
+                width: 100%;
+            }
         }
+    }
+}
+
+// @keyframes rotateChevron {
+//     from{
+//         transform: rotate(-180deg);
+//     }
+//     to{
+//         transform: rotate(0deg);
+//     }
+// }
+
+@keyframes hiddenText {
+    from{
+        opacity: 0;
+        transform: translateX(-100px);
+        // height: 0;
+    }
+
+    70%{
+        opacity: 0.5;
+    }
+
+    to{
+        // height: 100%;
+        opacity: 1;
+        transform: translateX(0px);
     }
 }
