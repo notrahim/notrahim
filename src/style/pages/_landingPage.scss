@@ -1,123 +1,63 @@
 @import "../component/landingPageNavigation";
-@import "../component/formulaire";
-
-header{
-    -webkit-box-shadow: 0px 1px 15px -1px rgba(0,0,0,0); 
-    box-shadow: 0px 1px 15px -1px rgba(0,0,0,0);
-}
 .landingPage{
-    width: 100%;
-    // padding-bottom: 155px;
-    @media screen and (max-width: 768px) {
-        padding-bottom: 0;
-    }
-    *{
-        img{
-            width: 20px;
-            object-fit:contain;
-        }
-        a{
-            text-decoration: none;
-        }
-        button{
-            border: 0;
-            background-color: white;
-        }
-    }
+    height: calc(100vh - 78.7px);
+    width: 100vw;
     .globalContainer{
-        height: 100%;
+        height: calc(100vh - 78.7px);
         width: 100%;
         display: flex;
-        justify-content: center;
-        @media screen and (max-width: 768px) {
-            flex-direction: column-reverse;
-        }
+        flex-wrap: nowrap;
         .leftContainer{
-            background-image: url("../../../public/img/photo-iti.jpeg");
-            background-size: cover;
-            min-height: calc(100vh - 78px);
-            height: 100%;
+            background-color: antiquewhite;
             width: 40%;
+            height: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            @media screen and (max-height: 660px) {
+            flex-direction: column;
+            justify-content: space-between;
+            @media screen and(max-width: 768px) {
                 display: none;
-            }
-            @media screen and (max-width: 768px) {
-                width: 100%;
-                padding: 0;
-                min-height: 100%;
-                background-image: none;
-                display: none;
-            }
-            @media screen and (max-width: 425px) {
-                display: flex;
             }
             .container{
-                min-height: calc(95vh - 78px);
-                background-color: rgba(255, 255, 255, 0.9);
-                width: 100%;
-                @media screen and (max-width: 768px) {
-                    min-height: 100%;
-                }
+                height: 100%;
                 .whereAreMe{
-                    width: 8rem;
-                    margin-left: 0.7rem;
-                    margin-top: 0.7rem;
                     display: flex;
-                    justify-content: center;
                     align-items: center;
-                    @media screen and (max-width: 768px) {
-                        display: none;
-                    }
+                    margin-left: 15px;
+                    margin-top: 15px;
                     a{
-                        font-size: 14px;
                         font-weight: bold;
+    
                     }
                     img{
-                        margin-left: 0.3rem;
-                        margin-right: 0.3rem;
-                        width: 7px;
+                        width: 4px;
                     }
-                    p{
-                        font-weight: normal;
+                    a, p{
+                        font-size: 14px;
+                        text-decoration: none;
+                    }
+                    img, p{
+                        margin-left: 5px;
                     }
                 }
                 .textContainer{
+                    min-height: 90%;
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    min-height: 76vh;
-                    height: 100%;
                     justify-content: space-between;
-                    @media screen and (max-width: 768px) {
-                        min-height: 100%;
-                    }
+                    margin-top: 50px;
                     .title{
-                        height: 40%;
-                        margin-top: 2rem;
-                        margin-bottom: 2rem;
-                        text-align: center;
-                        @media screen and (max-width: 768px) {
-                            margin-bottom: 0;
-                        }
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
                         h1{
+                            margin-top: 15px;
                             font-size: 48px;
                             font-weight: bold;
-                            margin-bottom: 1rem;
-                            @media screen and (max-width: 768px) {
-                                display: none;
-                            }
                         }
                         p{
+                            margin-top: 15px;
                             font-size: 18px;
                             font-weight: bold;
-                            @media screen and (max-width: 768px) {
-                                display: none;
-                            }
-
                             span{
                                 font-size: 48px;
                                 color: #F28963;
@@ -125,52 +65,41 @@ header{
                         }
                     }
                     .question{
-                        height: 40%;
-                        margin-bottom: 2rem;
-                        width: 80%;
-                        max-height: 25rem;
-                        overflow: scroll;
-                        @media screen and (max-width: 768px) {
-                            overflow:initial;
-                            max-height: 100%;
-                            width: 90%;
-                        }
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        margin-bottom: 50px;
                         .dropDownContainer{
-                            width: 100%;
                             display: flex;
                             flex-direction: column;
                             justify-content: center;
                             align-items: center;
-                            margin-top: 0.5rem;
-                            cursor: pointer;
-                            p{
-                                margin-top: 1rem;
-                                text-align: center;
-                                font-weight: 100;
-                                width: 88%;
-                                font-size: 18px;
-                                font-weight: normal;
-                            }
+                            margin-top: 35px;
                             .dropDown{
-                                width: 100%;
                                 display: flex;
                                 align-items: center;
-                                justify-content: center;
-                                position: relative;
-                                padding: 0.5rem;
-                                img{
-                                    position:absolute;
-                                    right: 0;
-                                    top: 7px;
-                                }
                                 p{
                                     margin: 0;
+                                    margin-bottom: 5px;
+                                    font-size: 18px;
+                                    font-weight: 400;
                                     color: #0396A6;
+                                }
+                                img{
+                                    width: 17px;
+                                    // height: 17px;
+                                    margin-left: 70px;
                                 }
                             }
                             .lign{
-                                width: 90%;
-                                border: 1px solid #0396A6
+                                width: 360px;
+                                height: 1px;
+                                background-color: #0396A6;
+                            }
+                            p{
+                                text-align: center;
+                                max-width: 360px;
+                                margin-top: 15px;
                             }
                         }
                     }
@@ -178,115 +107,11 @@ header{
             }
         }
         .rightContainer{
-            background-color: #0396A6;
-            min-height: calc(100vh - 78px);
-            min-height: 100%;
+            background-color:aquamarine;
             width: 60%;
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 0 100px 0 0;
-            @media screen and (max-height: 660px) {
+            @media screen and(max-width: 768px) {
                 width: 100%;
-                border-radius: 0;
-            }
-            @media screen and (max-width: 1024px) {
-                border-radius: 0;
-            }
-            @media screen and (max-width: 768px) {
-                width: 100%;
-                // padding: 0;
-                min-height: calc(100vh - 78px);
-            }
-            @media screen and (max-width: 425px) {
-                background-color: rgb(192, 192, 192, 0.2);
-            }
-            .container{
-                min-height: calc(95vh - 78px);
-                height: 100%;
-                width: 100%;
-                .topMobil{
-                    display: none;
-                    @media screen and (max-width: 425px){
-                        display: flex;
-                        flex-direction: column;
-                        height: 10rem;
-
-                        .connection{
-                            font-size: 11px;
-                        }
-
-                        a{
-                            font-size: 13px;
-                            color: #0396A6;
-                        }
-                        
-                        .connection, h2{
-                            margin-top: 1rem;
-                            margin-left: 1rem;
-                        }
-
-                        h2{
-                            width: 18rem;
-                            margin-left: auto;
-                            margin-right: auto;
-                            margin-top: 3rem;
-                            font-size: 18px;
-                            span{
-                                font-size: 48px;
-                                color: #F28963;
-                            }
-                        }
-                    }
-                }
-                .globalFormContainer{
-                    height: 80%;
-                    background-color: white;
-                    padding: 0.7rem;
-                    border-radius: 0 100px 0 0;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    @media screen and (max-width: 1024px) {
-                        border-radius: 0;
-                    }
-                    @media screen and (max-width: 768px) {
-                        // margin-top: 2rem;
-                        height: 39rem;
-                    }
-                    @media screen and (max-height: 660px) {
-                        height: 100%;
-                        border-radius: 0;
-                    }
-                    @media screen and (max-width: 425px) {
-                        background-color: rgb(192, 192, 192, 0.0);
-                        height: 56rem;
-                        margin-top: 0;
-                    }
-                    @include formulaire;
-                }    
-                .containerBottom{
-                    height: 20%;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    h3{
-                        color: white;
-                        font-size: 30px;
-                        span{
-                            color: #F28963;
-                        }
-                    }
-                    @media screen and (max-height: 660px) {
-                        display: none;
-                    }
-                    @media screen and (max-width: 768px) {
-                        display: none;
-                    }
-                }
             }
         }
     }
-}      
-    
+}
