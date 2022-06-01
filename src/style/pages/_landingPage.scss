@@ -103,6 +103,12 @@
                         animation-duration: 0.5s;
                         animation-delay: 0.4s;
                         animation-fill-mode: forwards;
+                        height: 40%;
+                        max-height: 25rem;
+                        overflow: scroll;
+                        @media screen and(max-height: 760px) {
+                            display: none;
+                        }
                         .dropDownContainer{
                             display: flex;
                             flex-direction: column;
@@ -136,11 +142,6 @@
                                         margin-bottom: 2px;
                                     }
                                 }
-                                .top{
-                                    // animation-name: rotateChevron;
-                                    // animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
-                                    // animation-duration: 0.1s;
-                                }
                             }
                             .lign{
                                 width: 80%;
@@ -155,7 +156,7 @@
                                 opacity: 0;
                                 animation-name: hiddenText;
                                 animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
-                                animation-duration: 0.3s;
+                                animation-duration: 0.4s;
                                 animation-delay: 0.1s;
                                 animation-fill-mode: forwards;
                             }
@@ -176,15 +177,6 @@
         }
     }
 }
-
-// @keyframes rotateChevron {
-//     from{
-//         transform: rotate(-180deg);
-//     }
-//     to{
-//         transform: rotate(0deg);
-//     }
-// }
 
 @keyframes hiddenText {
     from{
