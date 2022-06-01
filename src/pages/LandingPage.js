@@ -17,6 +17,11 @@ const LandingPage = () => {
     /* It's a hook that allows you to dispatch actions to the Redux store. */
     const dispatch = useDispatch()
 
+    const [upButtonOne, setUpButtonOne] = useState(false)
+    const [upButtonTwo, setUpButtonTwo] = useState(false)
+    const [upButtonThree, setUpButtonThree] = useState(false)
+    const [upButtonFour, setUpButtonFour] = useState(false)
+
     /**
      * It dispatches two actions, one to remove the prospect from the store, and the other to set the
      * prospect's validity to false
@@ -42,6 +47,30 @@ const LandingPage = () => {
                 </div>
             </div>
         )
+    }
+
+    const handleButtonOne = () => {
+        setUpButtonTwo(false)
+        setUpButtonThree(false)
+        setUpButtonFour(false)
+    }
+
+    const handleButtonTwo = () => {
+        setUpButtonOne(false)
+        setUpButtonThree(false)
+        setUpButtonFour(false)
+    }
+
+    const handleButtonThree = () => {
+        setUpButtonOne(false)
+        setUpButtonTwo(false)
+        setUpButtonFour(false)
+    }
+
+    const handleButtonFour = () => {
+        setUpButtonOne(false)
+        setUpButtonTwo(false)
+        setUpButtonThree(false)
     }
 
     /* It's a hook that allows you to subscribe to Redux store updates. */
@@ -72,18 +101,30 @@ const LandingPage = () => {
                                     <DropDown
                                         question="Pourquoi bien isoler son logement ?"
                                         text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonOne}
+                                        return={upButtonOne}
+                                        arg={handleButtonOne}
                                     />
                                     <DropDown
                                         question="Pourquoi bien isoler son logement ?"
                                         text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonTwo}
+                                        return={upButtonTwo}
+                                        arg={handleButtonTwo}
                                     />
                                     <DropDown
                                         question="Pourquoi bien isoler son logement ?"
                                         text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonThree}
+                                        return={upButtonThree}
+                                        arg={handleButtonThree}
                                     />
                                     <DropDown
                                         question="Pourquoi bien isoler son logement ?"
                                         text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonFour}
+                                        return={upButtonFour}
+                                        arg={handleButtonFour}
                                     />
                                 </div>
                             </div>
