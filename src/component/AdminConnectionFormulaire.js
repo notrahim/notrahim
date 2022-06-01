@@ -60,20 +60,25 @@ const AdminConnectionFormulaire = () => {
 
     /* It's a function that returns a JSX element. */
     return (
-        <div className="formContainer">
-            <h1>Connexion</h1>      
-            <form >
-                <label className="email">
-                    <input id="email" type="email" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                </label>
-                <label className="passeword">
-                    <input id="passeword" type="password" placeholder="Mot de passe" value={password} onChange={(e)=>setPassWord(e.target.value)} />
-                </label>
-                <button onClick={tcheckAdminValue}>Se Connecter</button>
-                <NavLink to="/">Retour</NavLink>
-                {error ? <span className="error">Mail ou mot de passe invalide</span> : null}
-            </form>
-        </div>
+        <>
+            <div className={state.isLogin? "showLoader" : "hiddenLoader"}>
+                <img src="./img/spinner.gif" alt="spinner" />
+            </div>
+            <div className="formContainer">
+                <h1>Connexion</h1>      
+                <form >
+                    <label className="email">
+                        <input className={error?"error":null} id="email" type="email" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)} />
+                    </label>
+                    <label className="passeword">
+                        <input className={error?"error":null} id="passeword" type="password" placeholder="Mot de passe" value={password} onChange={(e)=>setPassWord(e.target.value)} />
+                    </label>
+                    <button onClick={tcheckAdminValue}>Se Connecter</button>
+                    <NavLink to="/">Retour</NavLink>
+                    {error ? <span className="error">Mail ou mot de passe invalide</span> : null}
+                </form>
+            </div>
+        </>
     );
 };
 
