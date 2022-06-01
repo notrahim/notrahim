@@ -9,6 +9,7 @@ import ProspectArray from '../component/ProspectArray';
 import AddPropsectInAdminPage from '../component/AddPropsectInAdminPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus } from '@fortawesome/free-solid-svg-icons';
+import AdminPageNavigation from '../component/AdminPageNavigation';
 
 /**
  * It's a function that returns a div that contains a NavLink to the home page, a h1 that contains a
@@ -69,18 +70,23 @@ const AdminPage = () => {
     a
     greeting to the admin and a ProspectArray component */
     return (
-        <div style={{minHeight:"100vh"}}>
-            {showAddProspectInAdminPage ? <AddPropsectInAdminPage callBack={setShowAddProspectInAdminPage} returnValue={setRefreshPage}/>:null}
-            <div className='topContainer'>
-                <NavLink to="/accueil" >
-                    <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
-                </NavLink>
-                <div className='addPropsectImg'>
-                    <FontAwesomeIcon icon={faPlus} onClick={()=>showAddProspectModal()}/> 
+        <>
+            <header className='aminPageHeader'>
+                <AdminPageNavigation />
+            </header>
+            <main style={{minHeight:"100vh"}}>
+                {showAddProspectInAdminPage ? <AddPropsectInAdminPage callBack={setShowAddProspectInAdminPage} returnValue={setRefreshPage}/>:null}
+                <div className='topContainer'>
+                    <NavLink to="/accueil" >
+                        <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
+                    </NavLink>
+                    <div className='addPropsectImg'>
+                        <FontAwesomeIcon icon={faPlus} onClick={()=>showAddProspectModal()}/> 
+                    </div>
                 </div>
-            </div>
-            <ProspectArray refreshPage={refreshPage} setRefreshPage={setRefreshPage} />
-        </div>
+                <ProspectArray refreshPage={refreshPage} setRefreshPage={setRefreshPage} />
+            </main>
+        </>
     );
 };
 
