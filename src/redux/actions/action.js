@@ -5,8 +5,8 @@ import axios from "axios"
  * @param bool - true or false
  * @returns An object with a type and a payload.
  */
-export const nextArrayPrestation = (bool)=>{
-    return{
+export const nextArrayPrestation = (bool) => {
+    return {
         type: "nextPrestation",
         payload: bool
     }
@@ -17,8 +17,8 @@ export const nextArrayPrestation = (bool)=>{
  * @param prestation - the prestation object that we want to add to the state
  * @returns An object with a type and a payload.
  */
-export const addPrestation = (prestation)=>{
-    return{
+export const addPrestation = (prestation) => {
+    return {
         type: "addPrestation",
         payload: prestation
     }
@@ -29,8 +29,8 @@ export const addPrestation = (prestation)=>{
  * @param prestation - the prestation to be removed
  * @returns An object with a type and a payload.
  */
-export const removPrestation = (prestation)=>{
-    return{
+export const removPrestation = (prestation) => {
+    return {
         type: "removePrestation",
         payload: prestation
     }
@@ -42,8 +42,8 @@ export const removPrestation = (prestation)=>{
  * @param lodging - This is the lodging object that we want to add to the state.
  * @returns An object with a type and a payload.
  */
-export const addLodging = (lodging) =>{
-    return{
+export const addLodging = (lodging) => {
+    return {
         type: "addLodging",
         payload: lodging
     }
@@ -54,8 +54,8 @@ export const addLodging = (lodging) =>{
  * @param lodging - the lodging object that you want to remove from the state
  * @returns An object with a type and a payload.
  */
-export const removLodging = (lodging)=>{
-    return{
+export const removLodging = (lodging) => {
+    return {
         type: "removeLodging",
         payload: lodging
     }
@@ -66,9 +66,9 @@ export const removLodging = (lodging)=>{
  * @param old - The old value that we want to add to the store.
  * @returns An object with a type and a payload.
  */
-export const addOld = (old)=>{
-    return{
-        type:"addOld",
+export const addOld = (old) => {
+    return {
+        type: "addOld",
         payload: old
     }
 }
@@ -79,8 +79,8 @@ export const addOld = (old)=>{
  * @param old - The old value that you want to remove from the state.
  * @returns An object with a type and a payload.
  */
-export const removOld = (old)=>{
-    return{
+export const removOld = (old) => {
+    return {
         type: "removeOld",
         payload: old
     }
@@ -91,8 +91,8 @@ export const removOld = (old)=>{
  * @param measure - {
  * @returns An object with a type and a payload.
  */
-export const addMeasure = (measure)=>{
-    return{
+export const addMeasure = (measure) => {
+    return {
         type: "addMeasure",
         payload: measure
     }
@@ -103,8 +103,8 @@ export const addMeasure = (measure)=>{
  * @param measure - the measure to be removed
  * @returns An object with a type and a payload.
  */
-export const removMeasure = (measure)=>{
-    return{
+export const removMeasure = (measure) => {
+    return {
         type: "removeMeasure",
         payload: measure
     }
@@ -115,8 +115,8 @@ export const removMeasure = (measure)=>{
  * @param when - This is the time of the event.
  * @returns An object with a type and a payload.
  */
-export const addWhen = (when) =>{
-    return{
+export const addWhen = (when) => {
+    return {
         type: "addWhen",
         payload: when
     }
@@ -127,7 +127,7 @@ export const addWhen = (when) =>{
  * @param when - the when object that you want to remove
  * @returns An object with a type and a payload.
  */
-export const removWhen = (when) =>{
+export const removWhen = (when) => {
     return {
         type: "removeWhen",
         payload: when
@@ -139,8 +139,8 @@ export const removWhen = (when) =>{
  * @param value - The value that is passed in from the input field.
  * @returns An object with a type and a payload.
  */
-export const addNameValue = (value) =>{
-    return{
+export const addNameValue = (value) => {
+    return {
         type: "addNameValue",
         payload: value
     }
@@ -151,8 +151,8 @@ export const addNameValue = (value) =>{
  * @param value - the value of the input
  * @returns An object with a type and a payload.
  */
-export const addPrenomValue = (value) =>{
-    return{
+export const addPrenomValue = (value) => {
+    return {
         type: "addPrenomValue",
         payload: value
     }
@@ -163,8 +163,8 @@ export const addPrenomValue = (value) =>{
  * @param value - the value of the input
  * @returns An object with a type and a payload.
  */
-export const addCodePostalValue = (value) =>{
-    return{
+export const addCodePostalValue = (value) => {
+    return {
         type: "addCodePostalValue",
         payload: value
     }
@@ -175,8 +175,8 @@ export const addCodePostalValue = (value) =>{
  * @param value - The value of the input field
  * @returns An object with a type and a payload.
  */
-export const addPhoneValue = (value) =>{
-    return{
+export const addPhoneValue = (value) => {
+    return {
         type: "addPhoneValue",
         payload: value
     }
@@ -187,8 +187,8 @@ export const addPhoneValue = (value) =>{
  * @param value - the value of the RGPD checkbox
  * @returns An object with a type and a payload.
  */
-export const addRGPDValue = (value) =>{
-    return{
+export const addRGPDValue = (value) => {
+    return {
         type: "addRGPDValue",
         payload: value
     }
@@ -199,8 +199,8 @@ export const addRGPDValue = (value) =>{
  * @param value - The value of the input field
  * @returns An object with a type and a payload.
  */
-export const addNewsLaterValue = (value) =>{
-    return{
+export const addNewsLaterValue = (value) => {
+    return {
         type: "addNewsLaterValue",
         payload: value
     }
@@ -210,8 +210,8 @@ export const addNewsLaterValue = (value) =>{
  * It returns an object with a type property
  * @returns An object with a type property.
  */
-export const isLoading = ()=>{
-    return{
+export const isLoading = () => {
+    return {
         type: "isLoading"
     }
 }
@@ -220,8 +220,8 @@ export const isLoading = ()=>{
  * It returns an object with a type property
  * @returns An object with a type property.
  */
-export const isNotLoading = ()=>{
-    return{
+export const isNotLoading = () => {
+    return {
         type: "isNotLoading"
     }
 }
@@ -230,8 +230,8 @@ export const isNotLoading = ()=>{
  * It returns an object with a type property
  * @returns An object with a type property.
  */
-export const prospectValid = ()=>{
-    return{
+export const prospectValid = () => {
+    return {
         type: "prospectValid"
     }
 }
@@ -240,8 +240,8 @@ export const prospectValid = ()=>{
  * It returns an object with a type property that has a value of "prospectIsNotValid"
  * @returns An object with a type property.
  */
-export const prospectIsNotValid = ()=>{
-    return{
+export const prospectIsNotValid = () => {
+    return {
         type: "prospectIsNotValid"
     }
 }
@@ -250,8 +250,8 @@ export const prospectIsNotValid = ()=>{
  * It returns an object with a type property
  * @returns An object with a type property.
  */
-export const addValueInArray = () =>{
-    return{
+export const addValueInArray = () => {
+    return {
         type: "addValueInArray"
     }
 }
@@ -260,8 +260,8 @@ export const addValueInArray = () =>{
  * It returns an object with a type property
  * @returns An object with a type property.
  */
-export const removeValueInArray = () =>{
-    return{
+export const removeValueInArray = () => {
+    return {
         type: "removeValueInArray"
     }
 }
@@ -270,8 +270,8 @@ export const removeValueInArray = () =>{
  * It returns an object with a type property
  * @returns An object with a type property.
  */
-export const removeProspect = ()=>{
-    return{
+export const removeProspect = () => {
+    return {
         type: "removeProspect"
     }
 }
@@ -281,10 +281,16 @@ export const removeProspect = ()=>{
  * @param data - This is the data that we want to pass to the reducer.
  * @returns An object with a type and a payload.
  */
-export const showUser = (data)=>{
-    return{
+export const showUser = (data) => {
+    return {
         type: "showUser",
         payload: data
+    }
+}
+
+export const isNotLogin = () => {
+    return {
+        type: "isNotLogin"
     }
 }
 
@@ -297,35 +303,35 @@ export const showUser = (data)=>{
 export function addUser(user) {
     return (dispatch) => {
         console.log(user);
-        dispatch({type : "addNameValue", payload: user});
+        dispatch({ type: "addNameValue", payload: user });
         axios.post("http://localhost:1337/api/prospects", {
-            "data" : user
+            "data": user
         })
-        .then(
-            response => {
+            .then(
+                response => {
                     console.log(response);
                 },
                 error => console.log(error)
-            );    
+            );
     };
 }
 
 export function addUserWhenImAdmin(user) {
     return (dispatch) => {
         axios.post("http://localhost:1337/api/prospects", {
-            "data" : user
-        },{
+            "data": user
+        }, {
             headers: {
-            Authorization:
-                'Bearer ' + localStorage.jwt,
+                Authorization:
+                    'Bearer ' + localStorage.jwt,
             },
         })
-        .then(
-            response => {
+            .then(
+                response => {
                     console.log(response);
                 },
                 error => console.log(error)
-            );    
+            );
     };
 }
 
@@ -334,20 +340,27 @@ export function addUserWhenImAdmin(user) {
  * @param user - the user object that contains the identifier and password
  * @returns An object with a type and a payload.
  */
-export function userConnect(user){
-    return (dispatch)=>{
-        dispatch({type: "isLoading"});
-        try{
+export function userConnect(user) {
+    return (dispatch) => {
+        dispatch({ type: "isLoading" });
+        try {
             axios.post("http://localhost:1337/api/auth/local", {
                 identifier: user.identifier,
                 password: user.password
-            }).then((response)=>{
+            }).then((response) => {
                 localStorage.setItem("jwt", response.data.jwt);
                 dispatch(showUser(response.data.user))
                 dispatch(isNotLoading())
             })
-        }catch(err){
+        } catch (err) {
         }
+    }
+}
+
+export function userDisconnect(){
+    return (dispatch) =>{
+        localStorage.setItem("jwt", "");
+        dispatch(isNotLogin());
     }
 }
 
@@ -355,18 +368,18 @@ export function userConnect(user){
  * It's a function that returns a function that uses the axios library to make a GET request to the
  * server, and then dispatches an action to the Redux store
  */
-export function showAllProspect(){
+export function showAllProspect() {
     return dispatch => {
-        try{
+        try {
             axios.get("http://localhost:1337/api/prospects?pagination[page]=1&pagination[pageSize]=1000", {
                 headers: {
-                    Authorization: `Bearer `+ localStorage.jwt,
+                    Authorization: `Bearer ` + localStorage.jwt,
                 }
             })
-            .then((response)=>{
-                dispatch({type: "addProspectInData", payload: response})
-            })
-        }catch(err){
+                .then((response) => {
+                    dispatch({ type: "addProspectInData", payload: response })
+                })
+        } catch (err) {
             console.log(err);
         }
     }
@@ -378,9 +391,9 @@ export function showAllProspect(){
  * @param id - the id of the prospect you want to modify
  * @param text - the text that you want to add to the comments field
  */
-export function mofificationOfComments(id, text){
+export function mofificationOfComments(id, text) {
     console.log(localStorage.getItem("jwt"));
-    try{
+    try {
         axios.put(
             `http://localhost:1337/api/prospects/${id}`,
             {
@@ -390,14 +403,14 @@ export function mofificationOfComments(id, text){
             },
             {
                 headers: {
-                Authorization:
-                    'Bearer ' + localStorage.jwt,
+                    Authorization:
+                        'Bearer ' + localStorage.jwt,
                 },
             }
-        ).then(response =>{
+        ).then(response => {
             console.log(response);
         })
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
