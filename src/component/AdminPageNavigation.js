@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import "../style/component/_adminPageNavigation.scss"
 import {useDispatch, useSelector} from 'react-redux';
@@ -11,7 +11,7 @@ const AdminPageNavigation = () => {
 
     const navigate = useNavigate()
 
-    const disconnect =async ()=>{
+    const disconnect =()=>{
         if(!state.isLogin) navigate("/accueil")
         dispatch(userDisconnect())
     }
@@ -22,7 +22,7 @@ const AdminPageNavigation = () => {
             <div className="adminPageNavContainer">
                 <div className="adminPageNav">
                     <NavLink to="/accueil"><img src="./img/logo.png" alt="logo" /></NavLink>
-                    <span onClick={disconnect}>Se Déconnecter</span>
+                    <button onClick={disconnect}>Se Déconnecter</button>
                 </div>
             </div>
         </>
