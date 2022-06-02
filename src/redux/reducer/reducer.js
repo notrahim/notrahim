@@ -42,6 +42,24 @@ const reducer = (state = initState, action) => {
                 isLoading: true
             }
 
+        case "isLogin":
+            return {
+                ...state,
+                isLogin:true,
+            }
+
+            case "isNotLogin":
+                return {
+                    ...state,
+                    isLogin:false,
+                    admin: {
+                        username: "",
+                        email: "",
+                        passeword: "",
+                        token: localStorage.jwt
+                    }
+                }
+
         case "next":
             return {
                 ...state,
