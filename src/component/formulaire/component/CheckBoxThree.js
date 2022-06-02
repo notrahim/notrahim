@@ -139,7 +139,7 @@ const CheckBoxThree = () => {
                 </button>   
             </div>
             <div className="btnContainer">
-                <button onClick={checkBtn} className={globalError ? "error btnUn" : "btnUn"}>Suivant</button>
+                <button onClick={checkBtn} className="btnUn">Suivant</button>
                 <div className={globalError ? "hiddenError" : "error"}>Veuillez selectionner l'âge de votre logement</div>
             </div>
         </>
