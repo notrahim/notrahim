@@ -10,28 +10,28 @@ import AddPropsectInAdminPage from '../component/AddPropsectInAdminPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus } from '@fortawesome/free-solid-svg-icons';
 import AdminPageNavigation from '../component/AdminPageNavigation';
+import "../style/pages/_adminPage.scss"
 
 /**
  * It's a function that returns a div that contains a NavLink to the home page, a h1 that contains a
  * greeting to the admin and a ProspectArray component
  */
 const AdminPage = () => {
-
     /* It's a hook that allows us to access the state of the store. */
     const state = useSelector(state => state )
-
+    
     /* It's a hook that allows us to dispatch an action to the store. */
     const dispatch = useDispatch()
-
+    
     /* It's a hook that allows us to create a reference to a DOM element. */
     const title = createRef()
-
+    
     /* It's a hook that allows us to navigate to a specific page. */
     const navigate = useNavigate()
-
+    
     /* It's a hook that allows us to create a state variable. */
     const [refreshPage, setRefreshPage] = useState(false)
-
+    
     /* It's a hook that allows us to create a state variable. */
     const [showAddProspectInAdminPage, setShowAddProspectInAdminPage] = useState(false)
 
@@ -71,6 +71,9 @@ const AdminPage = () => {
     greeting to the admin and a ProspectArray component */
     return (
         <>
+            <div className={!state.isLogin? "showLoaderTwo" : "hiddenLoaderTwo"}>
+                <img src="./img/spinner.gif" alt="spinner" />
+            </div>
             <header className='aminPageHeader'>
                 <AdminPageNavigation />
             </header>
