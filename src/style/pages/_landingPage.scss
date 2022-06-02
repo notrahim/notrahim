@@ -1,5 +1,6 @@
 @import "../component/landingPageNavigation";
 .landingPage{
+    z-index: 1;
     height: calc(100vh - 78.7px);
     width: 100vw;
     .globalContainer{
@@ -200,10 +201,11 @@
                 }
                 .globalFormContainer{
                     width: 100%;
-                    height: 78%;
+                    height: 80%;
                     background-color: white;
                     border-radius: 0 100px 0 0;
                     .returnBtn{
+                        // display: flex;
                         height: 10%;
                         // margin-top: 15px;
                         margin-left: 15px;
@@ -215,6 +217,9 @@
                             width: 9px;
                         }
                     }
+                    .hidden{
+                        visibility: hidden;
+                    }
                     .question{
                         height: 15%;
                         display: flex;
@@ -224,6 +229,8 @@
                         h2{
                             font-size: 40px;
                             font-weight: bold;
+                            animation-name: apparitionText;
+                            animation-duration: 0.5s;
                         }
                         .progressLign{
                             height: 9px;
@@ -246,24 +253,48 @@
                             padding-top:60px;
                             flex-wrap: wrap;
                             .card{
+                                animation-name: apparitionText;
+                                animation-duration: 0.5s;
                                 box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
                                 background-color: white;
                                 border: none;
                                 width: 22%;
-                                height: 140px;
+                                height: 170px;
+                                position: relative;
+                                .pointExt{
+                                    width: 16px;
+                                    height: 16px;
+                                    background-color: #C4C4C4;
+                                    position: absolute;
+                                    top: 5px;
+                                    right: 5px;
+                                    border-radius: 50px;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
                                 img{
-                                    width: 55%;
+                                    max-width: 55%;
+                                    max-height: 100px;
                                     object-fit: cover;
                                 }
                                 h4{
                                     margin-top: 5px;
-                                    font-size: 10px;
+                                    font-size: 18px;
                                     font-weight: bold;
                                     color: #0396A6;
                                 }
                             }
                             .selected{
-                                border: 1px solid #F28963;
+                                border: 2px solid #F28963;
+                                .pointExt{
+                                    .pointInt{
+                                        width: 13px;
+                                        height: 13px;
+                                        background-color: #F28963;
+                                        border-radius: 50px;
+                                    }
+                                }
                             }
                             .card:hover{
                                 box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 35%);
@@ -271,7 +302,7 @@
                             }
                         }
                         .btnContainer{
-                            margin-top: 35px;
+                            margin-top: 50px;
                             width: 100%;
                             display: flex;
                             flex-direction: column;
@@ -281,14 +312,17 @@
                                 text-decoration: none;
                                 text-align: center;
                                 cursor: pointer;
-                                width: 120px;
-                                height: 45px;
+                                width: 200px;
+                                height: 75px;
+                                font-size: 24px;
                                 border: 0;
                                 color: white;
                                 background: linear-gradient(0.25turn, #0396A6, #04BFAD);
                                 font-weight: bold;
-                                font-size: 15px;
                                 border-radius: 10px;    
+                            }
+                            .btnUn:hover{
+                                box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
                             }
                             .error{
                                 display: none;
@@ -304,10 +338,32 @@
                 }
                 .containerBottom{
                     display: flex;
-                    height: 22%;
+                    height: 20%;
                 }
             }
         }
+    }
+}
+.modalValide{
+    animation-name: apparitionModal;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    border-radius: 10px;
+    background-color: white;
+    padding: 30px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    text-align: center;
+    .btnUn{
+        position: absolute;
+        top: 10%;
+        right: 10%;
     }
 }
 
@@ -336,5 +392,15 @@
 
     to{
         opacity: 1;
+    }
+}
+
+@keyframes apparitionModal {
+    from{
+        transform: translateX(-100vw);
+    }
+
+    to{
+        transform: translateX(0);
     }
 }
