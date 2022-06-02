@@ -170,13 +170,142 @@
             }
         }
         .rightContainer{
-            background-color:aquamarine;
+            background-color:#0396A6;
             width: 60%;
+            height: 100%;
+            border-radius: 0 100px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             @media screen and(max-width: 768px) {
                 width: 100%;
             }
             @media screen and(max-height: 680px) {
                 width: 100%;
+            }
+            .container{
+                width: 94%;
+                height: 95%;
+                border-radius: 0 100px 0 0;
+                img{
+                    max-width: 177px;
+                }
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .topMobil{
+                    display: none;
+                }
+                .globalFormContainer{
+                    width: 100%;
+                    height: 78%;
+                    background-color: white;
+                    border-radius: 0 100px 0 0;
+                    .returnBtn{
+                        height: 10%;
+                        // margin-top: 15px;
+                        margin-left: 15px;
+                        font-size: 24px;
+                        color: #0396A6;
+                        background-color: white;
+                        border: none;
+                        img{
+                            width: 9px;
+                        }
+                    }
+                    .question{
+                        height: 15%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        h2{
+                            font-size: 40px;
+                            font-weight: bold;
+                        }
+                        .progressLign{
+                            height: 9px;
+                            width: 446px;
+                            background-color: #C4C4C4;
+                            border-radius: 10px;
+                            .progressLignIn{
+                                background-color: #0396A6;
+                                border-radius: 10px;
+                                height: 100%;
+                            }
+                        }
+                    }
+                    form{
+                        height: 75%;
+                        // border: 1px solid black;
+                        .cardContainer{
+                            display: flex;
+                            justify-content: space-around;
+                            padding-top:60px;
+                            flex-wrap: wrap;
+                            .card{
+                                box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
+                                background-color: white;
+                                border: none;
+                                width: 22%;
+                                height: 140px;
+                                img{
+                                    width: 55%;
+                                    object-fit: cover;
+                                }
+                                h4{
+                                    margin-top: 5px;
+                                    font-size: 10px;
+                                    font-weight: bold;
+                                    color: #0396A6;
+                                }
+                            }
+                            .selected{
+                                border: 1px solid #F28963;
+                            }
+                            .card:hover{
+                                box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 35%);
+                               
+                            }
+                        }
+                        .btnContainer{
+                            margin-top: 35px;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            .btnUn{
+                                text-decoration: none;
+                                text-align: center;
+                                cursor: pointer;
+                                width: 120px;
+                                height: 45px;
+                                border: 0;
+                                color: white;
+                                background: linear-gradient(0.25turn, #0396A6, #04BFAD);
+                                font-weight: bold;
+                                font-size: 15px;
+                                border-radius: 10px;    
+                            }
+                            .error{
+                                display: none;
+                            }
+                            .hiddenError{
+                                margin-top: 10px;
+                                display: flex;
+                                font-size: 15px;                                
+                                color: #F25C5C;
+                            }
+                        }
+                    }
+                }
+                .containerBottom{
+                    display: flex;
+                    height: 22%;
+                }
             }
         }
     }
