@@ -34,7 +34,7 @@
         justify-content: center;
         animation-name: opacity;
         animation-duration: 0.5s;
-        animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+        animation-timing-function:ease-out;
         animation-fill-mode: forwards;
         z-index: 1;
 
