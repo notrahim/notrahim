@@ -73,6 +73,8 @@ const LandingPage = () => {
         setUpButtonThree(false)
     }
 
+    const state = useSelector(state => state)
+
     /* It's a hook that allows you to subscribe to Redux store updates. */
     const prospectValid = useSelector(state => state.prospectValid);
 
@@ -140,7 +142,7 @@ const LandingPage = () => {
                                 <h2>Jusqu'à <span>10000€</span> d'aide</h2>
                             </div>
                             <Formulaire />
-                            <div className="containerBottom">
+                            <div className={state.valueOfArray === 6 ? "containerBottom lastContainerBottom": "containerBottom" } >
                                 <h3>+ de <span>10</span> ans <br /> d'experience</h3>
                                 <h3>RDV en <br /><span>24</span>/<span>48h</span></h3>
                                 <h3>+ de 3000 <br />réalisations</h3>
