@@ -4,7 +4,7 @@
  * @returns The first letter of the word is being returned in uppercase.
  */
 export function upperCaseFirstLatter (word){
-
+    if(!word)return""
     /* Taking the first letter of the word and making it uppercase and then adding the rest of the word
     to it. */
     const newWord = word[0].toUpperCase() + word.slice(1)
