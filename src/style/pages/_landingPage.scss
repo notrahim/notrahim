@@ -35,8 +35,8 @@
                     margin-left: 15px;
                     margin-top: 15px;
                     animation-name: hiddenText;
-                    animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
-                    animation-duration: 0.5s;
+                    animation-timing-function:ease-out;
+                    animation-duration: 0.3s;
                     animation-fill-mode: forwards;
                     a{
                         font-weight: bold;
@@ -62,8 +62,8 @@
                     .title{
                         opacity: 0;
                         animation-name: hiddenText;
-                        animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
-                        animation-duration: 0.5s;
+                        animation-timing-function:ease-out;
+                        animation-duration: 0.3s;
                         animation-delay: 0.2s;
                         animation-fill-mode: forwards;
                         display: flex;
@@ -100,8 +100,8 @@
                         flex-direction: column;
                         margin-bottom: 50px;
                         animation-name: hiddenText;
-                        animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
-                        animation-duration: 0.5s;
+                        animation-timing-function:ease-out;
+                        animation-duration: 0.3s;
                         animation-delay: 0.4s;
                         animation-fill-mode: forwards;
                         height: 40%;
@@ -156,7 +156,7 @@
                                 font-size: 14px;
                                 opacity: 0;
                                 animation-name: apparitionText;
-                                animation-timing-function:cubic-bezier(.32,-0.01,.67,1);
+                                animation-timing-function:ease-out;
                                 animation-duration: 0.4s;
                                 animation-delay: 0.1s;
                                 animation-fill-mode: forwards;
@@ -205,9 +205,7 @@
                     background-color: white;
                     border-radius: 0 100px 0 0;
                     .returnBtn{
-                        // display: flex;
                         height: 10%;
-                        // margin-top: 15px;
                         margin-left: 15px;
                         font-size: 24px;
                         color: #0396A6;
@@ -235,6 +233,7 @@
                         .progressLign{
                             height: 9px;
                             width: 446px;
+                            margin-top: 15px;
                             background-color: #C4C4C4;
                             border-radius: 10px;
                             .progressLignIn{
@@ -282,7 +281,7 @@
                                     margin-top: 5px;
                                     font-size: 18px;
                                     font-weight: bold;
-                                    color: #0396A6;
+                                    color: #04588c;
                                 }
                             }
                             .selected{
@@ -359,7 +358,7 @@
     font-size: 48px;
     text-align: center;
     animation-name: apparitionText;
-    animation-duration: 0.3s;
+    animation-duration: 0.1s;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     .btnUn{
@@ -368,7 +367,7 @@
         animation-duration: 0.3s;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
-        animation-delay: 0.6s;
+        animation-delay: 0.3s;
         position: absolute;
         top: 10%;
         right: 10%;
@@ -378,7 +377,7 @@
         animation-name: apparitionText;
         animation-duration: 0.3s;
         animation-timing-function: ease-out;
-        animation-delay: 0.4s;
+        animation-delay: 0.2s;
         animation-fill-mode: forwards;
     }
 }
