@@ -167,39 +167,39 @@ const FormulaireFinal = () => {
     return (
         <>
             <div className={globalError ? "error finalFormContainer" : "finalFormContainer"}>
-                <div className={errorName ? "nom error" : "nom"}>
+                <div className={errorName ? "input nom error" : "input nom"}>
                     <label>
                         Nom*
-                        <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e) => setNameValue(e.target.value)} required></input>
-                        {errorName ? <span>Veuillez saisir un nom valide</span> : null}
+                        <input className={errorName ? "errorInput" : null} type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e) => setNameValue(e.target.value)} required></input>
+                        {/* {errorName ? <span>Veuillez saisir un nom valide</span> : null} */}
                     </label>
                 </div>
-                <div className={errorPrenom ? "prenom error" : "prenom"}>
+                <div className={errorPrenom ? "input prenom error" : "input prenom"}>
                     <label>
                         Prenom*
-                        <input type="text" id="prenom" name="prenom" placeholder="John" onChange={(e) => setPrenomValue(e.target.value)} required></input>
-                        {errorPrenom ? <span>Veuillez saisir un prénom valide</span> : null}
+                        <input className={errorPrenom ? "errorInput" : null} type="text" id="prenom" name="prenom" placeholder="John" onChange={(e) => setPrenomValue(e.target.value)} required></input>
+                        {/* {errorPrenom ? <span>Veuillez saisir un prénom valide</span> : null} */}
                     </label>
                 </div>
-                <div className={errorCodePostal ? "codePostal error" : "codePostal"}>
+                <div className={errorCodePostal ? "input codePostal error" : "input codePostal"}>
                     <label>
                         Code postal*
-                        <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e) => setCodePostalValue(e.target.value)} required></input>
-                        {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
+                        <input className={errorCodePostal ? "errorInput" : null} type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e) => setCodePostalValue(e.target.value)} required></input>
+                        {/* {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null} */}
                     </label>
                 </div>
-                <div className={errorPhone ? "phone error" : "phone"}>
+                <div className={errorPhone ? "input phone error" : "input phone"}>
                     <label>
                         Téléphone*
-                        <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e) => setPhoneValue(e.target.value)} required></input>
-                        {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span> : null}
+                        <input className={errorPhone ? "errorInput" : null} type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e) => setPhoneValue(e.target.value)} required></input>
+                        {/* {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span> : null} */}
                     </label>
                 </div>
-                <div className={errorMail ? "email error" : "email"}>
+                <div className={errorMail ? "input email error" : "input email"}>
                     <label>
                         Email*
-                        <input type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e) => setMailValue(e.target.value)} required></input>
-                        {errorMail ? <span>Veuillez saisir un email valide</span> : null}
+                        <input className={errorMail ? "errorInput" : null} type="mail" id="mail" name="mail" placeholder="johndoe@exemple.com" onChange={(e) => setMailValue(e.target.value)} required></input>
+                        {/* {errorMail ? <span>Veuillez saisir un email valide</span> : null} */}
                     </label>
                 </div>
                 <div className="checkbox">
@@ -208,9 +208,9 @@ const FormulaireFinal = () => {
                     <div className={errorRGPD ? "rgpd error" : "rgpd"}>
                         <label>
                             <input onChange={changeRGP} type="checkbox" id="one" name="one" required />
-                            Être contacter par l’éditeur du site dans le cadre de ma demande*
+                            Être contacter par l’éditeur du site dans le cadre de ma demande*<br/>
                         </label>
-                        {errorRGPD ? <span>Veuillez accepter nos conditions RGPD pour continuer</span> : null}
+                        {errorRGPD ? <span className='errorMessage'>Veuillez accepter nos conditions RGPD pour continuer</span> : null}
                     </div>
                     <div className="newsLater">
                         <label>
