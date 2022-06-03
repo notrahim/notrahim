@@ -22,8 +22,6 @@ const LandingPage = () => {
     const [upButtonThree, setUpButtonThree] = useState(false)
     const [upButtonFour, setUpButtonFour] = useState(false)
 
-    console.log("ok");
-
     /**
      * It dispatches two actions, one to remove the prospect from the store, and the other to set the
      * prospect's validity to false
