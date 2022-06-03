@@ -104,12 +104,12 @@ const Formulaire = () => {
 
     /* It's a function that returns a JSX element. */
     return (
-        <div className="globalFormContainer">
+        <div className={title === "Prenons rendez-vous" ? "lastTitle globalFormContainer" : "globalFormContainer"}>
             <button onClick={()=>dispatch(removeValueInArray())} className={"returnBtn "+ addClass}>
                 <img src="./img/SVG/chevron-left-blue.png" alt="chevron right"/>
                 retour
             </button>
-            <div className="question">
+            <div className={title === "Prenons rendez-vous" ? "question lastQuestion" : "question"}>
                 <h2>{title}</h2>
                 <ProgressLign progress={calculProgressBar(state.valueOfArray, maxArray)} />
             </div>
