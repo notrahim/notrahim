@@ -3,6 +3,9 @@
     z-index: 1;
     height: calc(100vh - 78.7px);
     width: 100vw;
+    @media screen and (max-height: 600px) {
+        height: 100%;
+    }
     .globalContainer{
         height: 100%;
         width: 100%;
@@ -77,11 +80,17 @@
                             @media screen and (max-width: 1017px) {
                                 font-size: 38px;
                             }
+                            @media screen and (min-width: 2200px) {
+                                font-size: 58px;
+                            }
                         }
                         p{
                             margin-top: 15px;
                             font-size: 18px;
                             font-weight: bold;
+                            @media screen and (min-width: 2200px) {
+                                font-size: 20px;
+                            }
                             @media screen and (max-width: 1017px) {
                                 font-size: 15px;
                             }
@@ -90,6 +99,9 @@
                                 color: #F28963;
                                 @media screen and (max-width: 1017px) {
                                     font-size: 38px;
+                                }
+                                @media screen and (min-width: 2200px) {
+                                    font-size: 55px;
                                 }
                             }
                         }
@@ -129,6 +141,9 @@
                                     font-size: 18px;
                                     font-weight: 400;
                                     color: #0396A6;
+                                    @media screen and (min-width: 2200px) {
+                                        font-size: 20px;
+                                    }
                                     @media screen and (max-width: 1017px) {
                                         font-size: 15px;
                                     }
@@ -161,6 +176,10 @@
                                 animation-duration: 0.4s;
                                 animation-delay: 0.1s;
                                 animation-fill-mode: forwards;
+                                @media screen and (min-width: 2200px) {
+                                    font-size: 20px;
+                                    max-width: 80%;
+                                }
                                 @media screen and (max-width: 1017px) {
                                     font-size: 10px;
                                     max-width: 80%;
@@ -205,13 +224,19 @@
                     height: 80%;
                     background-color: white;
                     border-radius: 0 100px 0 0;
+                    @media screen and (max-width:1185px) {
+                        height: 100%;
+                    }
                     .returnBtn{
-                        height: 10%;
+                        height: 7%;
                         margin-left: 15px;
                         font-size: 24px;
                         color: #0396A6;
                         background-color: white;
                         border: none;
+                        @media screen and (min-width: 2200px) {
+                            font-size: 27px;
+                        }
                         img{
                             width: 9px;
                         }
@@ -220,23 +245,36 @@
                         visibility: hidden;
                     }
                     .question{
-                        height: 15%;
+                        height: 13%;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        justify-content: center;
+                        justify-content: space-between;
+                        opacity: 0;
+                        animation-name: apparitionText;
+                        animation-timing-function:ease-out;
+                        animation-duration: 0.3s;
+                        animation-delay: 0.2s;
+                        animation-fill-mode: forwards;
                         h2{
-                            font-size: 40px;
+                            font-size: 35px;
+                            margin-top: 5px;
                             font-weight: bold;
                             animation-name: apparitionText;
                             animation-duration: 0.5s;
+                            @media screen and (min-width: 2200px) {
+                                font-size: 58px;
+                            }
                         }
                         .progressLign{
                             height: 9px;
                             width: 446px;
-                            margin-top: 15px;
+                            // margin-top: 15px;
                             background-color: #C4C4C4;
                             border-radius: 10px;
+                            @media screen and (min-width: 2200px) {
+                                width: 550px;
+                            }
                             .progressLignIn{
                                 background-color: #0396A6;
                                 border-radius: 10px;
@@ -245,22 +283,43 @@
                         }
                     }
                     form{
-                        height: 75%;
+                        height: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: center;
+                        max-width: 80rem;
+                        margin-left: auto;
+                        margin-right: auto;
                         // border: 1px solid black;
                         .cardContainer{
                             display: flex;
-                            justify-content: space-around;
-                            padding-top:60px;
+                            justify-content: center;
+                            // padding-top:60px;
                             flex-wrap: wrap;
+                            opacity: 0;
+                            width: 100%;
+                            animation-name: apparitionText;
+                            animation-timing-function:ease-out;
+                            animation-duration: 0.3s;
+                            animation-delay: 0.2s;
+                            animation-fill-mode: forwards;
                             .card{
                                 animation-name: apparitionText;
                                 animation-duration: 0.5s;
                                 box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
                                 background-color: white;
+                                margin-left: 10px;
+                                margin-right: 10px;
+                                margin-top: 20px;
                                 border: none;
-                                width: 22%;
+                                width: 20%;
+                                min-width: 145px;
                                 height: 170px;
                                 position: relative;
+                                @media screen and (min-height: 2200px) {
+                                    height: 138px;
+                                }
                                 .pointExt{
                                     width: 16px;
                                     height: 16px;
@@ -283,6 +342,12 @@
                                     font-size: 18px;
                                     font-weight: bold;
                                     color: #04588c;
+                                    @media screen and (min-width: 2200px) {
+                                        font-size: 20px;
+                                    }
+                                    @media screen and (min-height: 2200px) {
+                                        font-size: 14px;
+                                    }
                                 }
                             }
                             .card:hover{
@@ -298,6 +363,7 @@
                                         height: 13px;
                                         background-color: #F28963;
                                         border-radius: 50px;
+                                        transform: translate(-3%, -3%);
                                     }
                                 }
                             }
@@ -307,7 +373,7 @@
                             }
                         }
                         .btnContainer{
-                            margin-top: 50px;
+                            // margin-top: 50px;
                             width: 100%;
                             display: flex;
                             flex-direction: column;
@@ -324,7 +390,10 @@
                                 color: white;
                                 background: linear-gradient(0.25turn, #0396A6, #04BFAD);
                                 font-weight: bold;
-                                border-radius: 10px;    
+                                border-radius: 10px;   
+                                @media screen and (min-width: 2200px) {
+                                    font-size: 27px;
+                                } 
                             }
                             .btnUn:hover{
                                 box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
@@ -337,6 +406,58 @@
                                 display: flex;
                                 font-size: 15px;                                
                                 color: #F25C5C;
+                                @media screen and (min-width: 2200px) {
+                                    font-size: 17px;
+                                }
+                            }
+                        }
+                        .finalFormContainer{
+                            display: flex;
+                            flex-direction: column;
+                            width: 50%;
+                            justify-content: center;
+                            // align-items: center;
+                            .input{
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                label{
+                                    display: flex;
+                                    flex-direction: column;
+                                    font-size: 18px;
+                                    width: 100%;
+                                    max-width: 30rem;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                    @media screen and (min-width: 2200px) {
+                                        font-size: 20px;
+                                    }
+                                    input{
+                                        height: 40px;
+                                        background-color: white;
+                                        border: 1px solid #C4C4C4;
+                                        box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 15%);
+                                        padding-left: 15px;
+                                        width: 100%;
+                                        ::placeholder{
+                                            color: #C5D1D1;
+                                            font-size: 18px;
+                                            @media screen and (min-width: 2200px) {
+                                                font-size: 20px;
+                                            }
+                                        }
+                                    }
+                                    .errorInput{
+                                        border: 1px solid #F25C5C;
+                                    }
+                                }
+                            }
+                            .checkbox{
+                                font-size: 10px;
+                                width: 100%;
+                                max-width: 30rem;
+                                margin-left: auto;
+                                margin-right: auto;
                             }
                         }
                     }
@@ -344,6 +465,21 @@
                 .containerBottom{
                     display: flex;
                     height: 20%;
+                    justify-content: space-between;
+                    width: 100%;
+                    text-align: center;
+                    align-items: center;
+                    h3{
+                        font-size: 30px;
+                        font-weight: bold;
+                        color: white;
+                        span{
+                            color: #F28963;
+                        }
+                    }
+                    @media screen and (max-width: 1185px) {
+                        display: none;
+                    }
                 }
             }
         }
@@ -392,6 +528,24 @@
     from{
         opacity: 0;
         transform: translateX(-100px);
+        // height: 0;
+    }
+
+    70%{
+        opacity: 0.5;
+    }
+
+    to{
+        // height: 100%;
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes hiddenTextFromRight {
+    from{
+        opacity: 0;
+        transform: translateX(+100px);
         // height: 0;
     }
 
