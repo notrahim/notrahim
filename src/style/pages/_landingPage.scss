@@ -285,8 +285,13 @@
                                     color: #04588c;
                                 }
                             }
+                            .card:hover{
+                                box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 35%);
+                               
+                            }
                             .selected{
                                 border: 2px solid #F28963;
+                                box-shadow: none;
                                 .pointExt{
                                     .pointInt{
                                         width: 13px;
@@ -296,9 +301,9 @@
                                     }
                                 }
                             }
-                            .card:hover{
-                                box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 35%);
-                               
+                            .selected:hover{
+                                border: 3px solid #F28963;
+                                box-shadow: none;
                             }
                         }
                         .btnContainer{
