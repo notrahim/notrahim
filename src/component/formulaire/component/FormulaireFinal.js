@@ -221,7 +221,7 @@ const FormulaireFinal = () => {
                 </div>
             </div>
             <div className="btnContainer">
-                <button className={globalError ? "error btnUn" : "btnUn"} onClick={checkBtn} >Suivant</button>
+                <button className="btnUn" onClick={checkBtn} >Suivant</button>
                 <div className={globalError ? "hiddenError" : "error"}>Veuillez saisir vos coordonnées</div>
             </div>
         </>
