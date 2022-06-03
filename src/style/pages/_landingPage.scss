@@ -170,6 +170,7 @@
                                 max-width: 360px;
                                 margin-top: 15px;
                                 font-size: 14px;
+                                // height: 0;
                                 opacity: 0;
                                 animation-name: apparitionText;
                                 animation-timing-function:ease-out;
@@ -462,6 +463,54 @@
                         }
                     }
                 }
+                .lastTitle{
+                    height: 0;
+                    animation-name: updateFormSize;
+                    animation-duration: 0.3s;
+                    animation-timing-function: ease-out;
+                    // animation-delay: 0.2s;
+                    animation-fill-mode: forwards;
+                    .returnBtn{
+                        opacity: 0;
+                        animation-name: apparitionText;
+                        animation-duration: 0.3s;
+                        animation-timing-function: ease-out;
+                        animation-delay: 0.3s;
+                        animation-fill-mode: forwards;
+
+                    }
+                    .lastQuestion{
+                        animation-fill-mode: none;
+                        opacity: 0;
+                        animation-name: apparitionText;
+                        animation-duration: 0.3s;
+                        animation-timing-function: ease-out;
+                        animation-delay: 0.4s;
+                        animation-fill-mode: forwards;
+                    }
+                    form{
+                        .finalFormContainer{
+                            opacity: 0;
+                            animation-name: apparitionText;
+                            animation-duration: 0.3s;
+                            animation-timing-function: ease-out;
+                            animation-delay: 0.5s;
+                            animation-fill-mode: forwards;
+
+                        }
+                        .btnContainer{
+                            opacity: 0;
+                            transform: translateX(100vw);
+                            animation-name: apparitionText, apparitionModal;
+                            animation-duration: 0.3s;
+                            animation-timing-function: ease-out;
+                            animation-delay: 0.3s;
+                            animation-fill-mode: forwards;
+
+                        }
+                    }
+
+                }
                 .containerBottom{
                     display: flex;
                     height: 20%;
@@ -480,6 +529,9 @@
                     @media screen and (max-width: 1185px) {
                         display: none;
                     }
+                }
+                .lastContainerBottom{
+                    display: none;
                 }
             }
         }
@@ -577,5 +629,14 @@
 
     to{
         transform: translateX(0);
+    }
+}
+
+@keyframes updateFormSize {
+    from{
+        height: 0%;
+    }
+    to{
+        height: 100%;
     }
 }
