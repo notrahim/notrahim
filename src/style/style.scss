@@ -21,11 +21,15 @@ body{
         .App{
             position: relative;
             min-height: calc(100vh + 155px);
+            display: flex;
+            flex-direction: column;
             
             @include footer;
 
             @media screen and (max-width: 768px) {
                 min-height: 100vh;
+            }
+            main{
             }
         }
     }
