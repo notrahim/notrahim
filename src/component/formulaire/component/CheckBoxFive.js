@@ -166,7 +166,10 @@ const CheckBoxFive = () => {
         if(globalOrValue){
            dispatch(addValueInArray()) 
            dispatch(addWhen(when))
-        } 
+           setGlobalError(false)
+        } else{
+            setGlobalError(true)
+        }
     }
 
     /* It's a function that returns a JSX element. */
