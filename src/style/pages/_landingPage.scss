@@ -225,6 +225,7 @@
                     height: 80%;
                     background-color: white;
                     border-radius: 0 100px 0 0;
+                    box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
                     @media screen and (max-width:1185px) {
                         height: 100%;
                     }
@@ -459,6 +460,17 @@
                                 max-width: 30rem;
                                 margin-left: auto;
                                 margin-right: auto;
+                                .rgpd{
+                                    label{
+                                        font-weight: bold;
+                                        font-size: 10px;
+                                        .editeur{
+                                        }
+                                    }
+                                    span{
+                                        color: #F25C5C;
+                                    }
+                                }
                             }
                         }
                     }
@@ -480,13 +492,11 @@
 
                     }
                     .lastQuestion{
-                        // animation-fill-mode: none;
-                        // opacity: 0;
-                        // animation-name: apparitionText;
-                        // animation-duration: 0.3s;
-                        // animation-timing-function: ease-out;
-                        // animation-delay: 0.4s;
-                        // animation-fill-mode: forwards;
+                        animation-name: apparitionText;
+                        animation-duration: 0.3s;
+                        animation-timing-function: ease-out;
+                        animation-delay: 1s;
+                        animation-fill-mode: forwards;
                     }
                     form{
                         .finalFormContainer{
