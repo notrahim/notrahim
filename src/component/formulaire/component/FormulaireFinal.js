@@ -207,8 +207,8 @@ const FormulaireFinal = () => {
                     <p>Les données collèctés peuvent également nous premettre de vous addresser par email des publicités.<br /> Pour le permettre veuillez cocher les cases ci-dessous: </p>
                     <div className={errorRGPD ? "rgpd error" : "rgpd"}>
                         <label>
-                            <input onChange={changeRGP} type="checkbox" id="one" name="one" required />
-                            Être contacter par l’éditeur du site dans le cadre de ma demande*<br/>
+                            <input className='editeur' onChange={changeRGP} type="checkbox" id="one" name="one" required />
+                            *Être contacter par l’éditeur du site dans le cadre de ma demande*<br/>
                         </label>
                         {errorRGPD ? <span className='errorMessage'>Veuillez accepter nos conditions RGPD pour continuer</span> : null}
                     </div>
