@@ -29,6 +29,40 @@
     // align-items: center;
     // justify-content: center;
     flex-direction: column;
+    .addPropsectInAdminPage{
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: white;
+        min-height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        animation-name: apparitionTextTrois;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+        h2{
+            font-size: 40px;
+        }
+        .closeBtn{
+            svg{
+                cursor: pointer;
+                opacity: 0;
+                animation-name: apparitionTextTrois, apparitionModalTrois;
+                animation-duration: 0.2s;
+                animation-timing-function: ease-out;
+                animation-fill-mode: forwards;
+                animation-delay: 0.2s;
+                position: absolute;
+                top: 10%;
+                right: 10%;
+                font-size: 45px;
+            }
+        }
+    }
     .topContainer{
         width: 90vw;
         margin-left: auto;
@@ -59,7 +93,6 @@
             animation-name: apparitionText;
             animation-duration: 0.3s;
             animation-timing-function: ease-out;
-            // animation-delay: 0.2s;
             animation-fill-mode: forwards;
         } 
     }
@@ -105,6 +138,9 @@
             font-size: 45px;
         }
         .prospectContainer{
+            h2{
+                font-size: 40px;
+            }
             *{
                 h3{
                     margin-top: 12px;
