@@ -6,7 +6,7 @@ import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
 import { numberOfPage } from '../utils/numberOfPage';
 
 /* It's a variable that is used to slice the array of users to be displayed. */
-let initNbUserOne = 1;
+let initNbUserOne = 0;
 
 /* It's a variable that is used to slice the array of users to be displayed. */
 let initNbUserTwo = 10;
