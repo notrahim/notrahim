@@ -187,6 +187,7 @@ const AddPropsectInAdminPage = (props) => {
                 <div className='closeBtn'>
                     <FontAwesomeIcon icon={faXmark} onClick={() => props.callBack(false)}/>
                 </div>
+                <h2>Ajouter un prospect</h2>
                 <form onSubmit={submitThis}>
                     <div className={errorName ? "nom error" : "nom"}>
                         <label>
