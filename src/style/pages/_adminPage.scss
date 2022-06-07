@@ -53,14 +53,14 @@
                 font-size: 20px;
                 margin-left: 10px;
             }
-            svg:hover{
-                animation-name: apparitionText;
-                animation-duration: 0.3s;
-                animation-timing-function: ease-out;
-                // animation-delay: 0.2s;
-                animation-fill-mode: forwards;
-            }
-        }    
+        }   
+        .addPropsectImg:hover svg{
+            animation-name: apparitionText;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-out;
+            // animation-delay: 0.2s;
+            animation-fill-mode: forwards;
+        } 
     }
     h3{
         margin-top: 50px;
