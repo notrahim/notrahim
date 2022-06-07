@@ -54,7 +54,7 @@
                 margin-left: 10px;
             }
             svg:hover{
-                animation-name: apparitionText;
+                animation-name: apparitionTextDeux;
                 animation-duration: 0.3s;
                 animation-timing-function: ease-out;
                 // animation-delay: 0.2s;
@@ -75,7 +75,7 @@
     }
 }
 
-@keyframes apparitionText {
+@keyframes apparitionTextDeux {
     from{
         transform: scale(1);
     }
