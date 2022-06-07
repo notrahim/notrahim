@@ -238,7 +238,6 @@ const AddPropsectInAdminPage = (props) => {
             </>
         )
     }
-
     return (
         <div className='addPropsectInAdminPage'>
             {thkx === true ? showThks(): showArray()}
