@@ -3,7 +3,7 @@
     z-index: 1;
     height: calc(100vh - 78.7px);
     width: 100vw;
-    @media screen and (max-height: 600px) {
+    @media screen and (max-height: 830px) {
         height: 100%;
     }
     .globalContainer{
@@ -200,6 +200,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            @media screen and (max-height: 830px) {
+                height: 800px;
+            }
             @media screen and(max-width: 768px) {
                 width: 100%;
                 border-radius: 0;
