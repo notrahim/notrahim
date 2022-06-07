@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {gsap} from 'gsap';
 import { showAllProspect } from '../redux/actions/action';
 import { upperCaseFirstLatter } from '../utils/upperCaseFirstLatter';
-import ProspectArray from '../component/ProspectArray';
+import ProspectArray from '../component/prospectArray/ProspectArray'
 import AddPropsectInAdminPage from '../component/AddPropsectInAdminPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -77,13 +77,11 @@ const AdminPage = () => {
             <header className='aminPageHeader'>
                 <AdminPageNavigation />
             </header>
-            <main style={{minHeight:"100vh"}}>
+            <main className="adminPage">
                 {showAddProspectInAdminPage ? <AddPropsectInAdminPage callBack={setShowAddProspectInAdminPage} returnValue={setRefreshPage}/>:null}
                 <div className='topContainer'>
-                    <NavLink to="/accueil" >
-                        <h1 ref={title}>Bonjour {upperCaseFirstLatter(state.admin.username)} !</h1>
-                    </NavLink>
                     <div className='addPropsectImg'>
+                        <h2 onClick={()=>showAddProspectModal()}>Ajouter un contact</h2>
                         <FontAwesomeIcon icon={faPlus} onClick={()=>showAddProspectModal()}/> 
                     </div>
                 </div>
