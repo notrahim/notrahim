@@ -202,6 +202,7 @@
             align-items: center;
             @media screen and(max-width: 768px) {
                 width: 100%;
+                border-radius: 0;
             }
             @media screen and(max-height: 680px) {
                 width: 100%;
@@ -210,13 +211,16 @@
                 width: 94%;
                 height: 95%;
                 border-radius: 0 100px 0 0;
-                img{
-                    max-width: 177px;
-                }
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                @media screen and(max-width: 768px) {
+                    border-radius: 0;
+                }
+                img{
+                    max-width: 177px;
+                }
                 .topMobil{
                     display: none;
                 }
@@ -228,6 +232,9 @@
                     box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 25%);
                     @media screen and (max-width:1185px) {
                         height: 100%;
+                    }
+                    @media screen and(max-width: 768px) {
+                        border-radius: 0;
                     }
                     .returnBtn{
                         height: 7%;
@@ -269,6 +276,7 @@
                             }
                         }
                         .progressLign{
+                            max-width: 80%;
                             height: 9px;
                             width: 446px;
                             // margin-top: 15px;
@@ -418,7 +426,6 @@
                             flex-direction: column;
                             width: 50%;
                             justify-content: center;
-                            // align-items: center;
                             .input{
                                 width: 100%;
                                 display: flex;
