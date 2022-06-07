@@ -67,46 +67,46 @@ const ProspectModal = (props) => {
             
             <div className="prospectContainer">
                 <div className="prospectContainer_name">
-                    <p>Nom:</p>
-                    <h4>{upperCaseFirstLatter(data.name)}</h4>
+                    <h3>Nom:</h3>
+                    <p>{upperCaseFirstLatter(data.name)}</p>
                 </div>
                 <div className="prospectContainer_email">
-                    <p>Email:</p>
-                    <h4>{data.email}</h4>
+                    <h3>Email:</h3>
+                    <p>{data.email}</p>
                 </div>
                 <div className="prospectContainer_codePostal">
-                    <p>Code Postal:</p>
-                    <h4>{data.codePostal}</h4>
+                    <h3>Code Postal:</h3>
+                    <p>{data.codePostal}</p>
                 </div>
                 <div className="prospectContainer_phone">
-                    <p>Téléphone:</p>
-                    <h4>{"0"+data.phone}</h4>
+                    <h3>Téléphone:</h3>
+                    <p>{"0"+data.phone}</p>
                 </div>
                 <div className="prospectContainer_prestation">
-                    <p>Type de présatation:</p>
-                    <h4>{upperCaseFirstLatter(data.prestation)}</h4>
+                    <h3>Type de présatation:</h3>
+                    <p>{upperCaseFirstLatter(data.prestation)}</p>
                 </div>
                 <div className="prospectContainer_type">
-                    <p>Type d'Habitation:</p>
-                    <h4>{upperCaseFirstLatter(data.habitation)}</h4>
+                    <h3>Type d'Habitation:</h3>
+                    <p>{upperCaseFirstLatter(data.habitation)}</p>
                 </div>
                 <div className="prospectContainer_age">
-                    <p>Âge du logement:</p>
-                    <h4>{data.age}</h4>
+                    <h3>Âge du logement:</h3>
+                    <p>{data.age}</p>
                 </div>
                 <div className="prospectContainer_surface">
-                    <p>Surface du logement:</p>
-                    <h4>{upperCaseFirstLatter(data.surface)}</h4>
+                    <h3>Surface du logement:</h3>
+                    <p>{upperCaseFirstLatter(data.surface)}</p>
                 </div>
                 <div className="prospectContainer_date">
-                    <p>Date d'intervention:</p>
-                    <h4>{data.date}</h4>
+                    <h3>Date d'intervention:</h3>
+                    <p>{data.date}</p>
                 </div>
-                <div className="prospectContainer_comment">
+                {/* <div className="prospectContainer_comment">
                     <p>Commentaire:</p>
                     <input value={data.comments !== null ? data.comments:addCommentValue} placeholder="Ajouter un commantaire" onChange={changeValue} />
                     {addCommentValue !== undefined ?<button onClick={()=>mofificationOfComments(id, addCommentValue)}>Ajouter</button>: null}
-                </div>
+                </div> */}
             </div>
         </div>
     );
