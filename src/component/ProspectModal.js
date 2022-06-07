@@ -45,6 +45,12 @@ const ProspectModal = (props) => {
         addCommentValue = e.target.value
     }
 
+    const closeElement = (e)=>{
+        props.closeModal(false)
+    }   
+
+
+
     /* It's a function that returns a div with a button that closes the modal, a div with a class of
      * prospectContainer that contains a div with a class of prospectContainer_name that contains a
     p and
@@ -63,9 +69,9 @@ const ProspectModal = (props) => {
     return (
         <div className="prospectModal">
             {/* <button onClick={() => props.closeModal(false)}>close</button> */}
-            <FontAwesomeIcon icon={faXmark} onClick={() => props.closeModal(false)}/>
-            
+            <FontAwesomeIcon icon={faXmark} onClick={closeElement}/>
             <div className="prospectContainer">
+                <h2>Prospect</h2>
                 <div className="prospectContainer_name">
                     <h3>Nom:</h3>
                     <p>{upperCaseFirstLatter(data.name)}</p>
