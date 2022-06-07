@@ -1,0 +1,74 @@
+.propsectArrayContainer{
+    border: 1px solid #C2C2C2;
+    border-radius: 10px;
+    border-collapse: collapse;
+    background-color: white;
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 5%);
+    thead{
+        tr{
+            border: 1px solid #C2C2C2;
+            text-overflow: ellipsis;
+            th{
+                // color:#0396A6
+                max-width: 20vw;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                cursor: pointer;
+                width: 20vh;
+                max-width: 20vw;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                text-align: center;
+                padding: 1rem;
+                width: 12vw;
+                border: thin solid #C2C2C2;
+                margin: 0;
+            }
+        }
+        tr:hover{
+            font-weight: bold;
+        }
+    }
+}
+.pagination{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 90vw;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: end;
+    .prev, .next{
+        color:#0396A6;
+        background-color: white;
+        border: 1px solid #0396A6;
+        border-radius: 5px;
+        width: 5rem;
+        height: 2rem;
+    }
+    .prev:hover, .next:hover{
+    color:white;
+    background-color: #0396A6;
+    border: 1px solid white;
+    }
+    .prev{
+    }
+    .next{
+        margin-left: 1rem;
+        margin-right: 0.5rem;
+    }
+}
