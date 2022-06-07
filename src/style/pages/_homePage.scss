@@ -135,7 +135,8 @@
                 }
                 p{
                     color: #0396A6;
-                    font-weight: bold;
+                    font-weight: 400;
+                    font-size: 14px;
                 }
                 img{
                     width: 12px;
@@ -145,8 +146,9 @@
                 }
             }
             .lign{
-                width: 90%;
-                border: 1px solid #0396A6;
+                width: 80%;
+                height: 1px;
+                background-color: #0396A6;
             }
             p{
                 margin-top: 1rem;
