@@ -149,6 +149,42 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </section>
+                    <section className="endContainer">
+                        <div className="container">
+                            <div className="textContainer">
+                                <div className="question">
+                                    <DropDown
+                                        question="Pourquoi bien isoler son logement ?"
+                                        text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonOne}
+                                        return={upButtonOne}
+                                        arg={handleButtonOne}
+                                    />
+                                    <DropDown
+                                        question="Pourquoi bien isoler son logement ?"
+                                        text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonTwo}
+                                        return={upButtonTwo}
+                                        arg={handleButtonTwo}
+                                    />
+                                    <DropDown
+                                        question="Pourquoi bien isoler son logement ?"
+                                        text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonThree}
+                                        return={upButtonThree}
+                                        arg={handleButtonThree}
+                                    />
+                                    <DropDown
+                                        question="Pourquoi bien isoler son logement ?"
+                                        text="“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”"
+                                        callback={setUpButtonFour}
+                                        return={upButtonFour}
+                                        arg={handleButtonFour}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </main>
         </>
