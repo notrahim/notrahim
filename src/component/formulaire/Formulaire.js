@@ -113,6 +113,10 @@ const Formulaire = () => {
                 <h2>{title}</h2>
                 <ProgressLign progress={calculProgressBar(state.valueOfArray, maxArray)} />
             </div>
+            <button onClick={()=>dispatch(removeValueInArray())} className={"returnBtnDeux "+ addClass}>
+                <img src="./img/SVG/chevron-left-blue.png" alt="chevron right"/>
+                retour
+            </button>
             <form onSubmit={sub}>
                 {boxOne()}
             </form>
