@@ -249,7 +249,35 @@
                     max-width: 177px;
                 }
                 .topMobil{
-                    display: none;
+                    display: none;    
+                    @media screen and(max-width: 425px) {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        .connection{
+                            font-size: 11px;
+                            margin-top: 10px;
+                            margin-left: 10px;
+                            a{
+                                font-weight: bold;
+                                font-size: 13px;
+                                text-decoration: none;
+                                color: #0396A6;
+                            }
+                        }
+                        h2{
+                            font-weight: bold;
+                            font-size: 18px;
+                            margin-right: auto;
+                            margin-left: auto;
+                            margin-top: 5rem;
+                            margin-bottom: 5rem;
+                            span{
+                                font-size: 48px;
+                                color: #F28963;
+                            }
+                        }
+                    }
                 }
                 .globalFormContainer{
                     width: 100%;
@@ -278,8 +306,29 @@
                             font-size: 27px;
                         }
                         @media screen and (max-width: 425px) {
+                            display: none;
+                        }
+                        img{
+                            width: 9px;
+                        }
+                    }
+                    .returnBtnDeux{
+                        display: none;
+                        height: 7%;
+                        margin-left: 15px;
+                        font-size: 24px;
+                        color: #0396A6;
+                        background-color: white;
+                        border: none;
+                        @media screen and (min-width: 2200px) {
+                            font-size: 27px;
+                        }
+                        @media screen and (max-width: 425px) {
                             background-color: #f2f2f2;
-                            margin-top: 10px;
+                            margin-top: 60px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
                         img{
                             width: 9px;
@@ -311,7 +360,7 @@
                             font-weight: bold;
                             animation-name: apparitionText;
                             animation-duration: 0.5s;
-                            max-width: 80%;
+                            max-width: 90%;
                             @media screen and (min-width: 2200px) {
                                 font-size: 58px;
                             }
@@ -328,6 +377,9 @@
                             border-radius: 10px;
                             @media screen and (min-width: 2200px) {
                                 width: 550px;
+                            }
+                            @media screen and (max-width: 425px) {
+                                max-width: 90%;
                             }
                             .progressLignIn{
                                 background-color: #0396A6;
@@ -382,7 +434,7 @@
                                     height: 138px;
                                 }
                                 @media screen and (max-width: 425px) {
-                                    width: 80%;
+                                    width: 90%;
                                 }
                                 .pointExt{
                                     width: 16px;
@@ -571,7 +623,14 @@
                         animation-timing-function: ease-out;
                         animation-delay: 0.3s;
                         animation-fill-mode: forwards;
-
+                    }
+                    .returnBtnDeux{
+                        opacity: 0;
+                        animation-name: apparitionText;
+                        animation-duration: 0.3s;
+                        animation-timing-function: ease-out;
+                        animation-delay: 0.3s;
+                        animation-fill-mode: forwards;
                     }
                     .lastQuestion{
                         animation-name: apparitionText;
