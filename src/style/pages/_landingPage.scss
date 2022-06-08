@@ -340,7 +340,7 @@
                         height: 0;
                     }
                     .question{
-                        height: 14%;
+                        height: 16%;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -633,6 +633,7 @@
                         animation-fill-mode: forwards;
                     }
                     .lastQuestion{
+                        height: 12%;
                         animation-name: apparitionText;
                         animation-duration: 0.3s;
                         animation-timing-function: ease-out;
@@ -640,6 +641,7 @@
                         animation-fill-mode: forwards;
                     }
                     form{
+                        height: 80%;
                         .finalFormContainer{
                             opacity: 0;
                             animation-name: apparitionText;
