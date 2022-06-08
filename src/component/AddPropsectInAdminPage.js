@@ -69,8 +69,9 @@ const AddPropsectInAdminPage = (props) => {
     const [realisation, setRealisation] = useState(null)
 
     /* It's a hook that allow us to manage the state of the component. */
-    const [globalError, setGlobalError] = useState(false)
-    
+    // const [globalError, setGlobalError] = useState(false)
+    let globalError;
+
     /* It's a hook that allow us to manage the state of the component. */
     const [thkx, setThks] = useState(false)
 
@@ -126,13 +127,12 @@ const AddPropsectInAdminPage = (props) => {
         }
 
         if(!errorName && !errorPrenom && !errorCodePostal && !errorPhone && prestation !== null && logement !== null && age !== null && surface !== null && realisation !== null){
-            setGlobalError(true)
-        } else setGlobalError(false)
-
-        // console.log(globalError);
+            // setGlobalError(true)
+            globalError = true;
+        // } else setGlobalError(false)
+        } else globalError=false
 
         if(globalError){
-            // console.log("ok");
             setThks(true)
 
             await dispatch(addUserWhenImAdmin({
@@ -150,15 +150,13 @@ const AddPropsectInAdminPage = (props) => {
             }));
 
             dispatch(showAllProspect())
-            console.log(state);
 
-            // setThks(false)
             setTimeout(()=>{
                 props.callBack(false);
-                // navigate("/admin")
                 props.returnValue(true)
-                // window.location.reload(false);
             }, 2000)
+        } else {
+            alert('Merci de renseigner tous les éléments')
         }
     }
 
@@ -225,11 +223,11 @@ const AddPropsectInAdminPage = (props) => {
                         </label>
                     </div>
                     <div className="dropDownContainer">
-                        <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations" callBack={setPrestation}/>
-                        <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement" callBack={setLogement}/>
-                        <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age" callBack={setAge}/>
-                        <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface" callBack={setSurface}/>
-                        <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation" callBack={setRealisation}/>
+                        <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations" callBack={setPrestation} zIndex="5"/>
+                        <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement" callBack={setLogement} zIndex="4"/>
+                        <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age" callBack={setAge} zIndex="3"/>
+                        <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface" callBack={setSurface} zIndex="2"/>
+                        <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation" callBack={setRealisation} zIndex="1"/>
                     </div>
                     <div className='buttonContainer'>
                         <button type="submit">Ajouter</button>
