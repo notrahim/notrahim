@@ -14,6 +14,8 @@ const SelectDropDown = (props) => {
 
     const [title, setTitle] = useState(props.title)
 
+    const zIndex = props.zIndex;
+
     const handleTitle = (el)=>{
         setTitle(el)
         setOpenBtn(false)
@@ -33,11 +35,13 @@ const SelectDropDown = (props) => {
     }
 
     return (
-        <button type="button" className={'selectDropDown ' + addClass}onClick={()=>setOpenBtn(!openBtn)}>
-            <h4>{title}</h4>
-            {!openBtn ? <FontAwesomeIcon icon={faChevronDown} />: <FontAwesomeIcon icon={faChevronUp} onClick={()=>setOpenBtn(false)}/>}
+        <div className='selectDropDownContainer' style={{zIndex: zIndex}}>
+            <button type="button" className={'selectDropDown ' + addClass}onClick={()=>setOpenBtn(!openBtn)}>
+                <h4>{title}</h4>
+                {!openBtn ? <FontAwesomeIcon icon={faChevronDown} />: <FontAwesomeIcon icon={faChevronUp} onClick={()=>setOpenBtn(false)}/>}
+            </button>
             {!openBtn ? null : bottom()}
-        </button>
+        </div>
     );
 };
 
