@@ -194,38 +194,40 @@ const ProspectArray = (props) => {
         <>
             {showModal ? <ProspectModal data={zoomProspect} id={idProspect} closeModal={setShowModal} /> : null}
             <h3>Contacts total: <span>{totalUser}</span></h3>
-            <table className="propsectArrayContainer">
-                <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Code Postal</th>
-                        <th>Préstation</th>
-                        <th>Type d'habitation</th>
-                        {/* <th>Age du logement</th>
-                        <th>Surface habitable</th>
-                        <th>Date d'intervention</th> */}
-                        {/* <th>News Laters</th> */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {state.prospect[0] !== undefined ? showUser.map(prospect => (
-                        <tr key={prospect.id}>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.name)}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.email}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{"0" + prospect.attributes.phone}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.codePostal}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.prestation)}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.habitation)}</td>
-                            {/* <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.age)}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.surface)}</td>
-                            <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.date)}</td> */}
-                            {/* <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.newslaters === true ? "Oui" : "Non"}</td> */}
+            <div className='prospectArrayContainerGlobal'>
+                <table className="propsectArrayContainer">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Code Postal</th>
+                            <th>Préstation</th>
+                            <th>Type d'habitation</th>
+                            {/* <th>Age du logement</th>
+                            <th>Surface habitable</th>
+                            <th>Date d'intervention</th> */}
+                            {/* <th>News Laters</th> */}
                         </tr>
-                    )) : <tr><td>Aucun propspect</td></tr>}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {state.prospect[0] !== undefined ? showUser.map(prospect => (
+                            <tr key={prospect.id}>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.name)}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.email}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{"0" + prospect.attributes.phone}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.codePostal}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.prestation)}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.habitation)}</td>
+                                {/* <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.age)}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.surface)}</td>
+                                <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{upperCaseFirstLatter(prospect.attributes.date)}</td> */}
+                                {/* <td onClick={() => showProspect(prospect.attributes, prospect.id)}>{prospect.attributes.newslaters === true ? "Oui" : "Non"}</td> */}
+                            </tr>
+                        )) : <tr><td>Aucun propspect</td></tr>}
+                    </tbody>
+                </table>
+            </div>    
             <div className="pagination">
                 {initNbUserOne > 0 ? showPrevButton() : null}
                 {initNbUserTwo < totalUser ? showNextButton() : null}
