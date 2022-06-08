@@ -1,48 +1,52 @@
-.propsectArrayContainer{
-    border: 1px solid #C2C2C2;
-    border-radius: 10px;
-    border-collapse: collapse;
-    background-color: white;
-    width: 90vw;
+.prospectArrayContainerGlobal{
     max-width: 90vw;
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 5%);
-    thead{
-        tr{
-            border: 1px solid #C2C2C2;
-            text-overflow: ellipsis;
-            th{
-                // color:#0396A6
-                max-width: 20vw;
-                overflow: hidden;
+    overflow: auto;
+    .propsectArrayContainer{
+        border: 1px solid #C2C2C2;
+        border-radius: 10px;
+        border-collapse: collapse;
+        background-color: white;
+        width: 90vw;
+        max-width: 90vw;
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        box-shadow: 1px 1px 4px 1px rgb(37 6 6 / 5%);
+        thead{
+            tr{
+                border: 1px solid #C2C2C2;
                 text-overflow: ellipsis;
-                white-space: nowrap;
-                padding-top: 1rem;
-                padding-bottom: 1rem;
+                th{
+                    // color:#0396A6
+                    max-width: 20vw;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    padding-top: 1rem;
+                    padding-bottom: 1rem;
+                }
             }
         }
-    }
-    tbody{
-        tr{
-            td{
-                cursor: pointer;
-                width: 20vh;
-                max-width: 20vw;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                text-align: center;
-                padding: 1rem;
-                width: 12vw;
-                border: thin solid #C2C2C2;
-                margin: 0;
+        tbody{
+            tr{
+                td{
+                    cursor: pointer;
+                    width: 20vh;
+                    max-width: 20vw;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    text-align: center;
+                    padding: 1rem;
+                    width: 12vw;
+                    border: thin solid #C2C2C2;
+                    margin: 0;
+                }
             }
-        }
-        tr:hover{
-            font-weight: bold;
+            tr:hover{
+                font-weight: bold;
+            }
         }
     }
 }
