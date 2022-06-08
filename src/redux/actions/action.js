@@ -343,18 +343,20 @@ export function addUserWhenImAdmin(user) {
 export function userConnect(user) {
     return (dispatch) => {
         dispatch({ type: "isLoading" });
-        try {
-            axios.post("http://localhost:1337/api/auth/local", {
-                identifier: user.identifier,
-                password: user.password
-            }).then((response) => {
-                localStorage.setItem("jwt", response.data.jwt);
-                dispatch(showUser(response.data.user))
+        axios.post("http://localhost:1337/api/auth/local", {
+            identifier: user.identifier,
+            password: user.password
+        }).then((response) => {
+            localStorage.setItem("jwt", response.data.jwt);
+            dispatch(showUser(response.data.user))
+            dispatch(isNotLoading())
+        }).catch (err => {
+            if(err.response.status === 400){
                 dispatch(isNotLoading())
-            })
-        } catch (err) {
-        }
-    }
+                alert('Email et/ou mot de passe incorect')
+            }
+        })   
+    }     
 }
 
 export function userDisconnect(){
@@ -370,18 +372,15 @@ export function userDisconnect(){
  */
 export function showAllProspect() {
     return dispatch => {
-        try {
-            axios.get("http://localhost:1337/api/prospects?pagination[page]=1&pagination[pageSize]=1000", {
-                headers: {
-                    Authorization: `Bearer ` + localStorage.jwt,
-                }
-            })
-                .then((response) => {
-                    dispatch({ type: "addProspectInData", payload: response })
-                })
-        } catch (err) {
-            console.log(err);
-        }
+        axios.get("http://localhost:1337/api/prospects?pagination[page]=1&pagination[pageSize]=1000&sort=createdAt:DESC", {
+            headers: {
+                Authorization: `Bearer ` + localStorage.jwt,
+            }
+        }).then((response) => {
+                dispatch({ type: "addProspectInData", payload: response })
+        }).catch (err => {
+                console.log(err);
+        })    
     }
 }
 
