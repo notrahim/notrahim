@@ -19,7 +19,6 @@ const About = () => {
     /* It's a function from react that allow to change the title of the page. */
     useEffect (()=>{
         document.title = "TeraBois | Nos Préstations"
-        console.log("ok");
     })
 
     /* It's a function that returns a JSX element. */
