@@ -25,10 +25,27 @@
     background-color: #f2f2f2;
     position: relative;
     display: flex;
-    // align-items: center;
-    // justify-content: center;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     .addPropsectInAdminPage {
+        // height: 100%;
+        overflow: auto;
+        .thksContainer{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            svg{
+                font-size: 5rem;
+            }
+            h3{
+                text-align: center;
+                font-size: 3rem;
+            }
+        }
         position: fixed;
         top: 0;
         right: 0;
@@ -44,7 +61,7 @@
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
         h2 {
-            font-size: 40px;
+            font-size: calc(30px + 3vmin);
         }
         .closeBtn {
             svg {
@@ -56,16 +73,18 @@
                 animation-fill-mode: forwards;
                 animation-delay: 0.2s;
                 position: absolute;
-                top: 10%;
-                right: 10%;
+                top: 2%;
+                right: 4%;
                 font-size: 45px;
             }
         }
         form {
+            height: 70%;
             display: flex;
             flex-direction: column;
             width: 20%;
             max-width: 20rem;
+            min-width: 17rem;
             * {
                 display: flex;
                 flex-direction: column;
@@ -84,11 +103,15 @@
                 position: relative;
                 height: 3rem;
                 button {
-                    height: 3rem;
+                    height: calc(3rem + 1vmin);
                     display: flex;
                     flex-direction: row;
                     align-items: center;
                     justify-content: space-around;
+                    svg{
+                        position: absolute;
+                        right: 12%;
+                    }
                 }
                 .selectDropDown-bottom{
                     position: absolute;
@@ -107,6 +130,9 @@
                         li{
                             margin-left: 3rem;
                             cursor: pointer;
+                        }
+                        li:hover{
+                            font-weight: 700;
                         }
                     }
                 }
@@ -158,6 +184,11 @@
             font-size: 18px;
             align-items: center;
             justify-content: flex-end;
+            h2{
+                @media screen and (max-width: 425px) {
+                    display: none;
+                }
+            }
             svg {
                 font-size: 20px;
                 margin-left: 10px;
@@ -171,10 +202,8 @@
         }
     }
     h3 {
-        margin-top: 50px;
+        // margin-top: 50px;
         width: 90vw;
-        margin-left: auto;
-        margin-right: auto;
         font-weight: normal;
         span {
             color: #0396a6;
@@ -182,6 +211,8 @@
         }
     }
     .prospectModal {
+        overflow: auto;
+        height: 100%;
         opacity: 0;
         top: 0;
         position: fixed;
@@ -207,13 +238,18 @@
             animation-fill-mode: forwards;
             animation-delay: 0.2s;
             position: absolute;
-            top: 10%;
-            right: 10%;
+            top: 2%;
+            right: 4%;
             font-size: 45px;
         }
-        .prospectContainer {
+        .prospectContainer {   
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
             h2 {
-                font-size: 40px;
+                font-size: calc(30px + 3vmin);
             }
             * {
                 h3 {
