@@ -1,8 +1,8 @@
-.hiddenLoaderTwo{
+.hiddenLoaderTwo {
     display: none;
 }
 
-.showLoaderTwo{
+.showLoaderTwo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,12 +15,11 @@
     z-index: 3;
 }
 
-.aminPageHeader{
+.aminPageHeader {
     box-shadow: 0px 1px 15px -1px rgb(0 0 0 / 35%);
-
 }
 
-.adminPage{
+.adminPage {
     min-height: calc(100vh - 78.7px);
     width: 100vw;
     background-color: #f2f2f2;
@@ -29,7 +28,7 @@
     // align-items: center;
     // justify-content: center;
     flex-direction: column;
-    .addPropsectInAdminPage{
+    .addPropsectInAdminPage {
         position: fixed;
         top: 0;
         right: 0;
@@ -44,11 +43,11 @@
         animation-duration: 0.2s;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
-        h2{
+        h2 {
             font-size: 40px;
         }
-        .closeBtn{
-            svg{
+        .closeBtn {
+            svg {
                 cursor: pointer;
                 opacity: 0;
                 animation-name: apparitionTextTrois, apparitionModalTrois;
@@ -62,52 +61,127 @@
                 font-size: 45px;
             }
         }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            max-width: 20rem;
+            * {
+                display: flex;
+                flex-direction: column;
+                label {
+                    margin-top: 12px;
+                    font-weight: bold;
+                    font-size: 19px;
+                    input {
+                        height: 2rem;
+                        padding-left: 0.7rem;
+                    }
+                }
+            }
+            .selectDropDownContainer {
+                margin-top: 15px;
+                position: relative;
+                height: 3rem;
+                button {
+                    height: 3rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                }
+                .selectDropDown-bottom{
+                    position: absolute;
+                    top: 98%;
+                    background-color: white;
+                    height: 8rem;
+                    width: 100%;
+                    padding: 2px;
+                    border: 1px solid #415b5d;
+                    border-radius: 0 0 3px 3px;
+                    box-shadow: 0px 0px 15px -1px rgb(0 0 0 / 35%);
+                    ul{
+                        height: 100%;
+                        display: flex;
+                        justify-content: space-around;
+                        li{
+                            margin-left: 3rem;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .buttonContainer{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                margin-top: 20px;
+                width: 100%;
+                button{
+                    width: 40%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #0396A6;
+                    background-color: white;
+                    border: 1px solid #0396A6;
+                    border-radius: 5px;
+                    width: 5rem;
+                    height: 2rem;
+                }
+                button:hover{
+                    color: white;
+                background-color: #0396A6;
+                border: 1px solid white;
+                }
+            }
+        }
     }
-    .topContainer{
+    .topContainer {
         width: 90vw;
         margin-left: auto;
         margin-right: auto;
         display: flex;
         justify-content: space-between;
         margin-top: 50px;
-        a{
+        a {
             text-decoration: none;
         }
-        h2{
+        h2 {
             font-size: 20px;
             cursor: pointer;
         }
-        .addPropsectImg{
+        .addPropsectImg {
             cursor: pointer;
             width: 100%;
             display: flex;
             font-size: 18px;
             align-items: center;
             justify-content: flex-end;
-            svg{
+            svg {
                 font-size: 20px;
                 margin-left: 10px;
             }
-        }   
-        .addPropsectImg:hover svg{
+        }
+        .addPropsectImg:hover svg {
             animation-name: apparitionText;
             animation-duration: 0.3s;
             animation-timing-function: ease-out;
             animation-fill-mode: forwards;
-        } 
+        }
     }
-    h3{
+    h3 {
         margin-top: 50px;
         width: 90vw;
         margin-left: auto;
         margin-right: auto;
         font-weight: normal;
-        span{
-            color: #0396A6;
+        span {
+            color: #0396a6;
             font-weight: bold;
         }
     }
-    .prospectModal{
+    .prospectModal {
         opacity: 0;
         top: 0;
         position: fixed;
@@ -124,7 +198,7 @@
         animation-duration: 0.2s;
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
-        svg{
+        svg {
             cursor: pointer;
             opacity: 0;
             animation-name: apparitionTextTrois, apparitionModalTrois;
@@ -137,12 +211,12 @@
             right: 10%;
             font-size: 45px;
         }
-        .prospectContainer{
-            h2{
+        .prospectContainer {
+            h2 {
                 font-size: 40px;
             }
-            *{
-                h3{
+            * {
+                h3 {
                     margin-top: 12px;
                     font-weight: bold;
                 }
@@ -151,32 +225,31 @@
     }
 }
 @keyframes apparitionTextDeux {
-    from{
+    from {
         transform: scale(1);
     }
 
-    to{
-        
+    to {
         transform: scale(1.2);
     }
 }
 
 @keyframes apparitionTextTrois {
-    from{
+    from {
         opacity: 0;
     }
 
-    to{
+    to {
         opacity: 1;
     }
 }
 
 @keyframes apparitionModalTrois {
-    from{
+    from {
         transform: translateX(100vw);
     }
 
-    to{
+    to {
         transform: translateX(0);
     }
 }
