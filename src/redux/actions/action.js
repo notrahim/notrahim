@@ -328,7 +328,7 @@ export function addUserWhenImAdmin(user) {
         })
             .then(
                 response => {
-                    console.log(response);
+                    console.log(response.status);
                 },
                 error => console.log(error)
             );
