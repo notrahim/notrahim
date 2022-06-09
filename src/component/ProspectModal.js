@@ -79,17 +79,17 @@ const ProspectModal = (props) => {
                             <h4>Nom:</h4>
                             <p>{upperCaseFirstLatter(data.name)}</p>
                         </div>
+                        <div className="prospectContainer_phone">
+                            <h4>Téléphone:</h4>
+                            <a title="Appeler" href={"tel:0"+data.phone}>{"0"+data.phone}</a>
+                        </div>
                         <div className="prospectContainer_email">
                             <h4>Email:</h4>
-                            <a title='Envoyer un email' href={"mailto:"+data.email+"?subject=Votre projet d'isolation avec TeraBois"}>{data.email}</a>
+                            <a title='Envoyer un email' href={"mailto:"+data.email+"?subject=[important]Votre projet d'isolation avec TeraBois"}>{data.email}</a>
                         </div>
                         <div className="prospectContainer_codePostal">
                             <h4>Code Postal:</h4>
                             <p>{data.codePostal}</p>
-                        </div>
-                        <div className="prospectContainer_phone">
-                            <h4>Téléphone:</h4>
-                            <a title="Appeler" href={"tel:0"+data.phone}>{"0"+data.phone}</a>
                         </div>
                     </div>
                     <h2>Description</h2>
