@@ -181,7 +181,7 @@ const AddPropsectInAdminPage = (props) => {
     */
     const showArray = ()=>{
         return(
-            <div className='addProspectModal'>
+            <>
                 <div className='closeBtn'>
                     <FontAwesomeIcon icon={faXmark} onClick={() => props.callBack(false)}/>
                 </div>
@@ -235,12 +235,12 @@ const AddPropsectInAdminPage = (props) => {
                             <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation" callBack={setRealisation} zIndex="1"/>
                         </div>
                         <div className='buttonContainer'>
-                            <button type="submit">Ajouter</button>
-                            <button type="button" onClick={() => props.callBack(false)}>Annuler</button>
+                            <button className='principal' type="submit">Ajouter</button>
+                            <button className='secondary' type="button" onClick={() => props.callBack(false)}>Annuler</button>
                         </div>
                     </form>
                 </div>
-            </div>
+            </>
         )
     }
     return (
