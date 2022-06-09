@@ -72,41 +72,49 @@ const ProspectModal = (props) => {
             <FontAwesomeIcon icon={faXmark} onClick={closeElement}/>
             <div className="prospectContainer">
                 <h2>Prospect</h2>
-                <div className="prospectContainer_name">
-                    <h3>Nom:</h3>
-                    <p>{upperCaseFirstLatter(data.name)}</p>
-                </div>
-                <div className="prospectContainer_email">
-                    <h3>Email:</h3>
-                    <p>{data.email}</p>
-                </div>
-                <div className="prospectContainer_codePostal">
-                    <h3>Code Postal:</h3>
-                    <p>{data.codePostal}</p>
-                </div>
-                <div className="prospectContainer_phone">
-                    <h3>Téléphone:</h3>
-                    <p>{"0"+data.phone}</p>
-                </div>
-                <div className="prospectContainer_prestation">
-                    <h3>Type de présatation:</h3>
-                    <p>{upperCaseFirstLatter(data.prestation)}</p>
-                </div>
-                <div className="prospectContainer_type">
-                    <h3>Type d'Habitation:</h3>
-                    <p>{upperCaseFirstLatter(data.habitation)}</p>
-                </div>
-                <div className="prospectContainer_age">
-                    <h3>Âge du logement:</h3>
-                    <p>{data.age}</p>
-                </div>
-                <div className="prospectContainer_surface">
-                    <h3>Surface du logement:</h3>
-                    <p>{upperCaseFirstLatter(data.surface)}</p>
-                </div>
-                <div className="prospectContainer_date">
-                    <h3>Date d'intervention:</h3>
-                    <p>{data.date}</p>
+                <div className='content'>
+                    <h2>Coordonnées</h2>
+                    <div className='basic'>
+                        <div className="prospectContainer_name">
+                            <h4>Nom:</h4>
+                            <p>{upperCaseFirstLatter(data.name)}</p>
+                        </div>
+                        <div className="prospectContainer_email">
+                            <h4>Email:</h4>
+                            <a title='Envoyer un email' href={"mailto:"+data.email+"?subject=Votre projet d'isolation avec TeraBois"}>{data.email}</a>
+                        </div>
+                        <div className="prospectContainer_codePostal">
+                            <h4>Code Postal:</h4>
+                            <p>{data.codePostal}</p>
+                        </div>
+                        <div className="prospectContainer_phone">
+                            <h4>Téléphone:</h4>
+                            <a title="Appeler" href={"tel:0"+data.phone}>{"0"+data.phone}</a>
+                        </div>
+                    </div>
+                    <h2>Description</h2>
+                    <div className='technique'>
+                        <div className="prospectContainer_prestation">
+                            <h4>Type de présatation:</h4>
+                            <p>{upperCaseFirstLatter(data.prestation)}</p>
+                        </div>
+                        <div className="prospectContainer_type">
+                            <h4>Type d'Habitation:</h4>
+                            <p>{upperCaseFirstLatter(data.habitation)}</p>
+                        </div>
+                        <div className="prospectContainer_age">
+                            <h4>Âge du logement:</h4>
+                            <p>{data.age}</p>
+                        </div>
+                        <div className="prospectContainer_surface">
+                            <h4>Surface du logement:</h4>
+                            <p>{upperCaseFirstLatter(data.surface)}</p>
+                        </div>
+                        <div className="prospectContainer_date">
+                            <h4>Date d'intervention:</h4>
+                            <p>{data.date}</p>
+                        </div>
+                    </div>
                 </div>
                 {/* <div className="prospectContainer_comment">
                     <p>Commentaire:</p>
