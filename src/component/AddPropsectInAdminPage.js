@@ -181,60 +181,66 @@ const AddPropsectInAdminPage = (props) => {
     */
     const showArray = ()=>{
         return(
-            <>
+            <div className='addProspectModal'>
                 <div className='closeBtn'>
                     <FontAwesomeIcon icon={faXmark} onClick={() => props.callBack(false)}/>
                 </div>
-                <h2>Ajouter un prospect</h2>
-                <form onSubmit={submitThis}>
-                    <div className={errorName ? "nom error" : "nom"}>
-                        <label>
-                            Nom*
-                            <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e) => setNameValue(e.target.value)} required></input>
-                            {errorName ? <span>Veuillez saisir un nom valide</span> : null}
-                        </label>
-                    </div>
-                    <div className={errorPrenom ? "prenom error" : "prenom"}>
-                        <label>
-                            Prenom*
-                            <input type="text" id="name" name="fist-name" placeholder="John" value={prenomValue} onChange={(e) => setPrenomValue(e.target.value)} required></input>
-                            {errorPrenom ? <span>Veuillez saisir un prenom valide</span> : null}
-                        </label>
-                    </div>
-                    <div className={errorPrenom ? "email error" : "email"}>
-                        <label>
-                            Email*
-                            <input type="email" id="name" name="email" placeholder="johndoe@exemple.fr" value={emailValue} onChange={(e) => setEmailValue(e.target.value)} required></input>
-                            {errorEmail ? <span>Veuillez saisir un prenom valide</span> : null}
-                        </label>
-                    </div>
-                    <div className={errorPhone ? "phone error" : "phone"}>
-                        <label>
-                            Téléphone*
-                            <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e) => setPhoneValue(e.target.value)} required></input>
-                            {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span> : null}
-                        </label>
-                    </div>
-                    <div className={errorCodePostal ? "codePostal error" : "codePostal"}>
-                        <label>
-                            Code postal*
-                            <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e) => setCodePostalValue(e.target.value)} required></input>
-                            {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
-                        </label>
-                    </div>
-                    <div className="dropDownContainer">
-                        <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations" callBack={setPrestation} zIndex="5"/>
-                        <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement" callBack={setLogement} zIndex="4"/>
-                        <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age" callBack={setAge} zIndex="3"/>
-                        <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface" callBack={setSurface} zIndex="2"/>
-                        <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation" callBack={setRealisation} zIndex="1"/>
-                    </div>
-                    <div className='buttonContainer'>
-                        <button type="submit">Ajouter</button>
-                        <button type="button" onClick={() => props.callBack(false)}>Annuler</button>
-                    </div>
-                </form>
-            </>
+                <div className='addProspectContainer'>
+                    <h2>Ajouter un prospect</h2>
+                    <form className="content" onSubmit={submitThis}>
+                        <h3>Coordonnées</h3>
+                        <div className='basic'>
+                            <div className={errorName ? "nom error" : "nom"}>
+                                <label>
+                                    Nom*
+                                    <input type="text" id="name" name="name" placeholder="Doe" value={nameValue} onChange={(e) => setNameValue(e.target.value)} required></input>
+                                    {errorName ? <span>Veuillez saisir un nom valide</span> : null}
+                                </label>
+                            </div>
+                            <div className={errorPrenom ? "prenom error" : "prenom"}>
+                                <label>
+                                    Prenom*
+                                    <input type="text" id="name" name="fist-name" placeholder="John" value={prenomValue} onChange={(e) => setPrenomValue(e.target.value)} required></input>
+                                    {errorPrenom ? <span>Veuillez saisir un prenom valide</span> : null}
+                                </label>
+                            </div>
+                            <div className={errorPrenom ? "email error" : "email"}>
+                                <label>
+                                    Email*
+                                    <input type="email" id="name" name="email" placeholder="johndoe@exemple.fr" value={emailValue} onChange={(e) => setEmailValue(e.target.value)} required></input>
+                                    {errorEmail ? <span>Veuillez saisir un prenom valide</span> : null}
+                                </label>
+                            </div>
+                            <div className={errorPhone ? "phone error" : "phone"}>
+                                <label>
+                                    Téléphone*
+                                    <input type="tel" id="phone" name="phone" placeholder="0635487596" minLength="10" maxLength="10" onChange={(e) => setPhoneValue(e.target.value)} required></input>
+                                    {errorPhone ? <span>Veuillez saisir un numéro de téléphone valide</span> : null}
+                                </label>
+                            </div>
+                            <div className={errorCodePostal ? "codePostal error" : "codePostal"}>
+                                <label>
+                                    Code postal*
+                                    <input type="number" id="codePostal" name="codePostal" placeholder="33750" minLength="5" maxLength="5" onChange={(e) => setCodePostalValue(e.target.value)} required></input>
+                                    {errorCodePostal ? <span>Veuillez saisir un code postal valide</span> : null}
+                                </label>
+                            </div>
+                        </div>
+                        <h3>Description</h3>
+                        <div className="technique">
+                            <SelectDropDown list={["Ite", "Iti", "Isolation des combles", "Isolation sous toiture"]} title="Préstations" addClass="prestations" callBack={setPrestation} zIndex="5"/>
+                            <SelectDropDown list={["Maison", "Immeuble"]} title="Type de Logement" addClass="logement" callBack={setLogement} zIndex="4"/>
+                            <SelectDropDown list={["- de 2ans", "+ de 2ans", "+ de 15ans"]} title="Age du logement" addClass="age" callBack={setAge} zIndex="3"/>
+                            <SelectDropDown list={["- de 50m²", "Entre 50 et 100m²", "+ de 100m²"]} title="Surface de l'habitation" addClass="surface" callBack={setSurface} zIndex="2"/>
+                            <SelectDropDown list={["Le plus tôt possible", "Dans les 3 mois", "Dans l'année", "Je ne sais pas"]} title="Réalisation des travaux" addClass="realisation" callBack={setRealisation} zIndex="1"/>
+                        </div>
+                        <div className='buttonContainer'>
+                            <button type="submit">Ajouter</button>
+                            <button type="button" onClick={() => props.callBack(false)}>Annuler</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         )
     }
     return (
