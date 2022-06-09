@@ -26,11 +26,26 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
     .addPropsectInAdminPage {
-        // height: 100%;
+        z-index: 3;
+        height: 100%;
         overflow: auto;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: white;
+        min-height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        animation-name: apparitionTextTrois;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
         .thksContainer{
             width: 100%;
             height: 100%;
@@ -46,20 +61,6 @@
                 font-size: 3rem;
             }
         }
-        position: fixed;
-        top: 0;
-        right: 0;
-        background-color: white;
-        min-height: 100vh;
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        animation-name: apparitionTextTrois;
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
         h2 {
             font-size: calc(30px + 3vmin);
         }
@@ -199,6 +200,7 @@
             animation-duration: 0.3s;
             animation-timing-function: ease-out;
             animation-fill-mode: forwards;
+            z-index: 1;
         }
     }
     h3 {
@@ -211,20 +213,18 @@
         }
     }
     .prospectModal {
-        overflow: auto;
-        height: 100%;
+        position: fixed;
         opacity: 0;
         top: 0;
-        position: fixed;
+        background-color: rgba(255, 255, 255, 0.99);
         min-height: 100vh;
         width: 100vw;
-        background-color: rgba(255, 255, 255, 0.99);
-        padding: 30px;
+        height: 100%;
+        overflow: auto;
         z-index: 3;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
         animation-name: apparitionTextTrois;
         animation-duration: 0.2s;
         animation-timing-function: ease-out;
@@ -243,18 +243,89 @@
             font-size: 45px;
         }
         .prospectContainer {   
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
             height: 100%;
-            h2 {
-                font-size: calc(30px + 3vmin);
+            @media screen and (min-height: 630px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
-            * {
-                h3 {
-                    margin-top: 12px;
-                    font-weight: bold;
+            h2{
+                font-size: 40px;
+                text-decoration: underline;
+                margin-bottom: 40px;
+                margin-top: 1rem;
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                h2{
+                    text-decoration: none;
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                }
+                .basic, .technique{
+                    display: flex;
+                    max-width: 100%;
+                    height: 100%;
+                    flex-wrap: wrap;
+                    .prospectContainer_name, .prospectContainer_email, .prospectContainer_codePostal, .prospectContainer_phone{
+                        padding: 10px;
+                        width: 40%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        h4{
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            // max-width: 20px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        a{
+                            max-width: 20px;
+                        }
+                        p{
+                            max-width: 20px;
+                        }
+                    }
+                }
+                .basic{
+                    margin-bottom: 40px;
+                }
+                .basic::after{
+                    content: "";
+                    width: 80%;
+                    height: 1px;
+                    background-color: #415b5d;
+                    margin-top: 40px;
+                }
+                .technique{
+                    .prospectContainer_prestation, .prospectContainer_type, .prospectContainer_age, .prospectContainer_surface, .prospectContainer_date{
+                        padding: 10px;
+                        width: 40%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        h4{
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                        p{
+                            // max-width: 20px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
                 }
             }
         }
