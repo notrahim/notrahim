@@ -81,6 +81,11 @@
             margin-left: auto;
             margin-right: auto;
             height: 100%;
+            @media screen and (min-height: 734px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
         @media screen and (min-height: 1000px) {
             display: flex;
