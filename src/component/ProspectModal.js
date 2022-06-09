@@ -79,6 +79,10 @@ const ProspectModal = (props) => {
                             <h4>Nom:</h4>
                             <p>{upperCaseFirstLatter(data.name)}</p>
                         </div>
+                        <div className="prospectContainer_name">
+                            <h4>Prenom:</h4>
+                            <p>{upperCaseFirstLatter(data.prenom)}</p>
+                        </div>
                         <div className="prospectContainer_phone">
                             <h4>Téléphone:</h4>
                             <a title="Appeler" href={"tel:0"+data.phone}>{"0"+data.phone}</a>
