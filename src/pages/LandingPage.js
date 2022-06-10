@@ -7,10 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { prospectIsNotValid, removeProspect } from '../redux/actions/action';
-import { useEffect, useState } from 'react';
-import { handleTitle, whatPage } from '../utils/titleManager';
-//TODO Creer une modal pour qu'a l'ouverture de la page, la partie main soit entièrement visible 
-//BUG Je pense que la solution est d'iterer la navbar au scroll
+import { useState } from 'react';
+import { whatPage } from '../utils/titleManager';
 
 const LandingPage = () => {
 
@@ -42,8 +40,10 @@ const LandingPage = () => {
         return (
             <div className="modalValide">
                 <div className="Container">
-                    <NavLink to="/accueil" className="btnUn"><FontAwesomeIcon icon={faXmark} onClick={closeModal} /></NavLink>
-                    <h3>Merci, <br /> nous vous contacterons dans les 24/48h.</h3>
+                        <NavLink to="/accueil" className="btnUn"><FontAwesomeIcon icon={faXmark} onClick={closeModal} /></NavLink>
+                    <div className='modalContainer'>
+                        <h3>Merci, <br /> nous vous contacterons dans les 24/48h.</h3>
+                    </div>
                 </div>
             </div>
         )
@@ -137,7 +137,7 @@ const LandingPage = () => {
                             <div className="topMobil">
                                 <div className="connection">
                                     <p>Déjà un projet avec nous ?</p>
-                                    <NavLink to="/">Connectez-vous</NavLink>
+                                    <NavLink to="/connection">Connectez-vous</NavLink>
                                 </div>
                                 <h2>Jusqu'à <span>10000€</span> d'aide</h2>
                             </div>

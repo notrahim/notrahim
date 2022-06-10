@@ -28,7 +28,7 @@ const About = () => {
                 <HomeNavigation urlValue='about' />
             </header>
             <main className="about">
-                <p className="littleConnect">Déjà un projet avec nous ? <br/> <NavLink to='/'>Connectez-vous</NavLink></p>
+                <p className="littleConnect">Déjà un projet avec nous ? <br/> <NavLink to='/connection'>Connectez-vous</NavLink></p>
 
                 <TitleAndText title="Nos Préstations" text="Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
                 Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut perferendis reprehenderit qui beatae fuga a aspernatur excepturi." />

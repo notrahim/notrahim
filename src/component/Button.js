@@ -19,6 +19,8 @@ const Button = (props) => {
     /* Assigning the value of the props.link to the variable link. */
     const link = props.link;
 
+    // console.log(link);
+
     /* Returning a NavLink component with the value of the props.value, the props.addClass, and the
      * props.link. */
     return (
