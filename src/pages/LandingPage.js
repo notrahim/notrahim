@@ -21,6 +21,7 @@ const LandingPage = () => {
     const [upButtonFour, setUpButtonFour] = useState(false)
 
     console.log("landingPage");
+    console.log("home");
 
     /**
      * It dispatches two actions, one to remove the prospect from the store, and the other to set the
