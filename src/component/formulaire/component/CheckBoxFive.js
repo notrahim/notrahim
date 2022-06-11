@@ -56,8 +56,8 @@ const CheckBoxFive = () => {
         setTimeout(()=>{
             switch (value) {
                 case "one":
-                    setClickedOne(!clickedOne)
                     setClickedTwo(false)
+                    setClickedOne(!clickedOne)
                     setClickedThree(false)
                     setClickedFour(false)
                     if(when.length > -1){
@@ -78,7 +78,7 @@ const CheckBoxFive = () => {
                  
                 case "two":
                     setClickedOne(false)
-                    setClickedTwo(!clickedOne)
+                    setClickedTwo(!clickedTwo)
                     setClickedThree(false)
                     setClickedFour(false)
                     if(when.length > -1){
@@ -100,7 +100,7 @@ const CheckBoxFive = () => {
                 case "three":
                     setClickedOne(false)
                     setClickedTwo(false)
-                    setClickedThree(!clickedOne)
+                    setClickedThree(!clickedThree)
                     setClickedFour(false)
                     if(when.length > -1){
                         if(!when.includes(valueOne) && !when.includes(valueTwo) && !when.includes(valueThree) && !when.includes(valueFour) ){
@@ -122,7 +122,7 @@ const CheckBoxFive = () => {
                     setClickedOne(false)
                     setClickedTwo(false)
                     setClickedThree(false)
-                    setClickedFour(!clickedOne)
+                    setClickedFour(!clickedFour)
                     if(when.length > -1){
                         if(!when.includes(valueOne) && !when.includes(valueTwo) && !when.includes(valueThree) && !when.includes(valueFour) ){
                             setWhen([...when, valueFour])
