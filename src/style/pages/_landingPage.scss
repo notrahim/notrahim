@@ -17,7 +17,7 @@
             flex-direction: column;
         }
         .leftContainer{
-            background-image: url("../../../public/img/photo-iti.jpg");
+            background:linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3)),url(../../../public/img/photo-iti.jpg);
             background-size: cover;
             // background-color: antiquewhite;
             width: 40%;
@@ -845,6 +845,8 @@
         // border: 1px solid #0396A6;
         border-radius: 10px;
         position: relative;
+        background:linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5)),url(../../../public/img/client.jpeg);
+        background-size: auto, cover;
         h3{
             opacity: 0;
             animation-name: apparitionText;
@@ -853,7 +855,7 @@
             animation-delay: 0.2s;
             animation-fill-mode: forwards;
             max-width: 90%;
-            // color: white;
+            color: white;
         }   
     }
     .modalContainer::before{
