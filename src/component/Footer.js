@@ -22,7 +22,7 @@ const Footer = () => {
             <div className="footerContainer">
                 <div className='footerContainerLeft'>
                     <NavLink to="/">Conditions générales de vente</NavLink>
-                    <NavLink to="/">Politiques de confidentialité</NavLink>
+                    <NavLink to="/politique-de-confidentialite">Politiques de confidentialité</NavLink>
                     <NavLink to="/" className="signIn">
                         <div className="imgContainer">
                             <img src="./img/SVG/login.svg" alt="connection" />   
