@@ -31,11 +31,10 @@ const HomePage = () => {
                     <p className="littleConnect">Déjà un projet avec nous ? <br/> <NavLink to='/connection'>Connectez-vous</NavLink></p>
                     <TitleAndText title="Maison TeraBois" text='“Ex commodi voluptatem eos rerum quasi et quis tenetur et iure voluptatem ea quis dolorem. 
                         Ut laudantium optio et odit ipsam id reprehenderit voluptatem. Et internos rerum ut 
-                        perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”' />
+                        perferendis reprehenderit qui beatae fuga a aspernatur excepturi.”' img="" />
                         <Button value="Isoler mon logement" link="/nous-contacter"/>
                     <section className="specialiste">
                         <ImageAndText addClass="imageAndText" sens="left" img="./img/photo-iti.jpg" alt="isolation interieur" title="Spécialiste de l’économie d’énergie " text= "Lorem ipsum dolor sit amet. Aut nesciunt distinctio ab quasi ipsam non voluptatem inventor aut explicabo modi eum porro beatae. Est commodi officiis et fugiat nemo sit minus voluptatum. Sed porro error aut inventore minima vel architecto velit ea accusantium officiis." />
-
                     </section>
                     <NavLink to="/about" className="btnUn">En savoir plus</NavLink>
                 </div>    

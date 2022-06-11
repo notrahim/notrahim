@@ -60,7 +60,14 @@ export function handleTitle(){
             document.title= "TeraBois | Tableau de bord";
         }
 
-        if(window.location.pathname !== "/nous-contacter" && window.location.pathname !== "/connection" && window.location.pathname !== "/accueil" && window.location.pathname !== "/about" && window.location.pathname !== "/admin" && window.location.pathname !== "/"){
+        if(window.location.pathname === "/politique-de-confidentialite"){
+            if(document.hidden){
+                document.title= "TeraBois | Politique de confidentialité";
+            }
+            document.title= "TeraBois | Politique de confidentialité";
+        }
+
+        if(window.location.pathname !== "/nous-contacter" && window.location.pathname !== "/connection" && window.location.pathname !== "/accueil" && window.location.pathname !== "/about" && window.location.pathname !== "/admin" && window.location.pathname !== "/politique-de-confidentialite" && window.location.pathname !== "/"){
             if(document.hidden){
                 document.title= "TeraBois | Page 404";
             }

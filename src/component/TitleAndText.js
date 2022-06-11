@@ -15,12 +15,12 @@ const TitleAndText = (props) => {
 
     /* Returning a React component that displays a title and text. */
     return (
-        <>
+        <div className='titleAndText'>
             <h1>{title}</h1>
-                <p className="description">
-                    {text}
-                </p>
-        </>
+            <p className="description">
+                {text}
+            </p>
+        </div>
     );
 };
 
