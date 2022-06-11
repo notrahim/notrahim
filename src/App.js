@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import ConnectionPage from "./pages/ConnectionPage";
 import AdminPage from "./pages/AdminPage";
 import { useState } from "react";
+import Politique from "./pages/Politique";
 
 /**
  * A function that returns a component.
@@ -30,7 +31,7 @@ function App() {
           <Route path="/about" element={<About />}/>
           <Route path="/nous-contacter" element={<LandingPage />}/>
           <Route path="/connection" element={<ConnectionPage />}/>
-          {/* <Route path="/admin" element={state.isLogin? <AdminPage /> : <NotFound />}/> */}
+          <Route path="/politique-de-confidentialite" element={<Politique />}/>
           <Route path="/admin" element={<AdminPage />}/>
           <Route path="/*" element={<NotFound />}/>
         </Routes>
